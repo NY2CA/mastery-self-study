@@ -20,6 +20,24 @@ import { COURSES, liveOnlyModules } from '@/data/courses';
 
 const selfStudy = COURSES[0];
 
+/**
+ * Topic counts per module. Locked at the spec level — Wave SS-2 will write
+ * the actual topics[] arrays to match these counts. Total: 60 topics across
+ * 8 modules (~70% of Live's 126 topics, consistent with the lighter depth
+ * ratio in the production spec).
+ */
+const TOPIC_COUNTS: Record<string, number> = {
+  submarket: 8,
+  sourcing: 7,
+  underwriting: 10,
+  stress: 7,
+  debt: 8,
+  loi: 6,
+  psa: 8,
+  pm: 6,
+};
+const TOTAL_TOPICS = Object.values(TOPIC_COUNTS).reduce((a, b) => a + b, 0); // 60
+
 const FAQ_ITEMS: { q: string; a: React.ReactNode }[] = [
   {
     q: 'What is included with my purchase?',
@@ -145,8 +163,8 @@ export default function SelfStudyLanding() {
         <section style={heroSection}>
           <div style={heroOverlay}>
             <div style={{ maxWidth: 980, margin: '0 auto', padding: '120px 32px 100px', textAlign: 'center', position: 'relative', zIndex: 2 }}>
-              <div style={{ fontFamily: 'var(--mono)', fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--gold-bright)', marginBottom: 24 }}>
-                ◆ Mastery Self-Study · The self-paced track
+              <div style={{ fontFamily: 'var(--mono)', fontSize: 'clamp(13px, 1.4vw, 16px)', letterSpacing: '0.24em', textTransform: 'uppercase', color: 'var(--gold-bright)', marginBottom: 28, fontWeight: 600 }}>
+                ◆&nbsp;&nbsp;Mastery Self-Study&nbsp;&nbsp;·&nbsp;&nbsp;The self-paced track&nbsp;&nbsp;◆
               </div>
               <h1 style={{ fontFamily: 'var(--display)', fontSize: 'clamp(40px, 7vw, 76px)', fontWeight: 500, color: 'var(--cream)', lineHeight: 1.05, margin: '0 0 28px', letterSpacing: '-0.015em' }}>
                 The operator&rsquo;s <em style={{ fontStyle: 'italic', color: 'var(--gold-bright)', fontWeight: 400 }}>execution toolkit.</em>
@@ -231,21 +249,27 @@ export default function SelfStudyLanding() {
           <div style={{ maxWidth: 1100, margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: 48 }}>
               <div style={eyebrowStyle}>Curriculum</div>
-              <h2 style={sectionH2}>Eight modules. Self-paced.</h2>
+              <h2 style={sectionH2}>
+                <em style={{ fontStyle: 'italic', color: 'var(--gold-deep)' }}>{TOTAL_TOPICS} topics</em> · 8 modules · self-paced.
+              </h2>
               <p style={sectionLede}>
                 Work them in sequence — the preferred course progression — or jump ahead.
-                Each module is built around a real decision the operator has to make.
+                Each module is built around a real decision the operator has to make on a real deal.
               </p>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16 }}>
               {selfStudy.modules.map((m, i) => (
                 <div key={m.id} style={moduleCard}>
-                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, marginBottom: 10 }}>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, marginBottom: 10, flexWrap: 'wrap' }}>
                     <span style={{ fontFamily: 'var(--mono)', fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--gold-deep)', fontWeight: 600 }}>
                       Module {i + 1}
                     </span>
                     <span style={{ width: 4, height: 4, borderRadius: '50%', background: 'var(--gold)' }} aria-hidden />
                     <span style={{ fontFamily: 'var(--mono)', fontSize: 10, letterSpacing: '0.1em', color: 'var(--ink-mute)' }}>{m.duration}</span>
+                    <span style={{ width: 4, height: 4, borderRadius: '50%', background: 'var(--gold)' }} aria-hidden />
+                    <span style={{ fontFamily: 'var(--mono)', fontSize: 10, letterSpacing: '0.1em', color: 'var(--gold-deep)', fontWeight: 600 }}>
+                      {TOPIC_COUNTS[m.id] ?? '—'} topics
+                    </span>
                   </div>
                   <h4 style={{ fontFamily: 'var(--display)', fontSize: 19, color: 'var(--navy)', margin: '0 0 10px', fontWeight: 500, lineHeight: 1.25 }}>
                     {m.title.replace(/^Module \d+\s·\s/, '')}
@@ -305,12 +329,12 @@ export default function SelfStudyLanding() {
             <div style={{ background: 'var(--navy-soft)', border: '1px solid rgba(184, 148, 90, 0.25)', borderRadius: 4, padding: 36 }}>
               <div style={{ ...eyebrowStyle, color: 'var(--gold-bright)', marginBottom: 20 }}>Mastery Live exclusives</div>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16 }}>
-                <LiveExclusive title="Monthly coaching calls" body="60+ hours total · Diva and Lou pressure-test your assumptions on a real deal." />
-                <LiveExclusive title="AI tutor in every module" body="Ask anything from &lsquo;explain reversion cap rate&rsquo; to &lsquo;stress my exit at a 50bp cap expansion.&rsquo;" />
-                <LiveExclusive title="Deal memos from the Rescia desk" body="Why we passed, what we underwrote, what we&rsquo;re watching — every month." />
-                <LiveExclusive title="Your-deal workspace" body="A live tracker for your active acquisition. Coaching focuses where you focus." />
-                <LiveExclusive title="The 4 advanced modules" body="Capital Raising, PPM &amp; Legal, Asset Management, Exit — the cycle-judgment work." />
-                <LiveExclusive title="Physical artifacts" body="Hardcover welcome book and leather-bound binder with the Rescia underwriting templates." />
+                <LiveExclusive title="Monthly coaching calls" body="60+ hours total · Diva and Lou pressure-test your assumptions on a real deal in real time." />
+                <LiveExclusive title="AI tutor in every module" body="Trained on the full Mastery curriculum and Rescia&rsquo;s deal-by-deal commentary. Ask anything from &lsquo;explain reversion cap rate&rsquo; to &lsquo;stress my exit at a 50bp cap expansion.&rsquo;" />
+                <LiveExclusive title="Deal memos from the Rescia desk" body="Why we passed, what we underwrote, what we&rsquo;re watching — every month, the live read on what Diva and Lou are working on." />
+                <LiveExclusive title="Your-deal workspace" body="A live tracker for your active acquisition. Coaching focuses where you focus. Diva and Lou see your numbers; the cohort sees your wins." />
+                <LiveExclusive title="The 4 advanced modules" body="Capital Raising · PPM &amp; Legal · Asset Management · Exit. The cycle-judgment work that requires a coach alongside." />
+                <LiveExclusive title="The full 126-topic curriculum" body="Twice the depth of Self-Study&rsquo;s 60 topics. Every framework, every worked example, every operator-level edge case." />
               </div>
             </div>
 
@@ -427,7 +451,7 @@ export default function SelfStudyLanding() {
                 taughtBy="Taught by Diva Rescia & Lou Lopez"
                 lede="The operator's execution toolkit. Self-paced."
                 bullets={[
-                  '8 modules · submarket through property management',
+                  `8 modules · ${TOTAL_TOPICS} topics · submarket through property management`,
                   '4–5 question quizzes · view+print PDFs · Excel templates',
                   '12 months of access',
                   'Tuition credits toward Mastery Live',
