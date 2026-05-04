@@ -95,6 +95,16 @@ export const liveOnlyModules = [
 // topics[], quiz[], and mistakes[] with Diva-voiced narrative copy.
 // ─────────────────────────────────────────────────────────────────────
 
+/**
+ * Lookup helper imported by `src/hooks/useCourse.ts`. Returns the Course
+ * matching the provided id, or undefined if none. Mirrors the Live
+ * codebase API verbatim so the shared `useCourse` hook works without
+ * modification.
+ */
+export function getCourse(id: string): Course | undefined {
+  return COURSES.find((c) => c.id === id);
+}
+
 export const COURSES: Course[] = [
   {
     id: 'multifamily-mastery',
