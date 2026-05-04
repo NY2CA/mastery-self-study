@@ -1,22 +1,15 @@
 /**
  * Mastery Self-Study · Landing page
  * ─────────────────────────────────────────────────────────────────────
- * Wave SS-1.2 — replaces the cloned Live marketing copy with Self-Study-
- * specific positioning. Cream-dominant skin, navy text, gold reserved as
- * a cameo for the upgrade-to-Live cross-sell. Parallels the Foundations
- * landing pattern with the three-rung product ladder.
- *
- * Sections (top to bottom):
- *   1. Marketing nav (logo + Sign In / Dashboard depending on auth state)
- *   2. Hero — "The operator's execution toolkit"
- *   3. Three-rung product ladder (Foundations · Self-Study · Mastery Live)
- *   4. Curriculum — 8 modules
- *   5. What's included
- *   6. What's NOT included (the differentiator vs Live)
- *   7. Mentor — Diva and Lou
- *   8. FAQ
- *   9. Pricing CTA
- *  10. Footer
+ * Wave SS-1.3 — restructured per Lou's feedback:
+ *   1. More sizzle in the design (navy hero, gold accents, stats strip)
+ *   2. Page flow: value proposition first, three-rung ladder moved down,
+ *      pricing removed from ladder cards (we show pricing elsewhere)
+ *   3. "What Mastery Live adds" replaces the bland "What's NOT included" —
+ *      emphasizes 60 hrs coaching, 126 real-world topics, etc.
+ *   4. Full Diva + Lou bios with Co-Founder · Managing Partner billing,
+ *      lifted verbatim from the Mastery Live landing for brand consistency.
+ *      Co-equal billing — Diva first, both treated as parallel principals.
  */
 
 import Head from 'next/head';
@@ -46,11 +39,11 @@ const FAQ_ITEMS: { q: string; a: React.ReactNode }[] = [
     a: (
       <>
         Self-Study is the curriculum without the people. Mastery Live adds Diva and
-        Lou alongside, monthly coaching, an AI tutor trained on the Mastery curriculum,
-        deal memos from the Rescia desk, and four additional modules (Capital Raising,
-        PPM &amp; Legal, Asset Management, Exit) that benefit from coaching judgment.
-        Self-Study is the operator&rsquo;s execution toolkit at $1,997.
-        Live is the bespoke 12-month engagement, by inquiry.
+        Lou alongside, <strong>60 hours of monthly coaching</strong> across the engagement,
+        an AI tutor trained on the Mastery curriculum, deal memos from the Rescia desk,
+        and four additional modules (Capital Raising, PPM &amp; Legal, Asset Management,
+        Exit) that benefit from coaching judgment. <strong>126 real-world topics</strong> in
+        the full curriculum vs Self-Study&rsquo;s focused operator essentials.
       </>
     ),
   },
@@ -58,9 +51,9 @@ const FAQ_ITEMS: { q: string; a: React.ReactNode }[] = [
     q: 'Can I upgrade to Mastery Live later?',
     a: (
       <>
-        Yes — and your $1,997 credits toward Live tuition if you upgrade within your
+        Yes — and your Self-Study tuition credits toward Live if you upgrade within your
         12-month access window. After Module 1, the dashboard surfaces an upgrade
-        card so you can decide once you&rsquo;ve felt the program.
+        option so you can decide once you&rsquo;ve felt the program.
       </>
     ),
   },
@@ -69,8 +62,8 @@ const FAQ_ITEMS: { q: string; a: React.ReactNode }[] = [
     a: (
       <>
         Three days after marking Module 1 complete. If the first module doesn&rsquo;t
-        land for you, email <a href="mailto:rescia@resciaproperties.com">rescia@resciaproperties.com</a> within
-        72 hours and we&rsquo;ll refund the full $1,997.
+        land for you, email <a href="mailto:rescia@resciaproperties.com" style={{ color: 'var(--gold-deep)' }}>rescia@resciaproperties.com</a> within
+        72 hours and we&rsquo;ll refund in full.
       </>
     ),
   },
@@ -78,7 +71,7 @@ const FAQ_ITEMS: { q: string; a: React.ReactNode }[] = [
     q: 'How long do I have access?',
     a: (
       <>
-        12 months from purchase. After that, you can either continue at $99/month
+        12 months from purchase. After that, you can continue at $99/month
         (auto-renews monthly until you cancel) or let access expire. There&rsquo;s no
         commitment beyond the first year.
       </>
@@ -115,17 +108,17 @@ export default function SelfStudyLanding() {
         <title>Mastery Self-Study · Rescia Properties</title>
         <meta
           name="description"
-          content="The operator's execution toolkit. Eight modules covering submarket through property management. $1,997 for one year of access. The self-paced track — for buyers who want the curriculum without the coaching."
+          content="The operator's execution toolkit. Eight modules covering submarket through property management. The self-paced track from Diva and Lou Lopez — Co-Founders of Rescia Properties — with $700M+ in closed transactions and 3,387+ units managed."
         />
       </Head>
 
       {/* ─── MARKETING NAV ──────────────────────────────────── */}
       <nav style={navStyle}>
-        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px 32px', maxWidth: 1200, margin: '0 auto' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px 32px', maxWidth: 1200, margin: '0 auto' }}>
           <a href="#top" style={brandStyle}>
             <img src="/rescia-mark.png" alt="" style={{ height: 40, width: 'auto', display: 'block' }} />
             <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <span style={{ fontFamily: 'var(--display)', fontSize: 18, color: 'var(--navy)', letterSpacing: '0.01em' }}>
+              <span style={{ fontFamily: 'var(--display)', fontSize: 18, color: 'var(--navy)', letterSpacing: '0.01em', fontWeight: 500 }}>
                 Rescia Properties
               </span>
               <span style={{ fontFamily: 'var(--mono)', fontSize: 10, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--gold-deep)', marginTop: 2 }}>
@@ -133,9 +126,9 @@ export default function SelfStudyLanding() {
               </span>
             </div>
           </a>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
             <a href="#curriculum" style={navLink}>Curriculum</a>
-            <a href="#mentor" style={navLink}>Mentor</a>
+            <a href="#mentor" style={navLink}>Mentors</a>
             <a href="#faq" style={navLink}>FAQ</a>
             {user ? (
               <Link href="/dashboard" style={navCtaStyle}>Dashboard</Link>
@@ -146,76 +139,311 @@ export default function SelfStudyLanding() {
         </div>
       </nav>
 
-      <main id="top" style={{ background: 'var(--cream)', color: 'var(--ink)' }}>
+      <main id="top">
 
-        {/* ─── HERO ───────────────────────────────────────── */}
+        {/* ─── HERO · navy with gold accents ─────────────────── */}
         <section style={heroSection}>
-          <div className="container" style={{ maxWidth: 920, margin: '0 auto', padding: '120px 32px 80px', textAlign: 'center' }}>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--gold-deep)', marginBottom: 16 }}>
-              The self-paced track
+          <div style={heroOverlay}>
+            <div style={{ maxWidth: 980, margin: '0 auto', padding: '120px 32px 100px', textAlign: 'center', position: 'relative', zIndex: 2 }}>
+              <div style={{ fontFamily: 'var(--mono)', fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--gold-bright)', marginBottom: 24 }}>
+                ◆ Mastery Self-Study · The self-paced track
+              </div>
+              <h1 style={{ fontFamily: 'var(--display)', fontSize: 'clamp(40px, 7vw, 76px)', fontWeight: 500, color: 'var(--cream)', lineHeight: 1.05, margin: '0 0 28px', letterSpacing: '-0.015em' }}>
+                The operator&rsquo;s <em style={{ fontStyle: 'italic', color: 'var(--gold-bright)', fontWeight: 400 }}>execution toolkit.</em>
+              </h1>
+              <p style={{ fontSize: 'clamp(18px, 2vw, 21px)', color: 'rgba(250, 247, 242, 0.85)', lineHeight: 1.55, margin: '0 auto 44px', maxWidth: 720, fontWeight: 300 }}>
+                Eight modules of institutional-grade multifamily curriculum. Submarket selection
+                through property management. The same frameworks Diva Rescia and Lou Lopez
+                teach in Mastery Live — distilled for self-paced operators who learn by doing.
+              </p>
+              <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
+                <Link href={user ? '/dashboard' : '/pricing'} style={ctaPrimaryHero}>
+                  {user ? 'Open dashboard →' : 'Begin Self-Study →'}
+                </Link>
+                <a href="#curriculum" style={ctaSecondaryHero}>See the curriculum</a>
+              </div>
+              <div style={{ marginTop: 36, fontFamily: 'var(--mono)', fontSize: 11, letterSpacing: '0.14em', color: 'rgba(212, 177, 118, 0.75)', textTransform: 'uppercase' }}>
+                12 months of access &nbsp;·&nbsp; 3-day refund window &nbsp;·&nbsp; Tuition credits toward Mastery Live
+              </div>
             </div>
-            <h1 style={{ fontFamily: 'var(--display)', fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 500, color: 'var(--navy)', lineHeight: 1.1, margin: '0 0 24px', letterSpacing: '-0.01em' }}>
-              The operator&rsquo;s <em style={{ fontStyle: 'italic', color: 'var(--gold-deep)' }}>execution toolkit.</em>
-            </h1>
-            <p style={{ fontSize: 'clamp(17px, 2vw, 19px)', color: 'var(--ink-dim)', lineHeight: 1.5, margin: '0 auto 40px', maxWidth: 640 }}>
-              Eight modules of Mastery curriculum. Submarket through property management.
-              The same frameworks Diva and Lou teach in Mastery Live — without the coaching,
-              without the AI tutor, at $1,997 for a year of access.
-            </p>
-            <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
-              <Link href={user ? '/dashboard' : '/pricing'} style={ctaPrimary}>
-                Buy Self-Study · $1,997
-              </Link>
-              <Link href="#curriculum" style={ctaSecondary}>See the curriculum →</Link>
-            </div>
-            <p style={{ fontSize: 13, color: 'var(--ink-mute)', marginTop: 28, fontFamily: 'var(--mono)', letterSpacing: '0.06em' }}>
-              12 months of access · 3-day refund window after Module 1 · $1,997 credits toward Mastery Live
-            </p>
           </div>
         </section>
 
-        {/* ─── THREE-RUNG PRODUCT LADDER ─────────────────── */}
-        <section style={{ background: 'var(--cream-warm)', padding: '80px 24px' }}>
-          <div className="container" style={{ maxWidth: 1100, margin: '0 auto' }}>
+        {/* ─── FIRM STATS STRIP ──────────────────────────────── */}
+        <section style={{ background: 'var(--navy-deep)', padding: '36px 24px', borderBottom: '1px solid rgba(184, 148, 90, 0.2)' }}>
+          <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 20, textAlign: 'center' }}>
+            <FirmStat n="$700M+" l="Closed transactions · last 3 years" />
+            <FirmStat n="3,387+" l="Units managed" />
+            <FirmStat n="$989M" l="Current AUM" />
+            <FirmStat n="45+" l="Years of combined experience" />
+          </div>
+        </section>
+
+        {/* ─── VALUE PROPOSITION · what you'll know how to do ─ */}
+        <section style={{ background: 'var(--cream)', padding: '96px 24px' }}>
+          <div style={{ maxWidth: 920, margin: '0 auto' }}>
+            <div style={{ textAlign: 'center', marginBottom: 56 }}>
+              <div style={eyebrowStyle}>What you&rsquo;ll be able to do</div>
+              <h2 style={sectionH2}>Walk away with the operator&rsquo;s playbook.</h2>
+              <p style={sectionLede}>
+                Self-Study isn&rsquo;t theory. By Module 8, you&rsquo;ll have actually built the
+                models, written the LOIs, and run the diligence checklists Diva and Lou
+                use on every Rescia transaction.
+              </p>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
+              <ValueCard
+                num="01"
+                title="Underwrite a real multifamily deal"
+                body="From rent comps to exit cap. Defend every assumption. Walk away when the numbers say so."
+              />
+              <ValueCard
+                num="02"
+                title="Read a submarket the right way"
+                body="Population, employment, supply pipeline, rent trajectory — triangulated from public data alone."
+              />
+              <ValueCard
+                num="03"
+                title="Source deals brokers actually call you about"
+                body="Email cadence, off-market positioning, and how to read what an offering memo isn&rsquo;t telling you."
+              />
+              <ValueCard
+                num="04"
+                title="Match debt to the deal"
+                body="Agency, bank, bridge. Term sheet review. DSCR + LTV math. Refinance optionality."
+              />
+              <ValueCard
+                num="05"
+                title="Write an LOI that gets accepted"
+                body="Clause-by-clause through the Rescia LOI template, with the negotiation moves that matter."
+              />
+              <ValueCard
+                num="06"
+                title="Run a diligence cycle that surfaces surprises"
+                body="Inspections, leases, T-12, environmental, title — what to look for and how to retrade when something is off."
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* ─── CURRICULUM ─────────────────────────────────── */}
+        <section id="curriculum" style={{ background: 'var(--cream-warm)', padding: '96px 24px' }}>
+          <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+            <div style={{ textAlign: 'center', marginBottom: 48 }}>
+              <div style={eyebrowStyle}>Curriculum</div>
+              <h2 style={sectionH2}>Eight modules. Self-paced.</h2>
+              <p style={sectionLede}>
+                Work them in sequence — the preferred course progression — or jump ahead.
+                Each module is built around a real decision the operator has to make.
+              </p>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16 }}>
+              {selfStudy.modules.map((m, i) => (
+                <div key={m.id} style={moduleCard}>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, marginBottom: 10 }}>
+                    <span style={{ fontFamily: 'var(--mono)', fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--gold-deep)', fontWeight: 600 }}>
+                      Module {i + 1}
+                    </span>
+                    <span style={{ width: 4, height: 4, borderRadius: '50%', background: 'var(--gold)' }} aria-hidden />
+                    <span style={{ fontFamily: 'var(--mono)', fontSize: 10, letterSpacing: '0.1em', color: 'var(--ink-mute)' }}>{m.duration}</span>
+                  </div>
+                  <h4 style={{ fontFamily: 'var(--display)', fontSize: 19, color: 'var(--navy)', margin: '0 0 10px', fontWeight: 500, lineHeight: 1.25 }}>
+                    {m.title.replace(/^Module \d+\s·\s/, '')}
+                  </h4>
+                  <p style={{ color: 'var(--ink-dim)', fontSize: 14, lineHeight: 1.55, margin: 0 }}>
+                    {m.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ─── WHAT'S INCLUDED ────────────────────────────── */}
+        <section style={{ background: 'var(--cream)', padding: '96px 24px' }}>
+          <div style={{ maxWidth: 920, margin: '0 auto' }}>
+            <div style={{ textAlign: 'center', marginBottom: 48 }}>
+              <div style={eyebrowStyle}>What you get</div>
+              <h2 style={sectionH2}>The toolkit, the templates, the time.</h2>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}>
+              <IncludedItem title="8 modules" body="Submarket Intelligence, Deal Sourcing, Underwriting, Stress Testing & CapEx, Debt Sourcing, LOI, PSA & DD, Property Management." />
+              <IncludedItem title="4–5 question quizzes" body="Multiple choice with explanations. Pass to unlock the next module." />
+              <IncludedItem title="Reference PDFs" body="View+print one-pagers per module. Foundational concepts always at hand." />
+              <IncludedItem title="Excel templates" body="Underwriting model, investor pipeline CRM, CapEx tracker, distribution waterfall, LP report, LOI, PSA + DD checklists, PM RFP. Input-only with R/Y/G indicators." />
+              <IncludedItem title="12 months of access" body="Self-paced, no deadlines. Continue at $99/month after the year if you want." />
+              <IncludedItem title="Upgrade credit toward Live" body="If you decide to step up to Mastery Live within your access window, your tuition credits toward Live." />
+            </div>
+          </div>
+        </section>
+
+        {/* ─── WHAT MASTERY LIVE ADDS · the upsell hook ───── */}
+        <section style={{ background: 'var(--navy)', color: 'var(--cream)', padding: '96px 24px', position: 'relative' }}>
+          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 2, background: 'linear-gradient(90deg, var(--gold) 0%, var(--gold-bright) 50%, var(--gold) 100%)' }} aria-hidden />
+          <div style={{ maxWidth: 1000, margin: '0 auto' }}>
+            <div style={{ textAlign: 'center', marginBottom: 56 }}>
+              <div style={{ ...eyebrowStyle, color: 'var(--gold-bright)' }}>If you want more</div>
+              <h2 style={{ ...sectionH2, color: 'var(--cream)' }}>
+                What <em style={{ fontStyle: 'italic', color: 'var(--gold-bright)' }}>Mastery Live</em> adds.
+              </h2>
+              <p style={{ ...sectionLede, color: 'rgba(250, 247, 242, 0.78)' }}>
+                Self-Study is the toolkit. Mastery Live is the toolkit plus the people — Diva
+                and Lou alongside, working through your actual deals. If you&rsquo;re acquiring,
+                Live is built for you.
+              </p>
+            </div>
+
+            {/* Live's headline differentiators */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 24, marginBottom: 56 }}>
+              <LiveStat n="60+ hrs" l="Coaching with Diva and Lou across the 12-month engagement" />
+              <LiveStat n="126" l="Real-world topics across the full 12-module curriculum" />
+              <LiveStat n="12" l="Modules · including Capital Raising, PPM, Asset Management, Exit" />
+              <LiveStat n="AI tutor" l="Trained on the Mastery curriculum + Rescia&rsquo;s deal-by-deal commentary" />
+            </div>
+
+            {/* Live exclusives list */}
+            <div style={{ background: 'var(--navy-soft)', border: '1px solid rgba(184, 148, 90, 0.25)', borderRadius: 4, padding: 36 }}>
+              <div style={{ ...eyebrowStyle, color: 'var(--gold-bright)', marginBottom: 20 }}>Mastery Live exclusives</div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16 }}>
+                <LiveExclusive title="Monthly coaching calls" body="60+ hours total · Diva and Lou pressure-test your assumptions on a real deal." />
+                <LiveExclusive title="AI tutor in every module" body="Ask anything from &lsquo;explain reversion cap rate&rsquo; to &lsquo;stress my exit at a 50bp cap expansion.&rsquo;" />
+                <LiveExclusive title="Deal memos from the Rescia desk" body="Why we passed, what we underwrote, what we&rsquo;re watching — every month." />
+                <LiveExclusive title="Your-deal workspace" body="A live tracker for your active acquisition. Coaching focuses where you focus." />
+                <LiveExclusive title="The 4 advanced modules" body="Capital Raising, PPM &amp; Legal, Asset Management, Exit — the cycle-judgment work." />
+                <LiveExclusive title="Physical artifacts" body="Hardcover welcome book and leather-bound binder with the Rescia underwriting templates." />
+              </div>
+            </div>
+
+            <div style={{ textAlign: 'center', marginTop: 40 }}>
+              <Link href="/inquire-about-live" style={ctaGold}>
+                Inquire about Mastery Live →
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── MENTORS · co-equal Diva + Lou ──────────────── */}
+        <section id="mentor" style={{ background: 'var(--cream)', padding: '96px 24px' }}>
+          <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+            <div style={{ textAlign: 'center', marginBottom: 48 }}>
+              <div style={eyebrowStyle}>Meet your mentors</div>
+              <h2 style={sectionH2}>You&rsquo;re not buying a course. You&rsquo;re learning from <em style={{ fontStyle: 'italic', color: 'var(--gold-deep)' }}>operators.</em></h2>
+              <p style={sectionLede}>
+                Rescia Properties is led by a seasoned partnership with over 45 years of combined
+                experience across multifamily investing, institutional leadership, and large-scale
+                portfolio growth.
+              </p>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: 28 }}>
+
+              {/* Diva first · co-equal billing */}
+              <MentorCard
+                monogram="DR"
+                role="Co-Founder · Managing Partner"
+                name="Diva Rescia"
+                title="CBRE Multifamily Investment Specialist"
+                bios={[
+                  <>
+                    A <strong>principal investor in real estate since age 17</strong>, Diva brings over 20 years of
+                    experience and institutional-grade expertise to every investor relationship.
+                    As a Multifamily Investment Specialist at CBRE — a Fortune 150 company and the
+                    world&rsquo;s largest commercial real estate brokerage — she doesn&rsquo;t just advise.
+                    She structures, underwrites, and executes alongside the investors she partners with.
+                  </>,
+                  <>
+                    Mentored by <strong>Grant Cardone</strong> and specializing in value-add and institutional
+                    multifamily strategies, Diva helps high-income earners and sophisticated investors access
+                    opportunities typically reserved for the largest institutional players.
+                  </>,
+                ]}
+                creds={[
+                  '20+ years of real estate experience',
+                  '$700M+ closed transactions in last 3 years',
+                  'CBRE Multifamily Specialist · Fortune 150',
+                  'Mentored by Grant Cardone',
+                  'Specialist in value-add & institutional strategies',
+                ]}
+              />
+
+              <MentorCard
+                monogram="LL"
+                role="Co-Founder · Managing Partner"
+                name="Lou Lopez"
+                title="25+ Years Corporate & Investment Leadership"
+                bios={[
+                  <>
+                    Lou spent <strong>25 years in corporate leadership</strong> at Fortune 100 companies — holding
+                    senior roles from global sales to Corporate EVP and multiple board positions. Within
+                    that tenure, he accumulated over 15 years working with private equity firms, registered
+                    investment advisers, and broker dealers on fund formation, regulatory compliance,
+                    operations, and investor relations.
+                  </>,
+                  <>
+                    With 20+ years in real estate and significant investment in advanced education through
+                    <strong> Tony Robbins and Grant Cardone</strong> programs, Lou continues to be mentored by
+                    billionaire real estate titans. His affinity for big data analysis and best-practices
+                    approach powers Rescia&rsquo;s disciplined investment framework.
+                  </>,
+                ]}
+                creds={[
+                  '25+ years corporate & investment leadership',
+                  '20+ years real estate investing experience',
+                  '15+ years with PE firms, RIAs & broker dealers',
+                  'Fortune 100 executive & board experience',
+                  'Mentored by Grant Cardone & Tony Robbins',
+                ]}
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* ─── THREE-RUNG LADDER · NO PRICING ──────────────── */}
+        <section style={{ background: 'var(--cream-warm)', padding: '96px 24px' }}>
+          <div style={{ maxWidth: 1100, margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: 48 }}>
               <div style={eyebrowStyle}>The three rungs</div>
               <h2 style={sectionH2}>Where Self-Study sits in the program ladder.</h2>
+              <p style={sectionLede}>
+                Three products, one curriculum spine. Pick the rung that matches where you are
+                and how much of the program you want alongside you.
+              </p>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
               <LadderCard
                 tier="Foundations"
-                price="$99"
+                taughtBy="Taught by Diva Rescia"
                 lede="Decide if multifamily is the path for you."
                 bullets={[
-                  '6 decision-craft modules',
+                  'Decision-craft modules · entry tier',
                   'For aspiring or first-deal investors',
                   '1 year of access',
-                  '$99 credit toward Self-Study',
+                  'Credit toward Self-Study if you upgrade',
                 ]}
                 cta={null}
               />
               <LadderCard
                 tier="Mastery Self-Study"
-                price="$1,997 / year"
-                lede="The operator&rsquo;s execution toolkit. Self-paced, no coaching."
+                taughtBy="Taught by Diva Rescia & Lou Lopez"
+                lede="The operator's execution toolkit. Self-paced."
                 bullets={[
                   '8 modules · submarket through property management',
                   '4–5 question quizzes · view+print PDFs · Excel templates',
-                  '12 months access · $99/mo continuation',
-                  '$1,997 credits toward Mastery Live',
+                  '12 months of access',
+                  'Tuition credits toward Mastery Live',
                 ]}
-                cta={{ label: user ? 'Open dashboard →' : 'Buy now →', href: user ? '/dashboard' : '/pricing' }}
+                cta={{ label: user ? 'Open dashboard →' : 'Begin Self-Study →', href: user ? '/dashboard' : '/pricing' }}
                 isCurrent
               />
               <LadderCard
                 tier="Mastery Live"
-                price="by inquiry"
-                lede="Diva and Lou alongside — through your actual deals."
+                taughtBy="Diva Rescia & Lou Lopez · alongside"
+                lede="Coaching, AI tutor, the full 12-module program."
                 bullets={[
-                  '12 modules · the full curriculum',
-                  'Monthly coaching · AI tutor · deal memos',
-                  '12-month engagement · physical artifacts',
-                  'A few things we&rsquo;d rather walk you through directly',
+                  '12 modules · 126 real-world topics',
+                  '60+ hours coaching with Diva and Lou',
+                  'AI tutor, deal memos, your-deal workspace',
+                  'Physical artifacts · 12-month engagement',
                 ]}
                 cta={{ label: 'Inquire about Live →', href: '/inquire-about-live' }}
               />
@@ -223,136 +451,10 @@ export default function SelfStudyLanding() {
           </div>
         </section>
 
-        {/* ─── CURRICULUM ─────────────────────────────────── */}
-        <section id="curriculum" style={{ padding: '80px 24px' }}>
-          <div className="container" style={{ maxWidth: 1100, margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: 48 }}>
-              <div style={eyebrowStyle}>Curriculum</div>
-              <h2 style={sectionH2}>Eight modules. Self-paced.</h2>
-              <p style={sectionLede}>
-                Work them in sequence — the preferred course progression — or jump ahead.
-                Each module is built around a decision the operator has to make on a real deal.
-              </p>
-            </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16 }}>
-              {selfStudy.modules.map((m, i) => (
-                <div key={m.id} style={moduleCard}>
-                  <div style={{ fontFamily: 'var(--mono)', fontSize: 11, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--gold-deep)', marginBottom: 8 }}>
-                    Module {i + 1} · {m.duration}
-                  </div>
-                  <h4 style={{ fontFamily: 'var(--display)', fontSize: 18, color: 'var(--navy)', margin: '0 0 8px', fontWeight: 500, lineHeight: 1.3 }}>
-                    {m.title.replace(/^Module \d+\s·\s/, '')}
-                  </h4>
-                  <p style={{ color: 'var(--ink-dim)', fontSize: 14, lineHeight: 1.5, margin: 0 }}>
-                    {m.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            {/* "Available in Mastery Live" */}
-            <div style={{ marginTop: 40, padding: 28, border: '1px solid var(--line)', borderLeft: '3px solid var(--gold)', borderRadius: 4, background: '#fff' }}>
-              <div style={eyebrowStyle}>Available in Mastery Live</div>
-              <h3 style={{ fontFamily: 'var(--display)', fontSize: 22, color: 'var(--navy)', margin: '4px 0 8px', fontWeight: 500 }}>
-                Four more modules — and the people alongside.
-              </h3>
-              <p style={{ color: 'var(--ink-dim)', fontSize: 14, marginBottom: 16, maxWidth: 560 }}>
-                Mastery Live extends the curriculum into four areas that need a coach
-                alongside you — and adds monthly coaching, AI tutor, and deal memos
-                from the Rescia desk.
-              </p>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                {liveOnlyModules.map((m) => (
-                  <li key={m.num} style={{ padding: '10px 0', borderTop: '1px solid var(--line)', display: 'flex', gap: 12, alignItems: 'baseline' }}>
-                    <span style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--gold)', flexShrink: 0, marginTop: 7 }} aria-hidden />
-                    <div>
-                      <div style={{ fontFamily: 'var(--display)', fontSize: 16, color: 'var(--navy)' }}>
-                        Module {m.num} · {m.title}
-                      </div>
-                      <div style={{ fontSize: 13, color: 'var(--ink-dim)' }}>{m.reason}</div>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        {/* ─── WHAT'S INCLUDED ────────────────────────────── */}
-        <section style={{ background: 'var(--cream-warm)', padding: '80px 24px' }}>
-          <div className="container" style={{ maxWidth: 920, margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: 40 }}>
-              <div style={eyebrowStyle}>What you get</div>
-              <h2 style={sectionH2}>$1,997 buys you the operator&rsquo;s toolkit.</h2>
-            </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}>
-              <IncludedItem title="8 modules" body="Submarket Intelligence, Deal Sourcing, Underwriting, Stress Testing & CapEx, Debt Sourcing, LOI, PSA & DD, Property Management." />
-              <IncludedItem title="4–5 question quizzes" body="Multiple choice with explanations. Pass to unlock the next module." />
-              <IncludedItem title="Reference PDFs" body="View+print one-pagers per module. Foundational concepts at your fingertips." />
-              <IncludedItem title="Excel templates" body="Underwriting model, investor pipeline CRM, CapEx tracker, distribution waterfall, LP report, LOI, PSA + DD checklists, PM RFP. Input-only with R/Y/G indicators." />
-              <IncludedItem title="12 months of access" body="Self-paced, no deadlines. Continue at $99/month after the year if you want." />
-              <IncludedItem title="$1,997 upgrade credit" body="If you decide to step up to Mastery Live within your access window, your $1,997 credits toward Live tuition." />
-            </div>
-          </div>
-        </section>
-
-        {/* ─── WHAT'S NOT INCLUDED ─────────────────────────── */}
-        <section style={{ padding: '80px 24px' }}>
-          <div className="container" style={{ maxWidth: 920, margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: 32 }}>
-              <div style={{ ...eyebrowStyle, color: 'var(--ink-dim)' }}>Honest about what this isn&rsquo;t</div>
-              <h2 style={sectionH2}>What Self-Study does <em style={{ fontStyle: 'italic', color: 'var(--gold-deep)' }}>not</em> include.</h2>
-              <p style={sectionLede}>
-                Self-Study is the solo track, by design. If any of the below are non-negotiable
-                for you, Self-Study is the wrong product — inquire about Mastery Live.
-              </p>
-            </div>
-            <ul style={{ listStyle: 'none', padding: 0, margin: '0 auto', maxWidth: 640 }}>
-              <NotIncluded item="Live coaching" detail="No 1:1 calls or cohort sessions with Diva or Lou. Coaching is reserved for Mastery Live." />
-              <NotIncluded item="AI tutor" detail="No in-module AI assistant trained on the Mastery curriculum. AI tutor is a Live exclusive." />
-              <NotIncluded item="Deal memos from the Rescia desk" detail="No monthly deal-by-deal commentary on what we passed on, what we underwrote, what we&rsquo;re watching." />
-              <NotIncluded item="Your-deal workspace" detail="No tracker for an active acquisition you&rsquo;re working — that&rsquo;s where Live coaching lives." />
-              <NotIncluded item="Capital Raising · PPM &amp; Legal · Asset Management · Exit modules" detail="These four modules involve securities law, ongoing operations, or cycle-timing judgment that benefit materially from coaching alongside." />
-              <NotIncluded item="Physical artifacts" detail="No hardcover welcome book or leather-bound binder. Those are part of the Mastery Live onboarding experience." />
-            </ul>
-          </div>
-        </section>
-
-        {/* ─── MENTOR ────────────────────────────────────── */}
-        <section id="mentor" style={{ background: 'var(--navy)', color: 'var(--cream)', padding: '80px 24px' }}>
-          <div className="container" style={{ maxWidth: 920, margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: 48 }}>
-              <div style={{ ...eyebrowStyle, color: 'var(--gold-bright)' }}>The curriculum is taught by</div>
-              <h2 style={{ ...sectionH2, color: 'var(--cream)' }}>Diva Rescia and Lou Lopez.</h2>
-            </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 32 }}>
-              <div>
-                <div style={{ fontFamily: 'var(--display)', fontSize: 22, color: 'var(--gold-bright)', marginBottom: 6, fontWeight: 500 }}>Diva Rescia</div>
-                <p style={{ color: 'rgba(250, 247, 242, 0.78)', lineHeight: 1.6, fontSize: 15 }}>
-                  Founder of Rescia Properties. Multifamily operator with deep expertise in
-                  submarket selection, underwriting, and the on-the-ground operational discipline
-                  that separates institutional-grade portfolios from amateur ones. Diva is the
-                  pedagogical lead on the Mastery curriculum — every framework is hers, refined
-                  across years of real deals.
-                </p>
-              </div>
-              <div>
-                <div style={{ fontFamily: 'var(--display)', fontSize: 22, color: 'var(--gold-bright)', marginBottom: 6, fontWeight: 500 }}>Lou Lopez</div>
-                <p style={{ color: 'rgba(250, 247, 242, 0.78)', lineHeight: 1.6, fontSize: 15 }}>
-                  Co-mentor and principal at Rescia Properties. Lou brings the operator&rsquo;s lens
-                  on capital markets, debt structuring, and the strategic decisions that shape a
-                  portfolio cycle-by-cycle. In Mastery Live, Lou and Diva work alongside members
-                  through their actual deals.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* ─── FAQ ────────────────────────────────────────── */}
-        <section id="faq" style={{ padding: '80px 24px' }}>
-          <div className="container" style={{ maxWidth: 760, margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: 40 }}>
+        <section id="faq" style={{ background: 'var(--cream)', padding: '96px 24px' }}>
+          <div style={{ maxWidth: 760, margin: '0 auto' }}>
+            <div style={{ textAlign: 'center', marginBottom: 48 }}>
               <div style={eyebrowStyle}>Frequently asked</div>
               <h2 style={sectionH2}>Questions, answered.</h2>
             </div>
@@ -366,12 +468,12 @@ export default function SelfStudyLanding() {
                       style={{
                         width: '100%',
                         textAlign: 'left',
-                        padding: '20px 0',
+                        padding: '22px 0',
                         background: 'transparent',
                         border: 'none',
                         cursor: 'pointer',
                         fontFamily: 'var(--display)',
-                        fontSize: 18,
+                        fontSize: 19,
                         color: 'var(--navy)',
                         display: 'flex',
                         justifyContent: 'space-between',
@@ -381,10 +483,10 @@ export default function SelfStudyLanding() {
                       }}
                     >
                       <span>{item.q}</span>
-                      <span style={{ fontFamily: 'var(--mono)', fontSize: 18, color: 'var(--gold-deep)', flexShrink: 0 }}>{isOpen ? '−' : '+'}</span>
+                      <span style={{ fontFamily: 'var(--mono)', fontSize: 22, color: 'var(--gold-deep)', flexShrink: 0, fontWeight: 300 }}>{isOpen ? '−' : '+'}</span>
                     </button>
                     {isOpen && (
-                      <div style={{ paddingBottom: 24, color: 'var(--ink-dim)', lineHeight: 1.6, fontSize: 15 }}>
+                      <div style={{ paddingBottom: 24, color: 'var(--ink-dim)', lineHeight: 1.65, fontSize: 15 }}>
                         {item.a}
                       </div>
                     )}
@@ -395,31 +497,34 @@ export default function SelfStudyLanding() {
           </div>
         </section>
 
-        {/* ─── PRICING CTA ─────────────────────────────────── */}
-        <section style={{ background: 'var(--cream-warm)', padding: '80px 24px', borderTop: '1px solid var(--line)' }}>
-          <div className="container" style={{ maxWidth: 720, margin: '0 auto', textAlign: 'center' }}>
-            <div style={eyebrowStyle}>Ready when you are</div>
-            <h2 style={{ ...sectionH2, marginBottom: 16 }}>Mastery Self-Study · $1,997</h2>
-            <p style={{ ...sectionLede, marginBottom: 32 }}>
+        {/* ─── PRICING CTA · the only place pricing appears ── */}
+        <section style={{ background: 'linear-gradient(135deg, var(--navy-soft) 0%, var(--navy) 100%)', color: 'var(--cream)', padding: '96px 24px', position: 'relative' }}>
+          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 2, background: 'linear-gradient(90deg, var(--gold) 0%, var(--gold-bright) 50%, var(--gold) 100%)' }} aria-hidden />
+          <div style={{ maxWidth: 720, margin: '0 auto', textAlign: 'center' }}>
+            <div style={{ ...eyebrowStyle, color: 'var(--gold-bright)' }}>Ready when you are</div>
+            <h2 style={{ ...sectionH2, color: 'var(--cream)' }}>
+              Mastery Self-Study · <em style={{ fontStyle: 'italic', color: 'var(--gold-bright)' }}>$1,997</em>
+            </h2>
+            <p style={{ ...sectionLede, color: 'rgba(250, 247, 242, 0.78)', marginBottom: 36 }}>
               Eight modules. Twelve months of access. The operator&rsquo;s execution toolkit.
-              Three-day refund window after Module 1 if it doesn&rsquo;t land for you.
+              Three-day refund window after Module 1 if it doesn&rsquo;t land.
             </p>
-            <Link href={user ? '/dashboard' : '/pricing'} style={ctaPrimary}>
-              {user ? 'Open dashboard →' : 'Buy Self-Study · $1,997'}
+            <Link href={user ? '/dashboard' : '/pricing'} style={ctaGold}>
+              {user ? 'Open dashboard →' : 'Begin Self-Study · $1,997'}
             </Link>
-            <p style={{ marginTop: 20, fontSize: 13, color: 'var(--ink-mute)' }}>
-              Or <Link href="/inquire-about-live" style={{ color: 'var(--gold-deep)', textDecoration: 'underline' }}>inquire about Mastery Live</Link> if you want a coach alongside you.
+            <p style={{ marginTop: 20, fontSize: 13, color: 'rgba(250, 247, 242, 0.55)' }}>
+              Or <Link href="/inquire-about-live" style={{ color: 'var(--gold-bright)', textDecoration: 'underline' }}>inquire about Mastery Live</Link> if you want a coach alongside.
             </p>
           </div>
         </section>
 
         {/* ─── FOOTER ──────────────────────────────────────── */}
-        <footer style={{ padding: '40px 24px', borderTop: '1px solid var(--line)', background: 'var(--cream)' }}>
-          <div className="container" style={{ maxWidth: 1100, margin: '0 auto', textAlign: 'center' }}>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 11, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--ink-dim)', marginBottom: 6 }}>
+        <footer style={{ padding: '40px 24px', borderTop: '1px solid rgba(184, 148, 90, 0.2)', background: 'var(--navy-deep)', color: 'rgba(250, 247, 242, 0.55)' }}>
+          <div style={{ maxWidth: 1100, margin: '0 auto', textAlign: 'center' }}>
+            <div style={{ fontFamily: 'var(--mono)', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: 8 }}>
               Rescia Properties · Mastery Self-Study
             </div>
-            <div style={{ fontSize: 11, color: 'var(--ink-mute)' }}>
+            <div style={{ fontSize: 11, color: 'rgba(250, 247, 242, 0.45)' }}>
               &copy; 2026 Rescia Properties · Not a securities offering · Past performance not indicative of future results
             </div>
           </div>
@@ -431,7 +536,7 @@ export default function SelfStudyLanding() {
 }
 
 // ─────────────────────────────────────────────────────────────────────
-// Style helpers (kept in-file so the landing is one import)
+// Style helpers
 // ─────────────────────────────────────────────────────────────────────
 
 const navStyle: React.CSSProperties = {
@@ -469,8 +574,17 @@ const navCtaStyle: React.CSSProperties = {
 };
 
 const heroSection: React.CSSProperties = {
-  background: 'var(--cream)',
-  borderBottom: '1px solid var(--line)',
+  background: 'var(--navy)',
+  color: 'var(--cream)',
+  position: 'relative',
+  overflow: 'hidden',
+};
+
+const heroOverlay: React.CSSProperties = {
+  background:
+    'radial-gradient(ellipse at top, rgba(184, 148, 90, 0.18) 0%, transparent 60%), linear-gradient(180deg, var(--navy-soft) 0%, var(--navy) 50%, var(--navy-deep) 100%)',
+  position: 'relative',
+  borderBottom: '2px solid rgba(184, 148, 90, 0.3)',
 };
 
 const eyebrowStyle: React.CSSProperties = {
@@ -479,73 +593,221 @@ const eyebrowStyle: React.CSSProperties = {
   letterSpacing: '0.18em',
   textTransform: 'uppercase',
   color: 'var(--gold-deep)',
-  marginBottom: 12,
+  marginBottom: 16,
 };
 
 const sectionH2: React.CSSProperties = {
   fontFamily: 'var(--display)',
-  fontSize: 'clamp(28px, 4vw, 40px)',
+  fontSize: 'clamp(32px, 4.5vw, 48px)',
   fontWeight: 500,
   color: 'var(--navy)',
-  margin: '0 0 16px',
-  lineHeight: 1.15,
-  letterSpacing: '-0.01em',
+  margin: '0 0 20px',
+  lineHeight: 1.1,
+  letterSpacing: '-0.015em',
 };
 
 const sectionLede: React.CSSProperties = {
-  fontSize: 16,
+  fontSize: 17,
   color: 'var(--ink-dim)',
   lineHeight: 1.6,
-  maxWidth: 600,
+  maxWidth: 620,
   margin: '0 auto',
 };
 
-const ctaPrimary: React.CSSProperties = {
+const ctaPrimaryHero: React.CSSProperties = {
   display: 'inline-block',
-  background: 'var(--navy)',
-  color: 'var(--cream)',
-  padding: '14px 28px',
+  background: 'var(--gold)',
+  color: 'var(--navy)',
+  padding: '16px 32px',
   borderRadius: 2,
+  textDecoration: 'none',
+  fontFamily: 'var(--mono)',
+  fontSize: 13,
+  letterSpacing: '0.14em',
+  textTransform: 'uppercase',
+  fontWeight: 600,
+  boxShadow: '0 10px 30px -10px rgba(184, 148, 90, 0.6)',
+};
+
+const ctaSecondaryHero: React.CSSProperties = {
+  display: 'inline-block',
+  color: 'var(--gold-bright)',
+  padding: '16px 32px',
   textDecoration: 'none',
   fontFamily: 'var(--mono)',
   fontSize: 13,
   letterSpacing: '0.12em',
+  fontWeight: 500,
+  border: '1px solid var(--gold)',
+  borderRadius: 2,
+};
+
+const ctaGold: React.CSSProperties = {
+  display: 'inline-block',
+  background: 'var(--gold)',
+  color: 'var(--navy)',
+  padding: '16px 32px',
+  borderRadius: 2,
+  textDecoration: 'none',
+  fontFamily: 'var(--mono)',
+  fontSize: 13,
+  letterSpacing: '0.14em',
   textTransform: 'uppercase',
   fontWeight: 600,
 };
 
-const ctaSecondary: React.CSSProperties = {
-  display: 'inline-block',
-  color: 'var(--navy)',
-  padding: '14px 28px',
-  textDecoration: 'none',
-  fontFamily: 'var(--mono)',
-  fontSize: 13,
-  letterSpacing: '0.08em',
-  fontWeight: 500,
-  border: '1px solid var(--navy)',
-  borderRadius: 2,
-};
-
 const moduleCard: React.CSSProperties = {
-  padding: 24,
+  padding: 26,
   background: '#fff',
   border: '1px solid var(--line)',
+  borderTop: '3px solid var(--gold)',
   borderRadius: 4,
+  boxShadow: 'var(--shadow-soft)',
 };
 
 // ─── Sub-components ─────────────────────────────────────────────
 
+function FirmStat({ n, l }: { n: string; l: string }) {
+  return (
+    <div>
+      <div style={{ fontFamily: 'var(--display)', fontSize: 'clamp(28px, 3vw, 38px)', color: 'var(--gold-bright)', fontWeight: 500, lineHeight: 1.1 }}>
+        {n}
+      </div>
+      <div style={{ fontFamily: 'var(--mono)', fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(250, 247, 242, 0.62)', marginTop: 8 }}>
+        {l}
+      </div>
+    </div>
+  );
+}
+
+function ValueCard({ num, title, body }: { num: string; title: string; body: string }) {
+  return (
+    <div style={{ padding: 28, background: '#fff', border: '1px solid var(--line)', borderRadius: 4, boxShadow: 'var(--shadow-soft)', position: 'relative' }}>
+      <div style={{ fontFamily: 'var(--mono)', fontSize: 11, letterSpacing: '0.16em', color: 'var(--gold)', marginBottom: 14, fontWeight: 600 }}>
+        {num}
+      </div>
+      <h4 style={{ fontFamily: 'var(--display)', fontSize: 19, color: 'var(--navy)', margin: '0 0 10px', fontWeight: 500, lineHeight: 1.3 }}>
+        {title}
+      </h4>
+      <p style={{ color: 'var(--ink-dim)', fontSize: 14.5, lineHeight: 1.55, margin: 0 }}>
+        {body}
+      </p>
+    </div>
+  );
+}
+
+function IncludedItem({ title, body }: { title: string; body: string }) {
+  return (
+    <div style={{ padding: 22, background: '#fff', border: '1px solid var(--line)', borderRadius: 4, boxShadow: 'var(--shadow-soft)' }}>
+      <div style={{ display: 'flex', gap: 10, alignItems: 'baseline', marginBottom: 8 }}>
+        <span style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--gold)', flexShrink: 0, marginTop: 7 }} aria-hidden />
+        <h4 style={{ fontFamily: 'var(--display)', fontSize: 17, color: 'var(--navy)', margin: 0, fontWeight: 500 }}>{title}</h4>
+      </div>
+      <p style={{ color: 'var(--ink-dim)', fontSize: 14, lineHeight: 1.55, margin: '0 0 0 17px' }}>{body}</p>
+    </div>
+  );
+}
+
+function LiveStat({ n, l }: { n: string; l: string }) {
+  return (
+    <div style={{ textAlign: 'center', padding: 20 }}>
+      <div style={{ fontFamily: 'var(--display)', fontSize: 'clamp(32px, 3.5vw, 44px)', color: 'var(--gold-bright)', fontWeight: 500, lineHeight: 1.05, marginBottom: 8, fontStyle: 'italic' }}>
+        {n}
+      </div>
+      <div style={{ fontSize: 13, color: 'rgba(250, 247, 242, 0.78)', lineHeight: 1.5 }}>
+        {l}
+      </div>
+    </div>
+  );
+}
+
+function LiveExclusive({ title, body }: { title: string; body: string }) {
+  return (
+    <div style={{ padding: '14px 0', display: 'flex', gap: 12, alignItems: 'flex-start' }}>
+      <span style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--gold)', flexShrink: 0, marginTop: 7 }} aria-hidden />
+      <div>
+        <div style={{ fontFamily: 'var(--display)', fontSize: 17, color: 'var(--gold-bright)', marginBottom: 4, fontWeight: 500 }} dangerouslySetInnerHTML={{ __html: title }} />
+        <div style={{ color: 'rgba(250, 247, 242, 0.78)', fontSize: 14, lineHeight: 1.5 }} dangerouslySetInnerHTML={{ __html: body }} />
+      </div>
+    </div>
+  );
+}
+
+function MentorCard({
+  monogram,
+  role,
+  name,
+  title,
+  bios,
+  creds,
+}: {
+  monogram: string;
+  role: string;
+  name: string;
+  title: string;
+  bios: React.ReactNode[];
+  creds: string[];
+}) {
+  return (
+    <div style={{
+      padding: 36,
+      background: '#fff',
+      border: '1px solid var(--line)',
+      borderRadius: 4,
+      boxShadow: 'var(--shadow-card)',
+      borderTop: '3px solid var(--gold)',
+    }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 18, marginBottom: 24, paddingBottom: 20, borderBottom: '1px solid var(--line)' }}>
+        <div style={{
+          width: 60, height: 60, borderRadius: '50%',
+          background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%)',
+          color: 'var(--gold-bright)',
+          display: 'grid', placeItems: 'center',
+          fontFamily: 'var(--display)', fontSize: 22, fontWeight: 500,
+          flexShrink: 0,
+          letterSpacing: '0.04em',
+        }}>
+          {monogram}
+        </div>
+        <div>
+          <div style={{ fontFamily: 'var(--mono)', fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--gold-deep)', fontWeight: 600, marginBottom: 4 }}>
+            {role}
+          </div>
+          <div style={{ fontFamily: 'var(--display)', fontSize: 26, color: 'var(--navy)', fontWeight: 500, lineHeight: 1.15 }}>
+            {name}
+          </div>
+          <div style={{ fontSize: 13, color: 'var(--ink-dim)', marginTop: 2 }}>
+            {title}
+          </div>
+        </div>
+      </div>
+      {bios.map((b, i) => (
+        <p key={i} style={{ color: 'var(--ink-dim)', fontSize: 14.5, lineHeight: 1.65, marginBottom: 14 }}>
+          {b}
+        </p>
+      ))}
+      <ul style={{ listStyle: 'none', padding: 0, margin: '20px 0 0', borderTop: '1px solid var(--line)', paddingTop: 16 }}>
+        {creds.map((c, i) => (
+          <li key={i} style={{ padding: '6px 0', display: 'flex', gap: 10, alignItems: 'baseline', fontSize: 14, color: 'var(--ink)' }}>
+            <span style={{ color: 'var(--gold)', fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600 }} aria-hidden>◆</span>
+            <span dangerouslySetInnerHTML={{ __html: c }} />
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 function LadderCard({
   tier,
-  price,
+  taughtBy,
   lede,
   bullets,
   cta,
   isCurrent,
 }: {
   tier: string;
-  price: string;
+  taughtBy: string;
   lede: string;
   bullets: string[];
   cta: { label: string; href: string } | null;
@@ -554,7 +816,7 @@ function LadderCard({
   return (
     <div
       style={{
-        padding: 28,
+        padding: 32,
         background: isCurrent ? 'var(--navy)' : '#fff',
         color: isCurrent ? 'var(--cream)' : 'var(--ink)',
         border: isCurrent ? '1px solid var(--gold)' : '1px solid var(--line)',
@@ -564,38 +826,45 @@ function LadderCard({
       }}
     >
       {isCurrent && (
-        <div style={{ position: 'absolute', top: -12, left: 24, fontFamily: 'var(--mono)', fontSize: 9, letterSpacing: '0.16em', textTransform: 'uppercase', padding: '4px 10px', background: 'var(--gold)', color: 'var(--navy)', borderRadius: 2, fontWeight: 600 }}>
+        <div style={{ position: 'absolute', top: -12, left: 24, fontFamily: 'var(--mono)', fontSize: 9, letterSpacing: '0.16em', textTransform: 'uppercase', padding: '5px 11px', background: 'var(--gold)', color: 'var(--navy)', borderRadius: 2, fontWeight: 600 }}>
           You are here
         </div>
       )}
-      <div style={{ fontFamily: 'var(--mono)', fontSize: 11, letterSpacing: '0.12em', textTransform: 'uppercase', color: isCurrent ? 'var(--gold-bright)' : 'var(--gold-deep)', marginBottom: 8 }}>
+      <div style={{ fontFamily: 'var(--mono)', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: isCurrent ? 'var(--gold-bright)' : 'var(--gold-deep)', marginBottom: 10, fontWeight: 600 }}>
         {tier}
       </div>
-      <div style={{ fontFamily: 'var(--display)', fontSize: 24, color: isCurrent ? 'var(--cream)' : 'var(--navy)', margin: '0 0 12px', fontWeight: 500 }}>
-        {price}
+      <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: isCurrent ? 'rgba(250, 247, 242, 0.62)' : 'var(--ink-mute)', marginBottom: 16, letterSpacing: '0.04em' }}>
+        {taughtBy}
       </div>
       <p
         style={{
-          fontSize: 14,
-          color: isCurrent ? 'rgba(250, 247, 242, 0.78)' : 'var(--ink-dim)',
-          lineHeight: 1.5,
-          marginBottom: 16,
-          minHeight: 42,
+          fontFamily: 'var(--display)',
+          fontSize: 19,
+          color: isCurrent ? 'var(--cream)' : 'var(--navy)',
+          lineHeight: 1.3,
+          marginBottom: 20,
+          fontWeight: 500,
         }}
-        dangerouslySetInnerHTML={{ __html: lede }}
-      />
-      <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 20px' }}>
+      >
+        {lede}
+      </p>
+      <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px' }}>
         {bullets.map((b, i) => (
           <li
             key={i}
             style={{
-              fontSize: 13,
-              color: isCurrent ? 'rgba(250, 247, 242, 0.85)' : 'var(--ink)',
-              padding: '6px 0',
+              fontSize: 13.5,
+              color: isCurrent ? 'rgba(250, 247, 242, 0.85)' : 'var(--ink-dim)',
+              padding: '8px 0',
               borderTop: i === 0 ? 'none' : `1px solid ${isCurrent ? 'rgba(184, 148, 90, 0.18)' : 'var(--line)'}`,
+              display: 'flex',
+              gap: 8,
+              alignItems: 'baseline',
             }}
-            dangerouslySetInnerHTML={{ __html: b }}
-          />
+          >
+            <span style={{ color: 'var(--gold)', fontSize: 9 }} aria-hidden>◆</span>
+            <span>{b}</span>
+          </li>
         ))}
       </ul>
       {cta && (
@@ -603,9 +872,10 @@ function LadderCard({
           href={cta.href}
           style={{
             display: 'inline-block',
-            background: isCurrent ? 'var(--gold)' : 'var(--navy)',
-            color: isCurrent ? 'var(--navy)' : 'var(--cream)',
-            padding: '10px 18px',
+            background: isCurrent ? 'var(--gold)' : 'transparent',
+            color: isCurrent ? 'var(--navy)' : 'var(--navy)',
+            border: isCurrent ? '1px solid var(--gold)' : '1px solid var(--navy)',
+            padding: '11px 20px',
             borderRadius: 2,
             textDecoration: 'none',
             fontFamily: 'var(--mono)',
@@ -619,29 +889,5 @@ function LadderCard({
         </Link>
       )}
     </div>
-  );
-}
-
-function IncludedItem({ title, body }: { title: string; body: string }) {
-  return (
-    <div style={{ padding: 20, background: '#fff', border: '1px solid var(--line)', borderRadius: 4 }}>
-      <div style={{ display: 'flex', gap: 10, alignItems: 'baseline', marginBottom: 6 }}>
-        <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--gold)', flexShrink: 0, marginTop: 7 }} aria-hidden />
-        <h4 style={{ fontFamily: 'var(--display)', fontSize: 17, color: 'var(--navy)', margin: 0, fontWeight: 500 }}>{title}</h4>
-      </div>
-      <p style={{ color: 'var(--ink-dim)', fontSize: 14, lineHeight: 1.5, margin: '0 0 0 16px' }}>{body}</p>
-    </div>
-  );
-}
-
-function NotIncluded({ item, detail }: { item: string; detail: string }) {
-  return (
-    <li style={{ padding: '18px 0', borderTop: '1px solid var(--line)', display: 'flex', gap: 14, alignItems: 'flex-start' }}>
-      <span style={{ fontFamily: 'var(--mono)', fontSize: 16, color: 'var(--ink-mute)', flexShrink: 0, marginTop: 2 }} aria-hidden>×</span>
-      <div>
-        <div style={{ fontFamily: 'var(--display)', fontSize: 17, color: 'var(--navy)', marginBottom: 4, fontWeight: 500 }} dangerouslySetInnerHTML={{ __html: item }} />
-        <div style={{ color: 'var(--ink-dim)', fontSize: 14, lineHeight: 1.5 }}>{detail}</div>
-      </div>
-    </li>
   );
 }
