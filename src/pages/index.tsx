@@ -17,6 +17,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useAuth } from '@/hooks/useAuth';
 import { COURSES, liveOnlyModules } from '@/data/courses';
+import { openCalendly } from '@/lib/calendly';
 
 const selfStudy = COURSES[0];
 
@@ -339,7 +340,7 @@ export default function SelfStudyLanding() {
             </div>
 
             <div style={{ textAlign: 'center', marginTop: 40 }}>
-              <Link href="/inquire-about-live" style={ctaGold}>
+              <Link href="/inquire-about-live" onClick={openCalendly} style={ctaGold}>
                 Inquire about Mastery Live →
               </Link>
             </div>
@@ -469,7 +470,7 @@ export default function SelfStudyLanding() {
                   'AI tutor, deal memos, your-deal workspace',
                   'Physical artifacts · 12-month engagement',
                 ]}
-                cta={{ label: 'Inquire about Live →', href: '/inquire-about-live' }}
+                cta={{ label: 'Inquire about Live →', href: '/inquire-about-live', onClick: openCalendly }}
               />
             </div>
           </div>
@@ -537,7 +538,7 @@ export default function SelfStudyLanding() {
               {user ? 'Open dashboard →' : 'Begin Self-Study · $1,997'}
             </Link>
             <p style={{ marginTop: 20, fontSize: 13, color: 'rgba(250, 247, 242, 0.55)' }}>
-              Or <Link href="/inquire-about-live" style={{ color: 'var(--gold-bright)', textDecoration: 'underline' }}>inquire about Mastery Live</Link> if you want a coach alongside.
+              Or <Link href="/inquire-about-live" onClick={openCalendly} style={{ color: 'var(--gold-bright)', textDecoration: 'underline' }}>inquire about Mastery Live</Link> if you want a coach alongside.
             </p>
           </div>
         </section>
@@ -834,7 +835,7 @@ function LadderCard({
   taughtBy: string;
   lede: string;
   bullets: string[];
-  cta: { label: string; href: string } | null;
+  cta: { label: string; href: string; onClick?: (e: React.MouseEvent) => void } | null;
   isCurrent?: boolean;
 }) {
   return (
@@ -894,6 +895,7 @@ function LadderCard({
       {cta && (
         <Link
           href={cta.href}
+          onClick={cta.onClick}
           style={{
             display: 'inline-block',
             background: isCurrent ? 'var(--gold)' : 'transparent',

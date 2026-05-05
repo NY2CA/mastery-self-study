@@ -9,6 +9,7 @@ import { useAuth } from '@/hooks/useAuth';
 import { useCourse } from '@/hooks/useCourse';
 import { useBilling } from '@/hooks/useBilling';
 import { liveOnlyModules } from '@/data/courses';
+import { openCalendly } from '@/lib/calendly';
 
 /**
  * Mastery Self-Study · member dashboard.
@@ -471,6 +472,7 @@ export default function DashboardPage() {
               <div style={{ marginTop: 8 }}>
                 <Link
                   href="/inquire-about-live"
+                  onClick={openCalendly}
                   className="btn-primary"
                   style={{ background: 'var(--gold)', borderColor: 'var(--gold)', color: 'var(--navy)' }}
                 >

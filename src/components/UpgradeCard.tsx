@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Card from '@/components/Card';
+import { openCalendly } from '@/lib/calendly';
 
 /**
  * UpgradeCard · the post-Module-1 trigger.
@@ -72,6 +73,7 @@ export default function UpgradeCard({ firstName, onDismiss, compact }: UpgradeCa
         <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
           <Link
             href="/inquire-about-live"
+            onClick={openCalendly}
             className="btn-primary"
             style={{
               background: 'var(--gold)',
