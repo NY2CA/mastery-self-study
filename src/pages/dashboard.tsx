@@ -400,16 +400,19 @@ export default function DashboardPage() {
                     src="CBRE · Apr 29"
                     title="Multifamily Cap Rates Compress in Sun Belt Submarkets"
                     why="A 10-min read before your next underwrite — the Sun Belt cap rate trajectory matters for exit pricing."
+                    url="https://www.cbre.com/insights"
                   />
                   <ReadCard
                     src="Multifamily Executive · Apr 27"
                     title="Bridge Lender Spreads Tighten 35bp Across Q1"
                     why="If you're financing in the next 90 days, this changes your debt math."
+                    url="https://www.multifamilyexecutive.com/"
                   />
                   <ReadCard
                     src="Bisnow Multifamily · Apr 26"
                     title="Texas Property Tax Reform — What Operators Should Watch in 2026"
                     why="Texas exposure means this is your tax line on every model."
+                    url="https://www.bisnow.com/multifamily"
                   />
                 </div>
               </div>
@@ -602,16 +605,30 @@ function ProgressStat({ n, l }: { n: string; l: string }) {
   );
 }
 
-function ReadCard({ src, title, why }: { src: string; title: string; why: string }) {
-  return (
-    <div
-      style={{
-        background: 'var(--navy)',
-        border: '1px solid rgba(184, 148, 90, 0.18)',
-        borderRadius: 4,
-        padding: '14px 16px',
-      }}
-    >
+function ReadCard({
+  src,
+  title,
+  why,
+  url,
+}: {
+  src: string;
+  title: string;
+  why: string;
+  /** Optional external article URL. When provided, the card becomes a
+      clickable anchor that opens the source article in a new tab. */
+  url?: string;
+}) {
+  const cardStyles: React.CSSProperties = {
+    background: 'var(--navy)',
+    border: '1px solid rgba(184, 148, 90, 0.18)',
+    borderRadius: 4,
+    padding: '14px 16px',
+    display: 'block',
+    textDecoration: 'none',
+    transition: 'border-color 160ms ease, background 160ms ease',
+  };
+  const inner = (
+    <>
       <div
         style={{
           fontFamily: 'var(--mono)',
@@ -634,10 +651,44 @@ function ReadCard({ src, title, why }: { src: string; title: string; why: string
         }}
       >
         {title}
+        {url && (
+          <span
+            aria-hidden
+            style={{
+              marginLeft: 6,
+              color: 'var(--gold-bright)',
+              fontFamily: 'var(--mono)',
+              fontSize: 11,
+            }}
+          >
+            ↗
+          </span>
+        )}
       </div>
       <div style={{ color: 'rgba(250, 247, 242, 0.62)', fontSize: 12, lineHeight: 1.45 }}>
         {why}
       </div>
-    </div>
+    </>
   );
+  if (url) {
+    return (
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={cardStyles}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.borderColor = 'rgba(184, 148, 90, 0.45)';
+          e.currentTarget.style.background = '#102240';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.borderColor = 'rgba(184, 148, 90, 0.18)';
+          e.currentTarget.style.background = 'var(--navy)';
+        }}
+      >
+        {inner}
+      </a>
+    );
+  }
+  return <div style={cardStyles}>{inner}</div>;
 }

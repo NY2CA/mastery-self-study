@@ -639,20 +639,324 @@ export const COURSES: Course[] = [
           },
         ],
       },
+      // ═══════════════════════════════════════════════════════════════════
+      // MODULE 3 · Underwriting — full content (Wave SS-2.6)
+      // The deepest module · 10 topics covering the full underwriting craft
+      // ═══════════════════════════════════════════════════════════════════
       {
         id: 'underwriting',
         title: 'Module 3 · Underwriting',
         duration: '3 hrs',
         description:
-          'Build the model. Defend the assumptions. Walk away when the numbers say so. The core craft of multifamily — applied with the Rescia underwriting template.',
-        topics: [],
+          'Build the model. Defend every assumption. Walk away when the numbers say so. The core craft of multifamily — applied with the Rescia underwriting template through ten decision points where most operators fail.',
+        topics: [
+          // ── Topic 1 ──────────────────────────────────────────────
+          {
+            id: 'uw-t01-model-architecture',
+            title: 'The underwriting model · architecture',
+            summary:
+              "What goes in, what comes out, and why the model is a defense system, not a forecast. Built right, it tells you which assumptions are load-bearing and which aren't.",
+            body:
+              "The underwriting model is not a prediction. It's a defense system. Build it so every output traces back to an explicit assumption, and you can pressure-test the assumptions one at a time. Build it as a black box with hard-coded numbers, and you'll discover at variance review that you can't explain why the deal underperformed.\n\nThe Rescia underwriting model has six input layers and four output layers.\n\n**Inputs.** (1) Rent roll — current rent per unit, lease end dates, in-place vs market spread. (2) Operating expenses — line by line, T-12 actuals plus your normalization. (3) Capital expense plan — what's deferred, what's scheduled, what's value-add. (4) Rent growth assumptions — by year, by unit type. (5) Debt structure — agency or bank or bridge, term, amortization, IO period, refinance assumption. (6) Exit assumptions — exit cap, hold period, transaction costs.\n\n**Outputs.** (1) NOI by year. (2) Cash-on-cash by year. (3) Levered IRR + MOIC over the hold. (4) GP/LP waterfall distributions.\n\nEvery output is a function of inputs. When you sensitize the model — flexing rent growth from 3% to 0%, or exit cap from 5.25% to 5.75% — you see exactly which assumptions are load-bearing. The deal that survives a 50bps cap rate widening with positive returns is structurally different from the deal that doesn't.\n\nThe model is also a documentation tool. Six months into the hold, when the variance report shows -40bps NOI vs pro forma, you go back to the model and ask: which input was wrong? The model answers in 10 minutes if it's built well, or never if it's not.\n\nThe Rescia underwriting template (in your toolkit) is the working example. Open it and trace one cell back to its inputs. That's the discipline.",
+            example:
+              "On a 168-unit Tampa deal in 2023, the as-is NOI input was $1.42M, rent growth assumption was 3% Y1 / 3.5% Y2-3, exit cap was 5.25%, hold was 5 years. Levered IRR came out at 17.8%. Sensitivity: hold rent growth at 0% / exit cap at 5.75%, IRR drops to 8.4%. That single test — 9.4% IRR delta from two assumption changes — told us the deal was a rent growth + cap compression bet, not a basis play. We passed.",
+            pitfalls: [
+              'Building a model with hard-coded numbers instead of formula-driven inputs — you can\'t sensitize what you can\'t flex.',
+              "Skipping the documentation step — six months in, you won't remember why you assumed 3.5% rent growth.",
+              "Treating the output IRR as a forecast — it's a function of your assumptions, not a prediction of reality.",
+              "Forgetting that the model is a defense tool — every assumption should be one you'd defend in a coaching call.",
+            ],
+            related: ['uw-t02-as-is-noi', 'uw-t10-bear-case'],
+          },
+
+          // ── Topic 2 ──────────────────────────────────────────────
+          {
+            id: 'uw-t02-as-is-noi',
+            title: 'As-is NOI · the foundation',
+            summary:
+              "Get the as-is NOI wrong and every output is fiction. Pull T-12 actuals, normalize for one-time items, and resist the broker's 'stabilized' substitution.",
+            body:
+              "Every multifamily underwrite starts with the as-is NOI — what the property is generating today, not what it might generate after value-add. The OM almost never gives you this number cleanly. Your job is to extract it from T-12 P&L and defend it.\n\n**Pull the actual T-12.** Not 'stabilized,' not 'pro forma,' not 'trailing 6 annualized.' The actual trailing 12 months of operating data. If the broker won't share it pre-LOI, that's a Module 2 walk-away signal.\n\n**Normalize for one-time items.** Operating P&Ls include things that don't repeat. Property tax appeals, insurance settlements, deferred maintenance pushed out of T-12, lawsuit settlements. Pull these out so your as-is NOI reflects normal operations.\n\n**Watch for capitalized expenses dressed as operating expenses.** Some sellers expense major repairs that should be capitalized — depresses operating income, makes the deal look weaker. Others capitalize routine maintenance that should be expensed — inflates operating income, makes the deal look stronger. Read the line items skeptically.\n\n**Compare T-12 to T-3 annualized.** If the trailing 3 months annualized is 10%+ different from T-12, the run rate is changing. Why? Rent push at renewal? Vacancy spike? Expense category creep? Diagnose before underwriting.\n\n**Watch the rent collection rate.** A property might bill $2.0M in annual rents but collect $1.84M — that's an 8% bad debt + delinquency rate. The OM might show \"effective gross income\" which obscures this. Pull collected revenue, not billed revenue.\n\nYour as-is NOI is the foundation. If it's wrong by 5%, every IRR output is wrong by more than 5% — leverage amplifies the error. Spend the time here.",
+            example:
+              "A 144-unit Plano deal in 2023: OM showed T-12 NOI of $1.85M. We pulled actuals: $1.71M after backing out a one-time $90K insurance refund and a $50K tax appeal credit. Real run rate was 7.6% lower than the OM. Underwrote from $1.71M, which dropped pro forma value by $2.4M at the 5.25% cap. Asking was $35.5M, our number was $32.8M. We submitted at $33M, accepted at $33.4M. Without the normalization the deal would have looked overpriced even at our number.",
+            pitfalls: [
+              'Using EGI (effective gross income) as a proxy for as-is NOI — they\'re different.',
+              "Trusting 'normalized' or 'stabilized' figures from the broker without backing them out yourself.",
+              'Ignoring T-12 vs T-3 divergence — a moving run rate is a story you need to hear.',
+              'Treating one-time items as recurring — inflates your foundation.',
+              'Skipping the rent collection rate check — billed and collected can differ by 5-12% on B/C class deals.',
+            ],
+            related: ['uw-t01-model-architecture', 'uw-t05-expenses', 'sourcing-t05-reading-om'],
+          },
+
+          // ── Topic 3 ──────────────────────────────────────────────
+          {
+            id: 'uw-t03-stabilized-noi',
+            title: 'Stabilized NOI · the value-add path',
+            summary:
+              'Stabilized NOI is what you commit to, not what the broker promises. Build it from rent growth assumptions you can defend, expense discipline you can execute, and lease-up timing that respects market reality.',
+            body:
+              "Stabilized NOI is the output of your business plan. It's where the deal is at month 24 (or whenever stabilization is). The broker's stabilized number is their pitch. Yours is your underwrite. They are different.\n\nThree inputs build stabilized NOI:\n\n**Rent growth assumptions.** Not market rent growth — your rent growth. Year 1 might be 0% if you're inheriting in-place leases. Year 2 might be 5-7% if you're pushing renewals on a value-add. Year 3+ is market rent growth. Be explicit about which year you're assuming what. The broker's 'stabilized' often blends 24 months of value-add growth into a year-1 number — that's not honest.\n\n**Expense discipline.** Stabilized expenses should be at or modestly below T-12 actuals (not above). Operators who underwrite expense reductions are usually wrong — payroll, insurance, taxes, and utilities all trend up. Plan for 2-3% annual expense growth, normalize taxes for reassessment after sale, and stay skeptical of any 'expense efficiency' line that doesn't have a specific operational change behind it.\n\n**Lease-up timing.** If you're pushing rents on renewals, model the cadence. Tenants on 12-month leases turn over at 12-18 months. You can push rent on renewal but only when the lease ends. Model the renewal calendar quarter by quarter — don't assume all rent push happens in month 6. Your stabilized NOI lands when the last lease has rolled to market.\n\n**The reality check.** Stabilized NOI should land 8-15% above as-is NOI on most B-class value-adds. If your stabilized is 25%+ above as-is, you're underwriting heroic execution. Two questions: have you done this exact business plan before? Are you sure the renter pool absorbs the rent push? If either answer is soft, your stabilized number is fiction.",
+            example:
+              "Mesa 144-unit, 2024: as-is NOI $1.51M, in-place rents at $1,180 effective vs market $1,310. We modeled $30/month rent push on renewals over 18 months (2.5% / month based on the renewal calendar), expense growth at 3% annual, no expense reductions assumed. Stabilized NOI landed at $1.74M — 15.2% above as-is. The pro forma in the OM showed $1.86M stabilized (23% uplift). The OM assumed all 144 units at market by month 14, no concessions, and a 4% expense reduction. Our number was honest. Theirs wasn't.",
+            pitfalls: [
+              "Assuming all rent push happens in year 1 — most leases don't turn that fast.",
+              'Underwriting expense reductions without a specific operational change to defend them.',
+              'Forgetting property tax reassessment after sale — most jurisdictions reset to sale price, raising taxes 30-60%.',
+              'Treating stabilized = current-day market rents × 144 units — ignores in-place lease tail.',
+              "Underwriting stabilized 25%+ above as-is on a B-class deal you've never executed before.",
+            ],
+            related: ['uw-t02-as-is-noi', 'uw-t04-rent-roll'],
+          },
+
+          // ── Topic 4 ──────────────────────────────────────────────
+          {
+            id: 'uw-t04-rent-roll',
+            title: 'The rent roll · what it tells you',
+            summary:
+              'The rent roll is a story about how the property has been operated. Read it carefully and you learn occupancy patterns, lease structure risk, and where the value-add actually is.',
+            body:
+              "The rent roll is the unit-level snapshot. Pull it before the OM's marketing copy and read it for five things:\n\n**1. Unit mix.** How many studios, 1BRs, 2BRs, 3BRs? The mix drives demographics. A 70% 1BR property is targeting young professionals; a 60% 2BR/3BR property is targeting families. Each has different rent ceilings, different turnover patterns, different tenant pools.\n\n**2. In-place rents vs market rents per unit type.** This is where the value-add lives. If 1BRs in-place average $1,150 and market is $1,310, you have $160/unit/month of latent rent. Multiply by unit count to size the value-add envelope. If the gap is $20/unit, there's no value-add to capture — pass on the renovation business plan.\n\n**3. Lease expiration clustering.** Sort leases by end date. Are they evenly distributed across 12 months, or do 60% expire in two months? Clustered expirations create renewal cliffs — you'll either have 60 vacant units in May or 60 tenants who won't accept your push and walk. Either way, your year-1 cash flow takes a hit. Plan for it or model it explicitly.\n\n**4. Concession trail.** If 30 of 144 in-place leases include 'one month free' or 'first month free', the rent roll is showing concessions baked in. Effective rent is lower than asking rent on those units. The OM's headline rent doesn't reflect the concession reality.\n\n**5. Long-term and below-market tenants.** Some leases are 5-7 years old at rents 30-40% below market. Those tenants either renew at a steep market push (and likely walk) or stay at sub-market rents indefinitely. Either way they're a drag on your stabilization timeline.\n\nThe rent roll tells you what you're actually buying — the unit count is just the headline.",
+            example:
+              "A 168-unit Tampa rent roll showed 24 leases expiring in May-June (14% of units in 2 months) and 31 leases in November-December (18% in 2 months). 32% of the property turning over in 4 months. Concession trail: 19 leases with 'one month free' baked in. Six tenants on 5+ year leases at $890 vs $1,240 market. We modeled the renewal cliff explicitly — 14% vacancy spike in months 4-6 of the hold, $180K of concession costs, and a 30% loss-to-walk on the long-term below-market tenants. Pro forma adjusted for this came in 6% below the broker's stabilized. We passed.",
+            pitfalls: [
+              "Reading occupancy as a snapshot ('92% occupied') without checking how units became vacant or how recently.",
+              'Skipping the concession trail — units showing $1,300/month at the lease may be effectively $1,200 after concessions.',
+              "Treating the rent roll as a list of units instead of a calendar of renewals — you can't push rents until leases expire.",
+              'Ignoring long-term below-market tenants — they create stabilization drag and tenant-walk risk.',
+              "Anchoring on average in-place rent without looking at the distribution — a $1,180 average can hide $900 outliers and $1,400 outliers.",
+            ],
+            related: ['uw-t03-stabilized-noi', 'uw-t06-vacancy'],
+          },
+
+          // ── Topic 5 ──────────────────────────────────────────────
+          {
+            id: 'uw-t05-expenses',
+            title: 'Expense underwriting · the discipline that kills pro forma',
+            summary:
+              "Expenses are where pro forma NOI gets juiced. The broker's stabilized expense line is almost always optimistic. Underwrite from actuals plus growth, not from theoretical efficiency.",
+            body:
+              "Operating expenses have categories that behave differently. Understand each one:\n\n**Property taxes.** Reassess to your purchase price in most jurisdictions — typically 30-60% above the seller's basis. The seller's T-12 tax line is irrelevant; your post-close tax line is what matters. Pull the local jurisdiction's reassessment rules and model your year-1 taxes from your purchase price.\n\n**Insurance.** Up 15-30% annually in most Sun Belt markets, more in Florida and parts of Texas. Pull a fresh quote pre-LOI. The seller's insurance line might be $400/door because they renewed in 2021 at favorable rates; your year-1 line is $600/door at current market.\n\n**Payroll.** Wage inflation has been 4-6% annual in most multifamily ops. The seller's payroll line is the trailing 12 months; your year-1 is +5%, year-2 is +5% on that, and so on.\n\n**Repairs and maintenance.** This is where the deferred CapEx hides. A T-12 R&M of $250/door on a 1990s-vintage Class B property tells you the seller has been deferring. Your underwrite needs to assume catch-up R&M — typically $400-500/door for the first 24 months, then settling to $300-350/door run rate.\n\n**Utilities.** If utilities are master-metered, the operator pays. If sub-metered with RUBS (ratio utility billing system), residents pay. Read the operating structure carefully — switching from master to RUBS is a value-add lever but takes 12-18 months to implement and meets resident resistance.\n\n**Management fees.** Industry standard is 3-4% of EGI. The seller might be self-managing at 0% — your underwrite needs the full 3-4% line.\n\n**The expense ratio benchmark.** B-class multifamily runs 45-55% expenses as percentage of EGI. C-class runs 50-60%. A-class runs 35-45%. If your underwrite shows 38% expenses on a B-class deal, you're missing something. Sanity-check against the band.",
+            example:
+              "DFW 192-unit 2023 underwrite. Seller's T-12 expense line: $4,200/door. Our underwrite: $5,150/door year-1. The $950/door gap broken down: +$320/door taxes (reassessment), +$210/door insurance (current quote vs trailing), +$190/door R&M (catch-up on deferred), +$120/door payroll (5% inflation), +$110/door management (seller self-managed at 0%). Expense ratio jumped from 41% to 49% on the deal. Pro forma NOI dropped $245K. The deal still worked but at a different basis than the OM implied.",
+            pitfalls: [
+              'Using the seller\'s T-12 expense line as your year-1 expense underwrite — every category needs your adjustment.',
+              "Forgetting the property tax reassessment — biggest single expense line surprise on most deals.",
+              'Underwriting expense reductions without a specific operational change behind them.',
+              'Trusting the OM\'s "stabilized expenses" — almost always 8-15% below honest underwrite.',
+              "Skipping the expense ratio benchmark check — if your number is way below the B-class 45-55% band, something's off.",
+            ],
+            related: ['uw-t02-as-is-noi', 'uw-t03-stabilized-noi'],
+          },
+
+          // ── Topic 6 ──────────────────────────────────────────────
+          {
+            id: 'uw-t06-vacancy',
+            title: 'Vacancy and credit loss · physical vs economic',
+            summary:
+              'Physical vacancy is empty units. Economic vacancy is unpaid rent — concessions, bad debt, delinquency, downtime. They are not the same. Underwrite both.',
+            body:
+              "Vacancy reads on rent rolls and OMs are deceptive. A property at 95% physical occupancy can be at 88% economic occupancy. The difference is what hits your NOI.\n\n**Physical vacancy** is units without a lease. 7 of 144 units empty = 4.9% physical vacancy.\n\n**Economic vacancy** includes:\n\n- **Physical vacant units** (no rent collected)\n- **Concessions** (rent abated as part of lease incentive — typically expressed as 1 or 2 months free over a 12-month lease)\n- **Bad debt and delinquency** (lease in place, rent billed, rent not collected — typical band 1-4% of GPR depending on class and market)\n- **Down units** (off-market for renovation, repair, or punitive eviction processing — 0-2% typically)\n- **Vacancy loss between leases** (unit turnover downtime — 5-15 days per turn × turnover rate)\n\nThe healthy underwriting band: 5-8% economic vacancy on a B-class stabilized property in a healthy submarket. C-class runs 8-12%. The OM might show 'stabilized vacancy at 4%' which is physical-only and ignores the rest. Your underwrite needs to capture all of it.\n\n**Lease-up vacancy** is separate. If you're acquiring a value-add and pushing rents through renewals, you'll experience tenant walk — typically 10-20% non-renewal rate when you push rents above market. Model this as elevated vacancy in year 1 and 2 of your hold, settling to stabilized economic vacancy in year 3.\n\n**Renovation downtime** on a value-add: each unit pulled offline for renovation is 30-60 days of vacancy plus the renovation cost itself. If you're doing 50 unit interior renos in year 1, that's 50 × 45 days × $1,200 effective rent ≈ $90K in vacancy loss alone, before the renovation cost.\n\nUnderwrite both forms. Operators who underwrite physical-only discover 8-12% NOI variance in year 1.",
+            example:
+              "Phoenix 220-unit acquisition, 2024 underwrite. Physical vacancy at acquisition: 4.5%. We modeled economic vacancy at 8.2% year-1, 6.8% year-2, 5.5% year-3 stabilized. Components: 4.5% physical, 1.7% concessions (residual from prior owner), 1.5% bad debt (B-class operator-grade typical), 0.5% down units. Our model lost $185K of NOI to economic vacancy in year 1 vs the broker's pro forma showing $0K beyond physical. The deal still hit IRR threshold but at 14.2% instead of the broker's modeled 17.4%. Honest underwrite, lower number, deal still pencils.",
+            pitfalls: [
+              "Using only physical vacancy in your underwrite — economic vacancy is typically 3-5 percentage points higher.",
+              'Skipping the bad debt and delinquency assumption entirely — common on first underwrites, costly at variance review.',
+              'Forgetting renovation downtime on value-add deals — 30-60 days × unit count is real NOI loss.',
+              "Using the broker's 'stabilized' physical vacancy figure as the underwrite — they almost always underdescribe.",
+              'Ignoring tenant-walk risk when rent pushing — 10-20% non-renewal rate at aggressive renewal pushes.',
+            ],
+            related: ['uw-t04-rent-roll', 'uw-t03-stabilized-noi'],
+          },
+
+          // ── Topic 7 ──────────────────────────────────────────────
+          {
+            id: 'uw-t07-cap-rates',
+            title: 'Cap rates · entry, exit, the spread',
+            summary:
+              'Entry cap is what you pay. Exit cap is what you assume someone else pays in 5 years. The spread between them — plus rent growth — is where your levered IRR comes from.',
+            body:
+              "Cap rates are how multifamily prices itself. Cap rate = NOI ÷ Price. A 5.5% cap rate on $1.85M NOI = $33.6M price. Simple math, hard discipline.\n\n**Entry cap** is what you actually pay, which equals (Stabilized NOI year 1) ÷ (Purchase price + transaction costs + initial capex). Use stabilized NOI year 1, not as-is — you're buying the income stream you're underwriting to, not the seller's run rate.\n\n**Exit cap** is what you assume the next buyer pays. This is the load-bearing assumption in most underwrites and where most operators get into trouble. Two principles:\n\n**1. Exit cap should be 25-50bps wider than entry cap.** Cycles widen. The 5.25% cap you bought at in 2024 is more likely to exit at 5.50-5.75% in 2029 than at 5.00%. Operators who model cap compression (exit below entry) are betting on macro tailwind and should say so explicitly.\n\n**2. Exit cap should match exit-year market reality, not today's.** If you're holding for 5 years and the market trend is rising rates and widening caps, your exit cap reflects the late-hold environment, not the entry environment.\n\n**The cap rate spread vs treasury yield matters.** Multifamily cap rates have historically been 200-350bps above the 10-year Treasury. When that spread compresses below 150bps, deals are priced for perfection — exit cap likely widens by hold-end. When the spread is above 300bps, deals are priced for risk — exit cap could compress as the spread normalizes.\n\n**The IRR math.** A 5-year hold at a 50bps cap widening with 3% annual rent growth will deliver roughly 12-15% levered IRR. A 5-year hold at 100bps cap widening with 0% rent growth often delivers a capital call — IRR turns negative.\n\nRun the cap rate sensitivity table: entry cap fixed, exit cap flexed from -25bps to +75bps in 25bp increments. Look at the IRR distribution. The deal that produces 18% IRR at -25bps and -2% IRR at +75bps is a bet on cap compression, not a basis play. The deal that produces 14% IRR at +25bps and 9% IRR at +75bps is structurally sound.",
+            example:
+              "Mesa 144-unit deal, 2024 underwrite. Entry cap 5.40% on stabilized year-1 NOI of $1.74M. We modeled exit cap at 5.65% (25bps wider) for the base case, 5.85% (45bps wider) for the bear case. Sensitivity table showed: at -25bps cap (5.15% exit), IRR was 19.1%. At +25bps (5.65% exit), IRR was 14.2%. At +75bps (6.15% exit), IRR was 8.0% with a year-3 capital call risk. The 14.2% base case held; the deal cleared our 12% threshold. We submitted the LOI.",
+            pitfalls: [
+              'Modeling exit cap below entry cap (cap compression) without explicit macro thesis to defend it.',
+              "Using 'market cap' as exit cap instead of underwriting your specific hold-period exit.",
+              'Skipping the cap rate sensitivity table — flex 25bp increments and look at the distribution.',
+              "Forgetting that cap rates widen most in submarkets that lose population, employment, or get oversupplied — cycles aren't uniform.",
+              "Anchoring on the broker's 'recent comp set cap rates' at entry — those are real but they're entry caps, not exit caps in 5 years.",
+            ],
+            related: ['uw-t01-model-architecture', 'uw-t10-bear-case'],
+          },
+
+          // ── Topic 8 ──────────────────────────────────────────────
+          {
+            id: 'uw-t08-irr-moic',
+            title: 'IRR and MOIC · what hits the model',
+            summary:
+              'IRR is the time-weighted return. MOIC is the multiple. Both matter, both can be gamed, and operators should understand which deal characteristics drive each.',
+            body:
+              "Two return metrics dominate multifamily underwriting:\n\n**Levered IRR** is the time-weighted internal rate of return on equity. Industry threshold: 12-15% for B-class value-add, 18-22% for opportunistic, 8-12% for stabilized core. Above 20% on a B-class deal is either a great basis or aggressive assumptions; below 10% is either a pristine A-class core deal or a deal that doesn't pencil.\n\n**MOIC** (Multiple on Invested Capital) is the total cash returned divided by total cash invested. A 1.8x MOIC on a 5-year hold is roughly equivalent to a 12.5% IRR. MOIC reads better than IRR for short-hold strategies (you can have 15% IRR on a 2-year hold but only 1.3x MOIC) and worse for long-hold (10% IRR on a 10-year hold is 2.6x MOIC).\n\n**The IRR / MOIC interaction.**\n\n- **Short hold + high IRR + low MOIC.** Trade-up deals — you bought, executed, sold quickly. IRR looks great but absolute dollars returned might not be enough to compound the next deal.\n\n- **Long hold + moderate IRR + high MOIC.** Buy-and-hold core. Lower percentage return but bigger absolute number. Important for portfolio compounding.\n\n- **Sensitivity to hold period.** Most deals have an IRR sweet spot at a specific hold. Pre-stabilization, IRR is suppressed by lease-up costs. Post-stabilization, IRR plateaus or declines as the asset matures. The model should test 3-year, 5-year, and 7-year holds and find the IRR maximum.\n\n**Levered vs unlevered returns.** Unlevered IRR (no debt) is roughly 6-9% on most multifamily. Levered IRR (with 65-75% LTV agency debt) lifts to 12-18% by using debt to amplify equity returns. Unlevered tells you the asset's quality. Levered tells you what your LP gets.\n\n**Distribution math.** IRR is calculated from cash distributions over time. A deal that distributes 8% annually for 5 years and exits at 1.4x equity has different IRR profile than one that distributes 0% for 4 years and exits at 1.7x. Same total cash, different IRR. LPs care about distribution cadence.\n\nDon't anchor on a single number. Run IRR + MOIC + distribution profile + hold-period sensitivity. The right deal is the one that delivers all four within your target ranges.",
+            example:
+              "Plano 192-unit deal, 2024 underwrite. Hold = 5 years. Levered IRR base case = 14.2%. MOIC = 1.91x. Distributions = 5.5% in year 1 (lease-up drag), 7.2% in year 2, 8.0% in years 3-4, then exit. Total cash returned = $19.1M on $10M equity invested. We tested 3-year hold (IRR 18.4%, MOIC 1.55x) and 7-year hold (IRR 12.8%, MOIC 2.21x). The 5-year hold optimized IRR. The 7-year hold optimized MOIC. We chose 5-year based on cycle read and exit market thesis, but documented the sensitivity for our LPs.",
+            pitfalls: [
+              'Anchoring on IRR alone — short-hold high-IRR deals can produce too little absolute capital to compound.',
+              "Anchoring on MOIC alone — long-hold high-MOIC deals can underperform on IRR if rate environment changes.",
+              'Skipping the hold-period sensitivity — the IRR sweet spot is often year 4-6 for B-class value-add.',
+              'Confusing unlevered with levered IRR — unlevered tells you about the asset, levered tells you about the equity check.',
+              'Modeling distributions as smooth annual cash flow when reality is lumpy (refinance proceeds, renovation phases, exit).',
+            ],
+            related: ['uw-t07-cap-rates', 'uw-t09-waterfall'],
+          },
+
+          // ── Topic 9 ──────────────────────────────────────────────
+          {
+            id: 'uw-t09-waterfall',
+            title: 'The waterfall · GP/LP economics',
+            summary:
+              'The waterfall is the contract that decides who gets paid what, when. Understand the structure even if Capital Raising is reserved for Mastery Live — the underwrite needs to model what hits LP returns vs GP returns separately.',
+            body:
+              "The distribution waterfall is the agreement between general partner (GP — operator) and limited partners (LPs — passive investors) about how cash flow gets split. You don't write the waterfall in Self-Study — that's Capital Raising and PPM, both reserved for Mastery Live. But you need to model it correctly in your underwrite or your LP IRR projections are wrong.\n\nA standard multifamily waterfall has four tiers:\n\n**Tier 1 · Return of capital + preferred return.** LPs receive their original equity back plus a preferred return (the 'pref') — typically 7-9% annually compounded. No GP distribution until LPs hit pref.\n\n**Tier 2 · Catch-up.** The GP receives 100% of distributions until the GP has caught up to a target ratio — often 20% of total profits to date.\n\n**Tier 3 · Splits below first hurdle.** Above the catch-up but below the first IRR hurdle (often 12-14%), distributions split typically 80% LP / 20% GP.\n\n**Tier 4 · Splits above hurdles.** As IRR exceeds further hurdles, the GP earns higher promoted interest. Common structure: above 15% IRR splits 70/30 LP/GP, above 20% IRR splits 60/40.\n\n**Why this matters in underwriting.**\n\nA deal that delivers 14% IRR at the asset level might deliver 11% IRR to LPs and 22% IRR to GP — depending on how the waterfall structures the splits. LP-quality returns are different from asset-quality returns.\n\nWhen you underwrite, you need three IRR outputs: asset IRR, LP IRR, GP IRR. The Rescia underwriting model (in your toolkit) computes all three from a single set of inputs. Run them separately. The LP-facing pitch deck shows LP IRR. The GP earnings projection shows GP IRR. The asset-level analysis shows asset IRR.\n\n**The pref is sticky.** If your asset IRR comes in below pref, the LPs still get their pref (drawing from GP distributions, often retroactively). Operators who blow through pref see their GP take get clawed back at exit.\n\n**The catch-up is negotiable.** Some LPs negotiate no catch-up (cleaner, simpler), trading slightly higher pref for the simplicity. Some negotiate full catch-up (GP gets back to target faster, deal pencils harder for the GP).",
+            example:
+              "Mesa 144-unit deal: asset IRR modeled at 14.2%, LP IRR (after waterfall) modeled at 11.4%, GP IRR modeled at 24.8%. Structure: 8% pref, 100% LP catch-up to pref, 80/20 above pref to 15% IRR, 70/30 above 15% IRR. The asset doesn't hit 15% so the GP doesn't earn the higher promote tier. The GP IRR of 24.8% comes mostly from the 20% catch-up above pref, which is the hardest-working tier in moderate-IRR deals. Modeling this correctly gave us a clear picture: LPs see an 11% return (within their target), we earn a fair promote, the deal makes sense for both sides.",
+            pitfalls: [
+              "Underwriting only asset IRR and quoting it to LPs — they receive LP IRR, which is materially different.",
+              "Forgetting the pref is sticky — if asset IRR < pref, GP distributions get clawed back to make LPs whole.",
+              "Treating the waterfall as standard boilerplate — terms vary, and the difference between 7% pref and 9% pref is meaningful at exit.",
+              "Modeling smooth annual distributions when waterfall mechanics depend on cumulative cash flow (refinance proceeds, exit).",
+              "Not separating LP IRR from asset IRR in the LP-facing pitch — LPs eventually figure it out and trust erodes.",
+            ],
+            related: ['uw-t08-irr-moic'],
+          },
+
+          // ── Topic 10 · Live sidebar lives here ────────────────────
+          {
+            id: 'uw-t10-bear-case',
+            title: 'The bear case discipline · sensitivity tables',
+            summary:
+              "Every honest underwrite has three cases: base, bull, bear. The bear case is non-negotiable — it's what protects you from the deal that requires perfect execution to deliver positive returns.",
+            body:
+              "Operators who close deals across cycles run the bear case as religiously as the base case. Operators who close one deal, fail through the next downturn, and exit the business model only the base case. The bear case is the difference.\n\n**What to flex in the bear case.**\n\n- **Rent growth.** Base case might assume 3% Y2-3 growth. Bear case assumes 0% in years 2-3 and -1% in year 4. Markets that look strong at LOI can become weak through your hold.\n\n- **Vacancy.** Base case 7% economic. Bear case 11%. Includes elevated tenant walk on rent push and more bad debt as the operating environment tightens.\n\n- **Expense growth.** Base case 3% annual. Bear case 5% annual — labor inflation, insurance hardening, tax reassessments.\n\n- **Exit cap.** Base case +25bps from entry. Bear case +75bps from entry, reflecting a cap rate widening cycle by exit.\n\n- **Hold extension.** Base case 5-year hold. Bear case 7-year hold because you can't refinance into reasonable debt and can't sell at acceptable prices in years 4-5.\n\n**What NOT to flex.**\n\n- **Capital expense plan.** You committed to it. Don't pretend you'd defer the roof if the market got weak.\n\n- **Tax reassessment.** Already locked in the base case at the right level.\n\n- **Debt structure.** Don't flex the debt to be more favorable in the bear case — what you signed at close is what you have.\n\n**The bear case threshold:** the deal must produce positive levered IRR (above 4%) and zero capital call risk under the bear case. If the bear case shows negative IRR or a year-3 capital call, the deal is too levered or the market is too weak. Pass.\n\n**The bull case is for vibes.** Run it for completeness — base + 1% rent growth, -25bps exit cap. If the bull case is 22%, you have upside. The bull case shouldn't influence the LOI decision; the bear case does.\n\n**Sensitivity tables document the discipline.** A two-axis grid — rent growth on one axis, exit cap on the other — shows which combinations produce 12%+ IRR (your green zone), 8-12% IRR (your yellow zone), and below 8% IRR (your red zone). Most of your scenario distribution should sit in green and yellow. If you have meaningful red exposure, the deal is too sensitive to assumptions you can't control.\n\n---\n\n**◆ Mastery Live members workshop this on a real deal.**\n\nThe bear case is where operators most need a coach. Self-Study gives you the framework: what to flex, what to hold, the threshold. Live members bring their actual underwrites to a monthly call and Diva and Lou pressure-test the bear case with them — challenging the rent growth assumptions, questioning the cap rate spread thesis, and sometimes telling them their bear case isn't bear enough. The frameworks are the same. The difference is having a seasoned operator across the table when your model says yes but your gut says wait.",
+            example:
+              "Tampa 168-unit deal, 2023 evaluation. Base case: 3% rent growth, 7% vacancy, 5.50% exit cap. IRR 14.8%. Bear case: 0% rent growth Y2-3, 10% vacancy, 5.95% exit cap. IRR 6.2%. Cap call risk: none. We submitted the LOI. Compare to a Tucson deal evaluated the same week: Base case IRR 12.4%. Bear case IRR -1.8% with a year-3 capital call risk. We passed Tucson. Two years later, Tucson rents in that submarket were down 4% (the bear case became base) — the buyer who closed it is now in a workout. The bear case caught it.",
+            pitfalls: [
+              'Skipping the bear case because the base case looks good — most underperforming deals had positive base cases.',
+              'Setting the bear case too kindly — bear case rent growth at +1% isn\'t a bear case.',
+              'Treating the bull case as load-bearing for the LOI decision — operators who optimize for upside under-protect against downside.',
+              'Running sensitivity tables but not staring at the distribution — the math only matters if you read it.',
+              'Believing your operations excellence will fix a structurally weak market in the bear case — your operations are constant; the market is the variable.',
+            ],
+            related: ['uw-t01-model-architecture', 'uw-t07-cap-rates', 'submarket-t08-walk-away'],
+          },
+        ],
         deepDive: [
           'The Rescia underwriting model walk-through — every assumption defended.',
           'Stabilized vs as-is NOI — why the difference is where deals live or die.',
           'The exit cap rate trap and how to set it honestly.',
         ],
-        quiz: [],
-        mistakes: [],
+        quiz: [
+          {
+            q: 'An OM shows T-12 NOI of $1.85M. Pulling actuals, you find a $90K one-time insurance refund and a $50K one-time tax appeal credit baked into the T-12. What is your underwriting NOI?',
+            a: '$1.71M — back out one-time items to get to the actual run rate.',
+            why: 'One-time items inflate T-12 above true run rate. The $140K of one-time items represents 7.6% of the headline NOI. Underwriting from $1.85M would value the deal $2.4M too high at a 5.25% cap. Backing them out gives you the honest as-is NOI.',
+            trap: '"It is on the T-12, so it counts." Wrong. T-12 includes one-time items by accounting convention, but the operating reality is the recurring run rate. Operators who skip normalization buy at 5-10% premium to true value.',
+            topicId: 'uw-t02-as-is-noi',
+            difficulty: 'application',
+            choices: [
+              '$1.85M — the T-12 is the T-12',
+              '$1.71M — back out one-time items to get to the actual run rate',
+              '$1.78M — average the T-12 with T-3 annualized',
+              '$1.92M — the broker said stabilized was higher',
+            ],
+            correctIndex: 1,
+          },
+          {
+            q: 'Your underwrite shows entry cap 5.50%, exit cap 5.25% (you assumed cap compression), 3% rent growth, 14% levered IRR. The deal is in a Sun Belt submarket with 4% supply growth incoming over 24 months. What is the most likely problem?',
+            a: 'Modeling cap compression in a market with strong supply growth is hopeful, not analytical.',
+            why: '4% supply growth incoming usually widens cap rates as exit-time buyers price the supply risk. Modeling cap compression in that environment requires a specific macro thesis — Fed cuts rates aggressively, the supply absorbs faster than expected, etc. Without that thesis, your 14% IRR is dependent on a cap rate move that contradicts the supply read.',
+            trap: 'Operators sometimes model cap compression to get the deal to pencil at the asking price. This is reverse-engineering the model to support an LOI you already wanted to submit. The honest move is exit cap >= entry cap unless you have explicit thesis.',
+            topicId: 'uw-t07-cap-rates',
+            difficulty: 'operator',
+            choices: [
+              'Rent growth assumption is too low',
+              'Modeling cap compression in a market with strong supply growth is hopeful, not analytical',
+              'IRR threshold should be 18%+ for any deal',
+              'Hold period is too short',
+            ],
+            correctIndex: 1,
+          },
+          {
+            q: 'Your bear case underwrite (0% rent growth, 11% vacancy, +75bps exit cap, 5% expense growth) produces a -1.5% levered IRR with a year-3 capital call. Your base case is 13.5% IRR. What should you do?',
+            a: 'Pass — bear case negative IRR with capital call risk means the deal is structurally too levered or too sensitive to weak assumptions.',
+            why: 'The bear case threshold is positive levered IRR (above 4%) and zero capital call risk. This deal fails both. The base case looks good, but most underperforming deals had positive base cases. The bear case is where deals get killed before they kill you.',
+            trap: '"The bear case is too pessimistic — it will not actually happen." Sometimes that is true. But the bear case is the protection you build against the cycle that does happen, even if it is unlikely. Operators who pass deals that fail bear case outperform operators who close them, across full cycles.',
+            topicId: 'uw-t10-bear-case',
+            difficulty: 'operator',
+            choices: [
+              'Submit LOI — base case is strong',
+              'Submit LOI at a lower price to fix the bear case',
+              'Pass — bear case negative IRR with capital call risk means the deal is structurally too levered or too sensitive to weak assumptions',
+              'Reduce leverage to 60% LTV and re-run',
+            ],
+            correctIndex: 2,
+          },
+          {
+            q: "Your seller's T-12 expense line shows $4,200/door on a B-class deal. Your underwrite arrives at $5,150/door year-1. The biggest single contributor to the gap is a $320/door increase. Which expense category is most likely?",
+            a: 'Property tax reassessment to your purchase price.',
+            why: 'Property taxes reassess to purchase price in most jurisdictions, typically 30-60% above the seller\'s basis. On a $33M purchase with seller\'s tax basis at $20M, the reassessment alone can add $250-400/door. It is the single biggest expense surprise on most underwrites and is mechanical — once you know your jurisdiction\'s reassessment rules, you can model it precisely.',
+            trap: 'Operators sometimes assume the seller\'s tax line carries forward. It does not. The first quarterly tax bill after close shows the new assessed value, often before lease-up has even completed.',
+            topicId: 'uw-t05-expenses',
+            difficulty: 'application',
+            choices: [
+              'Insurance premium increases',
+              'Property tax reassessment to your purchase price',
+              'Payroll wage inflation',
+              'Management fee adjustment',
+            ],
+            correctIndex: 1,
+          },
+          {
+            q: "Your underwriting model produces asset IRR 14.0%, LP IRR 11.2%, GP IRR 22.5%. Pref is 8%, catch-up is to 20% of total profit, splits are 80/20 below 15% IRR and 70/30 above. What does this tell you?",
+            a: 'The deal is structurally fine — LPs hit pref + modest promote, GP earns honest catch-up, and asset IRR delivers acceptable returns. The waterfall is doing its job.',
+            why: 'LP IRR of 11.2% comfortably exceeds the 8% pref, meaning LPs are getting their preferred return plus a modest promote layer. GP IRR of 22.5% comes primarily from the catch-up tier, which is fair compensation for the operator. Asset IRR of 14.0% is healthy for B-class value-add and falls just below the 15% promote-acceleration tier — meaning the GP earns the catch-up but not the higher 70/30 split.',
+            trap: 'Operators sometimes quote asset IRR (14.0%) to LPs without explaining that LPs receive LP IRR (11.2%). When LPs read their distribution statements and see 11.2%, they feel mis-sold. Always quote LP IRR in LP-facing materials.',
+            topicId: 'uw-t09-waterfall',
+            difficulty: 'operator',
+            choices: [
+              'The waterfall is too generous to the GP',
+              'The deal is structurally fine — LPs hit pref + modest promote, GP earns honest catch-up, and asset IRR delivers acceptable returns. The waterfall is doing its job.',
+              'The pref is too low — should be 10% to compensate for risk',
+              'The deal will not close — LP IRR below 12% is unacceptable',
+            ],
+            correctIndex: 1,
+          },
+        ],
+        mistakes: [
+          {
+            trap: 'Treating the underwriting model as a forecast instead of a defense system.',
+            why: 'Operators who model deals as predictions get attached to their numbers and stop pressure-testing. The model is supposed to tell you which assumptions are load-bearing — not predict the future. When the deal underperforms, a model built as a defense system tells you which input was wrong; a model built as a forecast just embarrasses you.',
+            fix: 'Build every model with formula-driven inputs, every output traceable to specific assumptions. Document each assumption with a one-line rationale. At variance review, you should be able to say "rent growth came in at 1.2% vs our 3% assumption — that explains 60% of the NOI gap" within ten minutes. If you cannot, your model was a forecast.',
+            topicId: 'uw-t01-model-architecture',
+          },
+          {
+            trap: 'Underwriting from pro forma stabilized NOI instead of building stabilized from your own assumptions.',
+            why: "The broker's stabilized NOI is the seller's pitch — every assumption optimized for the marketing narrative. It blends 24 months of value-add growth into a year-1 number, assumes expense efficiencies without operational basis, and ignores tax reassessment. Underwriting from pro forma is the most expensive shortcut in multifamily — operators routinely overpay 5-10% by using the broker's stabilized as the input.",
+            fix: "Build stabilized NOI yourself from three honest inputs: rent growth assumptions defended quarter-by-quarter, expense growth at 2-3% annual with explicit reassessment math, and lease-up timing modeled against the renewal calendar. Compare your number to the broker's. If your stabilized is 8-15% above as-is and the broker's is 25%+ above, the broker is hoping. You are underwriting.",
+            topicId: 'uw-t03-stabilized-noi',
+          },
+          {
+            trap: 'Modeling cap compression at exit without an explicit macro thesis.',
+            why: "Exit cap rates wider than entry is the historical norm — cycles widen, supply absorbs, rates rise. When operators model cap compression (exit cap below entry), they are usually reverse-engineering the model to make the deal pencil at the asking price. The 50bps of cap compression converts to roughly 6-9% of headline price — meaningful enough to make a deal look like it works when it does not.",
+            fix: 'Default to exit cap 25-50bps wider than entry. Only model cap compression when you have an explicit, defensible thesis: Fed rate path expectation, supply absorption math, or rent growth that compresses cap rates structurally. Document the thesis in the model. Run sensitivity that flexes exit cap +/- 50bps and stare at the IRR distribution. Deals dependent on cap compression are macro bets dressed as real estate.',
+            topicId: 'uw-t07-cap-rates',
+          },
+          {
+            trap: 'Skipping the bear case or running it too kindly.',
+            why: 'The bear case is what protects you from the cycle that does happen. Operators who pass deals that fail bear case outperform operators who close them, across full cycles. The bear case rent growth should be 0% or negative, not +1%. The bear case exit cap should be 75bps wider, not 25bps. The bear case vacancy should reflect both economic vacancy and tenant-walk risk on rent push. A bear case that is too kind is no bear case at all.',
+            fix: "Set the bear case threshold: positive levered IRR (above 4%) and zero capital call risk. Flex rent growth to 0% Y2-3 and -1% Y4. Flex vacancy to 10-12%. Flex exit cap to +75bps from entry. If the deal fails this threshold, pass — even when the base case looks great. The deals that survive bear case discipline are the ones that survive the next downturn. The deals that don't survive bear case are the ones that didn't survive the last one.",
+            topicId: 'uw-t10-bear-case',
+          },
+        ],
       },
       {
         id: 'stress',
