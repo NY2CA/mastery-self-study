@@ -958,20 +958,264 @@ export const COURSES: Course[] = [
           },
         ],
       },
+      // ═══════════════════════════════════════════════════════════════════
+      // MODULE 4 · Stress Testing & CapEx — full content (Wave SS-2.7)
+      // ═══════════════════════════════════════════════════════════════════
       {
         id: 'stress',
         title: 'Module 4 · Stress Testing & CapEx',
         duration: '2.5 hrs',
         description:
-          'Sensitize for the bad case. Price the deferred maintenance accurately. The downside scenarios that separate operators who survive a cycle from operators who do not.',
-        topics: [],
+          'Sensitize for the bad case. Price the deferred maintenance accurately. The downside scenarios that separate operators who survive a cycle from operators who do not — applied through four stress tests and a CapEx audit.',
+        topics: [
+          // ── Topic 1 ──────────────────────────────────────────────
+          {
+            id: 'stress-t01-four-scenarios',
+            title: 'Stress testing · the four scenarios that matter',
+            summary:
+              "Most deals look fine in the base case. Stress testing is the discipline of asking what happens when the base case doesn't. Four scenarios should pressure-test every underwrite.",
+            body:
+              "The base case underwrite tells you what a deal might do if everything goes roughly to plan. The stress tests tell you what happens when the world doesn't cooperate. Operators who close deals across cycles run all four:\n\n**1. Rent stress.** Hold rent growth at 0% for the full hold. Then run -1% to -2% rent growth in years 2-3 — what happens during a Sun Belt absorption-cycle correction. Compare IRR.\n\n**2. Vacancy stress.** Push economic vacancy from your base case 7% to 11-13%. Concessions deepen. Bad debt rises. The tenant pool gets pickier. Lease-up extends.\n\n**3. Cap rate stress.** Flex exit cap +50bps and +100bps from your base case. The +100bps scenario is what happens during a real cycle — 2008-09, 2022-23. If your IRR turns negative at +100bps cap widening, your deal is too levered for cycle survival.\n\n**4. Combined stress.** Run rent stress + vacancy stress + cap rate stress simultaneously. This is the bear case from Module 3, Topic 10. The deal must produce at minimum positive levered IRR and zero capital call risk under combined stress, or it isn't ready for LOI.\n\nThe pattern operators miss: testing one variable at a time and ignoring how they correlate. Real downturns hit all three at once. Rents flatten because supply outran absorption. Vacancy rises because tenants walk to cheaper alternatives. Cap rates widen because debt costs more and risk premium expands. The combined scenario is the only one that mirrors a real cycle.\n\nThe discipline isn't pessimism. It's building a deal that survives reality, not just the marketing pitch.",
+            example:
+              "Tampa 168-unit, 2023 evaluation. Base case IRR: 15.1%. Single-variable stress: rent at 0% → 11.4%, exit cap +50bps → 11.8%, vacancy 11% → 12.2%. Combined stress (all three): 4.8% IRR with no capital call. The deal cleared our bear case threshold. Same week, a Tucson deal: base case IRR 13.8%, but combined stress produced -2.1% IRR with year-3 capital call risk. We submitted Tampa, passed Tucson. Two years later Tucson rents in submarket were down 4%.",
+            pitfalls: [
+              'Testing single variables in isolation — they correlate during real cycles.',
+              'Treating stress tests as compliance ("we ran the numbers") rather than decision input.',
+              "Setting stress thresholds too kindly — 1% rent growth in stress is basically base case.",
+              'Skipping the combined scenario because one-at-a-time stress shows the deal "passes."',
+              "Believing the base case is the realistic outcome — base cases are by definition the most-likely outcome, not the only outcome.",
+            ],
+            related: ['stress-t02-rent', 'stress-t04-cap-rate', 'stress-t07-capital-call', 'uw-t10-bear-case'],
+          },
+
+          // ── Topic 2 ──────────────────────────────────────────────
+          {
+            id: 'stress-t02-rent',
+            title: 'Rent stress · 0% growth and the absorption-cliff scenario',
+            summary:
+              'Rent growth is the single largest IRR driver in most underwrites. Stressing it to 0% (and worse) tells you whether your returns come from the deal or from market gravity.',
+            body:
+              "Multifamily underwriting models lean heavily on rent growth assumptions. A 5-year hold at 3% annual rent growth produces meaningfully higher IRR than the same hold at 0%. The question stress testing answers: what fraction of your IRR depends on rent growth happening?\n\nThree rent stress scenarios to run:\n\n**0% rent growth for the full hold.** Year 1, year 2, year 3, year 4, year 5 — flat. No push at renewals, no market lift. This is the 'absorption cliff' scenario where new supply absorbs the rent growth before it reaches your operator. Model it.\n\n**-1% rent growth in years 2-3.** Real cycles produce real rent declines. Phoenix West Valley dropped 2-3% in 2024 as 2022-2023 supply hit. Atlanta dropped similarly. Sun Belt softness is part of the modern multifamily reality. Underwrite the possibility.\n\n**-2% rent growth in year 3 only, recovery in years 4-5.** A milder version — one bad year mid-hold, then recovery. Tests whether your IRR can absorb a single rough year without breaking.\n\nWhat matters in interpretation:\n\nIf your IRR delta from base case to 0% rent growth is small (1-2 percentage points), your deal isn't a rent growth bet — it's a basis play or value-add execution. Good. That's structural.\n\nIf your IRR delta is large (4-7 percentage points), your deal IS a rent growth bet. That's not automatically bad — but you need to be honest that you're betting on the macro, and the deal's basis isn't doing the heavy lifting. Operators who dress rent growth bets as basis plays buy the wrong deals.\n\nThe framing question: if rents don't grow, does this deal still pencil? If yes, it's structurally sound. If no, you're underwriting hope.",
+            example:
+              "Plano 192-unit deal, 2024. Base case rent growth 3%, IRR 15.4%. At 0% rent growth IRR drops to 9.8% — a 5.6-point delta. Rent growth was carrying about a third of the IRR. We accepted the risk because the deal also had basis 12% below replacement cost, which softens rent dependency. Same week, a Mesa deal had base case 16.2% IRR, but at 0% rent growth dropped to 7.1% — a 9.1-point delta. That deal was a rent growth bet wearing a value-add costume. We passed.",
+            pitfalls: [
+              'Setting "stress" rent growth at 1.5% (still positive — that\'s base case lite, not stress).',
+              "Ignoring the absorption-cliff math when supply pipeline is high in your submarket.",
+              "Not running -1% or -2% scenarios — real cycles produce real declines.",
+              "Failing to attribute IRR to rent growth — operators don't realize how much of their model rests on it.",
+              'Anchoring on the base case as "realistic" without checking how fragile the realism is.',
+            ],
+            related: ['stress-t01-four-scenarios', 'submarket-t01-three-reads'],
+          },
+
+          // ── Topic 3 ──────────────────────────────────────────────
+          {
+            id: 'stress-t03-vacancy',
+            title: 'Vacancy stress · the lease-up risk',
+            summary:
+              'Base case vacancy at 7% is comfortable. Stress vacancy at 11-13% reveals whether your deal can absorb a lease-up cycle, a renewal walk, or a soft year.',
+            body:
+              "Vacancy is the most underestimated risk in multifamily underwriting. The base case usually models 6-8% economic vacancy — fine for stable operations in a healthy submarket. Stress testing pushes that to 11-13% to see what happens when the operating environment tightens.\n\nThree vacancy stress scenarios:\n\n**Elevated economic vacancy throughout.** Push from 7% base to 12% across the full hold. That includes higher physical vacancy, deeper concessions, more bad debt, longer turnover. Model the NOI hit and the IRR consequence.\n\n**Renewal-walk stress.** When you push rents on renewals (your value-add lever), 10-20% of tenants typically walk. In stress, model 25-30% walking. That's the 'rents pushed too hard, market doesn't absorb at the new rate' scenario. Lease-up downtime spikes.\n\n**Lease-up stress on value-add.** Renovation downtime longer than expected (60-90 days vs base case 30-45). Slower lease-up at the new rents. Concessions required to fill renovated units. Model 6-9 months of elevated vacancy during the value-add execution.\n\nWhat you're checking:\n\nThe lease-up cycle is when most operators discover their pro forma was optimistic. Real renovations take longer than modeled. Real tenant walk rates exceed projections. Real concessions on relets are deeper than expected. The vacancy stress tests reveal whether your deal can absorb that reality.\n\nIf your IRR drops 3-5 percentage points under vacancy stress and stays positive, you're structurally fine. If it drops 7+ points or turns negative, the deal is too dependent on smooth lease-up — which never happens.\n\nThe operator's discipline: vacancy assumption in base case is honest (7-8%), vacancy in stress is stretched (11-13%), and the deal must work in both. If it only works in base, you're underwriting an environment, not a deal.",
+            example:
+              "Phoenix 220-unit value-add, 2024. Base case 7.5% economic vacancy, IRR 15.7%. Vacancy stress at 12% (deeper concessions, slower lease-up): IRR drops to 10.3%. Renewal-walk stress (30% walk rate vs 15% base): IRR 9.1%. Combined vacancy + walk stress: 7.4%. All scenarios positive, no capital call risk. The deal absorbed reality. Compared to a Plano deal we evaluated where vacancy stress dropped IRR from 14.2% to 1.8% — that was a deal too leveraged on smooth lease-up. We passed.",
+            pitfalls: [
+              'Using "stabilized vacancy" from the OM as your base case without modeling lease-up vacancy separately.',
+              "Ignoring renewal-walk risk when underwriting rent push — 10-20% walk is normal, 25-30% is stress.",
+              "Skipping renovation downtime on value-add deals — 30-90 days × unit count is real NOI loss.",
+              "Treating the lease-up cycle as a smooth ramp instead of a 6-12 month grind.",
+              "Not capturing concession trail in vacancy stress — concessions extend at the back of cycle even after physical occupancy stabilizes.",
+            ],
+            related: ['stress-t01-four-scenarios', 'uw-t06-vacancy'],
+          },
+
+          // ── Topic 4 ──────────────────────────────────────────────
+          {
+            id: 'stress-t04-cap-rate',
+            title: 'Cap rate stress · the exit-cycle reality',
+            summary:
+              'Exit cap rates widen during cycles. The 5.25% you bought at in 2024 likely exits at 5.75-6.00% in 2029. Stress test +50 to +100bps from your base case exit and see what the deal does.',
+            body:
+              "Cap rate stress is mechanical but easy to skip. Most operators model exit cap 25bps wider than entry. That's reasonable for a stable cycle. It's wishful for any cycle that includes a real correction.\n\nTwo cap rate stress scenarios:\n\n**Exit cap +50bps from base case.** This is the moderate cycle correction. Treasury rates climb 100bps, multifamily cap rates lag but follow. The 5.25% entry cap models out at 5.75% exit — close to the historical 25-50bps widening over a 5-7 year hold during normal cycles.\n\n**Exit cap +100bps from base case.** This is the real cycle correction. 2008-09. 2022-23. The 5.25% entry cap models out at 6.25% exit. Some operators won't model this because it makes the deal look bad. That's the point — testing for the cycle that does sometimes happen.\n\nWhat you're learning:\n\nExit cap drives meaningful IRR variance because of how leverage interacts with valuation. A deal at 5.25% entry / 5.75% exit (50bps widening) loses about 8-10% of its exit value relative to no cap movement. With 70% LTV debt, that 8-10% asset value drop becomes a 25-35% equity value drop.\n\nIf +50bps cap stress drops your IRR 2-3 points and stays positive, you're absorbing normal cycle math. If +100bps stress turns IRR negative or triggers a capital call, your deal is structurally a cap compression bet — even if you didn't model compression in your base case. You're betting cap rates at exit aren't worse than today, and that's a macro bet.\n\nThe discipline: run both stresses. The deal must survive +50bps with positive IRR, and ideally absorb +100bps without a capital call.",
+            example:
+              "DFW 144-unit deal, 2024. Entry cap 5.40%, base case exit 5.65% (+25bps), IRR 14.8%. Cap stress at +75bps (5.90% exit): IRR 11.2%. Cap stress at +125bps (6.40% exit): IRR 7.6%, no capital call. The deal absorbed cycle math. Compare to a Phoenix deal we evaluated: base IRR 15.1%, +75bps cap stress dropped to 5.4%, +125bps stress went negative with year-3 capital call risk. The Phoenix deal was a cap-compression bet wearing a basis-play costume. We passed.",
+            pitfalls: [
+              "Modeling exit cap at base case + 25bps and calling it stress (it's just slightly less optimistic).",
+              "Refusing to run +100bps because it makes the deal look bad — that's the test.",
+              "Forgetting that cap rate widening interacts with leverage — 50bps cap widening = 8-10% asset value drop = 25-35% equity drop at 70% LTV.",
+              'Treating exit cap as "what brokers say comparable assets sell at today" instead of "what they\'ll likely sell at in year 5 of your hold."',
+              'Ignoring submarket-specific cap rate trajectories — markets that lose population, employment, or get oversupplied widen more than market-average.',
+            ],
+            related: ['stress-t01-four-scenarios', 'uw-t07-cap-rates'],
+          },
+
+          // ── Topic 5 ──────────────────────────────────────────────
+          {
+            id: 'stress-t05-deferred-maintenance',
+            title: 'CapEx · the deferred maintenance audit',
+            summary:
+              "Every B-class deal has deferred maintenance the seller didn't disclose. The property condition report (PCR) is your audit tool. Read it line-by-line and price every line.",
+            body:
+              "Deferred maintenance is the silent capex inflater. The seller has been running the property to maximize T-12 NOI — which often means underspending on roofs, HVAC, parking lots, plumbing, and exterior. When you take ownership, the deferred work becomes your year-1 expense.\n\nThe discipline: pull the property condition report (PCR) during DD or pre-LOI if the broker shares it. PCRs are physical inspections of major building systems with cost estimates for current condition vs needed work. They're typically commissioned by the seller for marketing, but they're objective enough to underwrite from.\n\nMajor line items to audit:\n\n**Roof.** Most B-class roofs are 15-25 year-old TPO or modified bitumen. Replacement cost: $8-15/sf depending on size and access. A 144-unit garden style with 250,000 sf of roof = $2.0-3.7M to replace fully. Repair-only is $200-800K depending on condition.\n\n**HVAC.** Per-unit HVAC at $4-7K replacement. If 30% of units have HVAC at end-of-life (PCR will note 'near end of useful life'), that's 43 units × $5,500 = $237K capex.\n\n**Parking lots.** Asphalt repair and seal coat $0.50-1.00/sf. Full mill-and-overlay $2.50-4.00/sf. A property with 80,000 sf of parking and significant cracking might need $200K mill-and-overlay.\n\n**Plumbing.** Galvanized supply lines or polybutylene = potential repipe at $2-4K per unit. The PCR will flag this as a major risk if present.\n\n**Exterior.** Siding, paint, gutters, balcony rails. Deferred maintenance on exterior is highly visible and affects rent push potential.\n\n**Underwriting discipline.** Build a CapEx schedule that captures every major line item from the PCR with cost estimates. That schedule becomes your value-add capex budget. Add a 15-25% contingency. If the broker hasn't shared a PCR, your underwrite assumes deferred maintenance and adds 10-15% to your year-1-3 capex line.",
+            example:
+              "DFW 192-unit acquisition. PCR flagged: roof at end of useful life ($1.4M replacement), 35% of HVAC needing replacement over 24 months ($235K), parking lot needing mill-and-overlay ($165K), exterior paint and trim ($95K). Total capex year 1-3: $1.9M. Add 20% contingency: $2.3M. The seller's pro forma had $400K capex over 24 months — they were planning to defer everything. Our underwrite priced it honestly. Asking was $35M; we LOI'd at $32.7M to absorb the capex reality.",
+            pitfalls: [
+              "Trusting the seller's capex line as the underwrite — the seller's been deferring; your year-1 catches it up.",
+              'Not requesting the PCR — if not shared, assume deferred and add 10-15% to capex.',
+              'Skipping the contingency — capex always runs over budget; 15-25% is normal.',
+              'Treating capex as separate from NOI — vacant units during renovation = NOI loss in addition to renovation cost.',
+              "Failing to phase capex against your debt structure — major capex in year 1-2 against IO debt is much easier than against fully amortizing debt.",
+            ],
+            related: ['stress-t06-reserves', 'uw-t05-expenses'],
+          },
+
+          // ── Topic 6 ──────────────────────────────────────────────
+          {
+            id: 'stress-t06-reserves',
+            title: 'CapEx · ongoing reserves vs renovation budgets',
+            summary:
+              "Two CapEx categories that get conflated: ongoing reserves for routine wear-and-tear, and renovation budgets for the value-add execution. They're different. Underwrite both.",
+            body:
+              "CapEx underwriting has two distinct categories that should never share a line item:\n\n**Ongoing reserves** — the annual capex to keep the property operating. Industry standard: $250-400/door per year for B-class, $150-250/door for A-class, $400-550/door for C-class. This covers routine roof repair, HVAC fixes, plumbing emergencies, parking lot maintenance, appliance replacement, common-area updates. It's the 'boring capex' that lenders require you to reserve for.\n\n**Renovation budgets** — the value-add capex executed in year 1-2. Interior renovations (cabinets, countertops, flooring, paint, lighting), exterior upgrades (paint, landscaping, signage), amenity additions (fitness center, dog park, package room). Each unit interior reno typically runs $5-12K depending on scope.\n\n**Why they're different:**\n\nOngoing reserves keep the property current. They're a permanent operating cost. Modeling them at $0 because 'we just renovated' is wrong — capex doesn't stop at renovation, it just shifts categories.\n\nRenovation budgets are one-time execution costs. They unlock the value-add NOI. But once executed, they don't repeat — the unit is renovated.\n\n**The mistake operators make:**\n\nUnderwriting renovation budget at $8K per unit but skipping ongoing reserves 'because the property will be renovated.' Wrong. Even on a fully renovated property, you'll spend $300+/door annually on roofs, HVAC, plumbing, and ongoing maintenance. That's a separate line item.\n\n**Lender reserves:**\n\nMost lenders require CapEx reserves to be funded at $250-450/door annually, deposited into a reserve account. Your loan documents specify the rate. Treat this as a non-negotiable cost — it hits cash flow even if you don't actually spend it.\n\n**The full CapEx picture:**\n\nYear 1: ongoing reserves ($350/door × 144 = $50K) + renovation budget ($8K/unit × 70 units = $560K). Total $610K. Year 2: similar. Year 3+: ongoing reserves only ($50K). Three-year capex burst: ~$1.2M, then settling to $50K/year.",
+            example:
+              "Mesa 144-unit value-add. Renovation budget: $8K × 144 units = $1.15M phased over 18 months. Ongoing reserves: $325/door × 144 = $46.8K annually. Combined years 1-3 capex: $1.15M renovation + $140K ongoing = $1.29M. The OM's pro forma showed $850K total capex year 1-3 — they were under-budgeting ongoing by $300K. Our number was honest. Year-3 IRR matched our pro forma; theirs would have variance-reported every quarter.",
+            pitfalls: [
+              "Combining ongoing reserves and renovation into one line — the math gets fuzzy and you'll under-reserve for one of them.",
+              "Skipping ongoing reserves 'because we just renovated' — the building still needs ongoing capex.",
+              "Ignoring lender reserve requirements — they're contractual, not optional.",
+              'Underwriting renovation cost at $5K/unit in 2024-2025 — labor and materials cost more than 2018-2020 estimates.',
+              "Treating capex as deferred until cash flow exists — operators who phase capex into year 3-5 to 'fund from operations' usually find operations can't fund it.",
+            ],
+            related: ['stress-t05-deferred-maintenance', 'uw-t05-expenses'],
+          },
+
+          // ── Topic 7 · Live sidebar lives here ─────────────────────
+          {
+            id: 'stress-t07-capital-call',
+            title: 'The capital call risk model',
+            summary:
+              'A capital call is when the deal needs equity injection to survive — debt service is at risk, cash flow is negative, the LP base gets a "wire $X by Friday" email. The discipline of stress testing is detecting this risk before LOI.',
+            body:
+              "Capital calls happen when operating cash flow is insufficient to cover debt service, capex commitments, and reserves. The deal needs a fresh equity injection from the existing investor base. Operators who close LOIs without modeling capital call risk discover it 18-30 months in, at which point the LP base is already disillusioned.\n\nThe mechanics:\n\nA levered multifamily deal has roughly three obligations: monthly debt service (interest + amortization), capex execution (renovation budget on a value-add), and operating cash needs (insurance premiums, property taxes, payroll). Operating cash flow has to cover all three. When it doesn't, equity has to.\n\nThe triggers:\n\n**Debt service > NOI.** The most common trigger. NOI underperforms (rent growth flattens, vacancy spikes), but debt service is fixed by the loan amortization schedule. Once NOI drops below debt service, every month is a cash drain.\n\n**Renovation overruns.** Capex came in 30% over budget. Cash reserves get depleted. The renovation has to be paused (which slows lease-up further) or funded with new equity.\n\n**Refinance failure.** Year-3 or year-5 refinance doesn't clear because the deal's NOI doesn't support new debt at then-current rates. The bridge loan matures, the new loan is short by $3-5M, and the equity has to plug the gap.\n\n**Cycle correction at exit.** You planned to sell in year 5 at 5.50% cap. The market is now 6.25%. You can sell at the lower price (and call capital to make LPs whole if returns are below pref) or hold and pay incremental debt service while waiting.\n\n**Detection in the model:**\n\nRun combined stress test (rent + vacancy + cap rate). At each year, compute: NOI ÷ debt service. If this ratio drops below 1.10 in any year of the hold, you have capital call risk. If it drops below 1.00, you have a near-certain capital call.\n\nAlso model refinance at year 3-5 under stress. If your stressed NOI doesn't qualify for the loan you assumed, model the equity gap explicitly.\n\nIf the deal can't survive combined stress without a capital call, pass. Period.\n\n---\n\n**◆ Mastery Live members workshop this on a real deal.**\n\nThe capital call risk model is where coaching saves the most money. Self-Study gives you the framework. Live members bring their actual stress tests to a monthly call and Diva and Lou pressure-test the assumptions with them — surfacing where the bear case isn't bear enough, where the refinance assumption is fragile, where the model is hiding a year-3 capital call. The frameworks are the same. The difference is having a seasoned operator across the table when your model says 'marginal' and you're trying to decide whether to commit $1M of LP capital to it.",
+            example:
+              "Tucson 200-unit deal, 2022 evaluation. Base case IRR 12.4%. Combined stress (0% rent growth, 12% vacancy, +75bps exit cap): IRR -1.8%, year-3 NOI/debt service ratio 0.94 — capital call. Year-5 refinance: stressed NOI didn't support the assumed loan amount; equity gap modeled at $4.2M. We passed. Two years later, the buyer who closed at the asking price is now in workout — exactly the capital call scenario the stress model flagged. The discipline saved us $4M+ of LP capital exposure.",
+            pitfalls: [
+              "Skipping the NOI / debt service ratio check in stress — it's the single best capital call indicator.",
+              'Modeling refinance at base-case NOI without checking stressed NOI qualification.',
+              'Treating "we\'ll sell early if needed" as a risk mitigant — early sales in down markets compound losses.',
+              "Believing your operations excellence will save a structurally fragile deal — capital calls don't happen because the operator was bad; they happen because the deal was structurally too levered.",
+              'Not modeling the equity gap explicitly when stress shows refinance failure — vague hand-waving instead of dollar amounts.',
+            ],
+            related: ['stress-t01-four-scenarios', 'stress-t04-cap-rate', 'uw-t10-bear-case'],
+          },
+        ],
         deepDive: [
           'The four stress tests every deal must pass before LOI.',
           'Pricing deferred maintenance from a property condition report — line-by-line.',
           'Cap-ex reserves: why under-budgeting here is the most common operator mistake.',
         ],
-        quiz: [],
-        mistakes: [],
+        quiz: [
+          {
+            q: 'Your underwrite passes single-variable stress on rent (-1% growth: 11.4% IRR), vacancy (12%: 12.2% IRR), and exit cap (+75bps: 11.8% IRR). Combined stress (all three at once): IRR 4.8% with positive cash flow throughout. What is the right read?',
+            a: 'Submit LOI — deal absorbs combined stress with positive IRR, no capital call.',
+            why: 'The bear case threshold is positive levered IRR (above 4%) and zero capital call risk. This deal hits 4.8% IRR under combined stress with positive cash flow. That clears the threshold. The deal is structurally sound through real cycle math.',
+            trap: 'Operators sometimes assume "if the combined stress is below 8% IRR, the deal is no good." But the threshold is 4% positive, not 8%. A deal that produces 4.8% IRR under bear case AND 15% IRR under base case is delivering meaningful upside with downside protection.',
+            topicId: 'stress-t01-four-scenarios',
+            difficulty: 'operator',
+            choices: [
+              'Pass — combined IRR below 6% is too thin',
+              'Submit LOI — deal absorbs combined stress with positive IRR, no capital call',
+              'Submit LOI but only at lower price',
+              'Walk away — three single-variable stress passes is a red flag',
+            ],
+            correctIndex: 1,
+          },
+          {
+            q: 'Base case rent growth is 3% annual, IRR 16.2%. Stress at 0% rent growth: IRR drops to 7.1%. What is the diagnosis?',
+            a: 'The deal is a rent growth bet — 9.1-point IRR delta means most returns come from market lift, not the deal itself.',
+            why: 'A 9-point IRR delta from rent growth alone means about 60% of the IRR depends on the rent growth assumption holding. Without rent growth, the deal delivers 7.1% — barely above pref. The operator is underwriting market gravity, not deal-specific value-add or basis advantage.',
+            trap: 'New operators see 16.2% base case IRR and assume the deal is strong. They miss that the IRR is fragile to assumptions outside their control. A deal where rent growth carries most of the IRR is structurally a macro bet — not a real estate deal.',
+            topicId: 'stress-t02-rent',
+            difficulty: 'operator',
+            choices: [
+              'Strong deal — base case is high',
+              'The deal is a rent growth bet — 9.1-point IRR delta means most returns come from market lift, not the deal itself',
+              'Acceptable — even stressed IRR is positive',
+              'Run vacancy and cap rate stress before deciding',
+            ],
+            correctIndex: 1,
+          },
+          {
+            q: 'A 5-year hold deal at 5.40% entry cap, base case exit 5.65%. At +100bps exit cap stress (6.40% exit), IRR turns negative with year-3 capital call risk. What is the right action?',
+            a: "Walk away — deal can't survive a real cycle correction.",
+            why: "Cap rate +100bps is what real cycles produce — 2008, 2022. If your IRR turns negative at that scenario with capital call risk, the deal can't survive a real cycle. Lowering price might absorb some of the stress, but at the price the seller would accept, the deal still likely has fragile economics. The disciplined call is to pass and wait for a deal that survives.",
+            trap: '"But the base case IRR is 14% — that\'s strong." The base case is the world that goes well. Stress tests are the world that does not. A deal that requires the world to go well to deliver returns is not a real estate deal — it is a directional macro bet.',
+            topicId: 'stress-t04-cap-rate',
+            difficulty: 'operator',
+            choices: [
+              'Submit LOI — base case is healthy',
+              'Submit LOI at lower price to absorb cap stress',
+              "Walk away — deal can't survive a real cycle correction",
+              'Reduce leverage to 60% LTV and resubmit',
+            ],
+            correctIndex: 2,
+          },
+          {
+            q: 'An OM shows Year 1-3 capex at $850K on a 144-unit value-add deal. The PCR (property condition report) flags roof at end of useful life and 35% of HVAC needing replacement. Your honest underwrite of capex year 1-3:',
+            a: 'Build from PCR line by line + ongoing reserves + 20% contingency, likely $1.5-1.9M.',
+            why: "The OM's $850K reflects the seller's pro forma — typically excluding deferred maintenance and ongoing reserves. The PCR tells you what's actually needed. Roof at $1.4M replacement plus 35% × 144 × $5K HVAC ($250K) plus ongoing reserves ($150K) plus contingency easily lands $1.5-1.9M. This is how operators discover their capex was 80-100% under-budgeted at variance review.",
+            trap: "Operators trust the OM's capex line because it's an objective-looking number. It's not — it's the seller's pitch. The PCR is the audit tool. Every line item from PCR + ongoing reserves + 15-25% contingency is the honest number.",
+            topicId: 'stress-t05-deferred-maintenance',
+            difficulty: 'application',
+            choices: [
+              "$850K — accept the OM's number",
+              '$850K + 15% contingency = $978K',
+              'Build from PCR line by line + ongoing reserves + 20% contingency, likely $1.5-1.9M',
+              '$1.0M flat for safety',
+            ],
+            correctIndex: 2,
+          },
+          {
+            q: 'Combined stress test (rent + vacancy + cap rate) shows year-3 NOI / debt service ratio of 0.94. What does this signal?',
+            a: "Capital call risk — NOI below debt service means equity has to fund the gap.",
+            why: "NOI / debt service ratio below 1.0 means operating income can't cover debt service. The shortfall has to be funded by reserves (if any) and then by capital call to LPs. Year-3 0.94 ratio is a near-certain capital call in a year where stress conditions hold. Even if other years are above 1.0, year-3 alone triggers the capital call event — and once you've called capital, LP trust is permanently affected.",
+            trap: 'Operators sometimes see "ratio just slightly below 1.0" and assume cash reserves cover it. That\'s true once. But stress conditions don\'t last one year — they typically span 18-36 months. A 0.94 ratio in year 3 is usually accompanied by sub-1.0 ratios in years 2 or 4. Reserves run out. Capital call follows.',
+            topicId: 'stress-t07-capital-call',
+            difficulty: 'operator',
+            choices: [
+              'Marginal but acceptable — ratio above 0.85 is fine',
+              'Capital call risk — NOI below debt service means equity has to fund the gap',
+              'Refinance opportunity — restructure to lower debt service',
+              'Acceptable if other years are above 1.0',
+            ],
+            correctIndex: 1,
+          },
+        ],
+        mistakes: [
+          {
+            trap: 'Treating stress test as compliance theater.',
+            why: 'Stress testing is supposed to be a decision input, not a compliance check. Operators who run stress tests as a box-check ritual eventually buy deals that fail under cycle conditions. The point of running the test is to actually let the result change the LOI decision.',
+            fix: 'Set explicit thresholds before you run the test. Combined stress IRR must be above 4% AND no capital call. If the deal fails the threshold, pass. Period. Do not rationalize ("the bear case is too pessimistic"). The threshold is the protection.',
+            topicId: 'stress-t01-four-scenarios',
+          },
+          {
+            trap: 'Underbudgeting CapEx by skipping the PCR.',
+            why: "Sellers' capex pro forma reflects what they spent during their hold (which was likely deferred). Buyers inherit deferred maintenance as year-1 expense. Operators who skip the PCR audit find their actual year-1 capex 80-150% above their underwrite. That hits cash flow, hits IRR, and on stressed deals can trigger capital calls.",
+            fix: "Always pull the PCR. If the seller hasn't commissioned one, commission your own during DD. Build capex from PCR line items: roofs, HVAC, plumbing, parking, exterior, interior. Add 15-25% contingency. Add ongoing reserves separately. Don't combine the two categories.",
+            topicId: 'stress-t05-deferred-maintenance',
+          },
+          {
+            trap: 'Single-variable stress instead of combined.',
+            why: 'Real cycles correlate the variables. Rent flattens because supply outran absorption. Vacancy rises because tenants walk to cheaper alternatives. Cap rates widen because risk premium expands. The single-variable stress tests do not model this correlation. Combined stress does.',
+            fix: 'Always run combined stress as the final test. Hold rent at 0%, vacancy at 11-13%, exit cap +75bps. The deal must survive combined stress, not just each variable in isolation.',
+            topicId: 'stress-t01-four-scenarios',
+          },
+          {
+            trap: 'Forgetting that ongoing reserves continue after renovation.',
+            why: "Renovation is one-time execution capex. Ongoing reserves are permanent operating cost. Even on a fully renovated property, you'll spend $250-400/door/year on roofs, HVAC, plumbing, and ongoing maintenance. Operators who under-reserve discover at year 4-5 that their cash flow is consumed by capex they did not model.",
+            fix: 'Always carry ongoing reserves at $300-400/door (B-class) or $250-300/door (A-class) annually for the entire hold, in addition to the renovation budget. Lender reserve requirements specify the minimum. Treat both as permanent operating costs.',
+            topicId: 'stress-t06-reserves',
+          },
+        ],
       },
       {
         id: 'debt',
