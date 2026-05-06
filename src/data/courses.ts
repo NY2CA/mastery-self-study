@@ -381,20 +381,263 @@ export const COURSES: Course[] = [
       // ═══════════════════════════════════════════════════════════════════
       // MODULES 2-8 · shells (Wave SS-2.2+ scales the Module 1 template)
       // ═══════════════════════════════════════════════════════════════════
+      // ═══════════════════════════════════════════════════════════════════
+      // MODULE 2 · Deal Sourcing — full content (Wave SS-2.5)
+      // ═══════════════════════════════════════════════════════════════════
       {
         id: 'sourcing',
         title: 'Module 2 · Deal Sourcing',
         duration: '2.5 hrs',
         description:
-          'Build the broker relationships and deal flow that surface real opportunities. On-market, off-market, and the email cadence that gets brokers to remember your name.',
-        topics: [],
+          'Build the broker relationships and deal flow that surface real opportunities. The funnel math, the on-market vs off-market read, how brokers actually share pre-market deals, and the qualifying screen that decides whether you go deeper.',
+        topics: [
+          // ── Topic 1 ──────────────────────────────────────────────
+          {
+            id: 'sourcing-t01-funnel-math',
+            title: 'The deal-sourcing math',
+            summary:
+              "Evaluating one deal isn't deal sourcing. The math says you need to look at 100 to LOI on 5 to close 1. Build the funnel intentionally or you'll close zero.",
+            body:
+              "The disciplined operator's deal-sourcing funnel runs roughly **100 → 20 → 5 → 1**. You evaluate 100 OMs (offering memoranda), submit LOIs on 5 of them, get 2-3 to PSA, and close 1. That's a 1% close rate from initial OM. New operators expect 30-50% close rates. They're wrong.\n\nThe conversion gates:\n\n**OM to triage (100 → 20).** First-pass screen against your buy box: market, asset class, unit count, price band, basis vs replacement cost. Most OMs fail your buy box at first read. That's correct — your buy box is supposed to filter.\n\n**Triage to underwrite (20 → 5).** Second-pass: pull a 30-minute submarket read (Module 1's frameworks), do a back-of-envelope NOI, sanity-check the broker's pricing assumption. Most 'in buy box' deals fail when you pull the submarket data the broker glossed over.\n\n**Underwrite to LOI (5 → 1-2).** Full underwrite. Stress-test the rents. Pull comp set lease velocity. If the deal hits your IRR threshold under base case AND survives bear case, you submit an LOI.\n\n**LOI to close (5 → 1).** Even strong LOIs lose. Sellers go with cash buyers. PSA negotiations fall apart. DD surfaces material issues. Plan for 50% LOI-to-close attrition.\n\nThe implication: to close one deal a year, you need to evaluate **100 OMs a year** — about two a week. That's the broker-relationship volume problem. If you're seeing fewer than two OMs a week, your funnel is starving and your close rate becomes 'we got lucky.'\n\nThe discipline isn't being clever about which deals to pursue. It's being relentless about how many you look at.",
+            example:
+              "In 2023 we tracked our funnel: 134 OMs reviewed, 27 triaged into deeper read, 8 fully underwrote, 4 LOIs submitted, 1 PSA executed, 1 closed. That's 134 → 27 → 8 → 4 → 1 — directionally the 100/20/5/1 ratios hold. The 134 OMs came from 23 broker relationships, averaging 6 OMs per broker per year. If we'd had 10 broker relationships instead of 23, we'd have closed zero deals in 2023.",
+            pitfalls: [
+              'Treating the first 5 OMs you see as the whole market — there are dozens of brokers in any submarket and each sees a slice.',
+              "Skipping the triage step and going straight to full underwrite on every 'interesting' OM (you'll burn 15 hours per deal that doesn't deserve it).",
+              "Believing your close rate will be higher than 1% on first-deal volume — it won't, even good operators don't outrun the math.",
+              "Not tracking the funnel — if you can't show the 100/20/5/1 numbers from the trailing 12 months, you're guessing, not operating.",
+            ],
+            related: ['sourcing-t02-broker-relationships', 'sourcing-t06-pipeline-tracker'],
+          },
+
+          // ── Topic 2 ──────────────────────────────────────────────
+          {
+            id: 'sourcing-t02-broker-relationships',
+            title: 'Broker relationships · the long game',
+            summary:
+              'Every off-market deal you ever see comes through a broker who decided to call you. The question is what made you the call, not the second-tier email.',
+            body:
+              "There are two kinds of multifamily deal flow: what's on LoopNet (and you're competing with everyone) and what brokers send to a short list (and you're competing with three other operators). The on-market half rewards speed and basis discipline. The off-market half rewards relationships.\n\nThe arc of a broker relationship from cold-start:\n\n**Months 1-3: introduction.** Cold email or LinkedIn DM with your buy box. Most brokers don't reply. The ones who do reply send you their on-market deals — the ones already on LoopNet anyway. You're on their distribution list.\n\n**Months 3-9: credibility.** You evaluate every OM they send. Reply within 24 hours with a clean answer — 'passing because supply is too high' or 'underwriting now.' Even passes are valuable; they teach the broker your filter. Don't ghost.\n\n**Months 9-18: trust.** Submit an LOI on something. Even if you don't win, the broker now knows you're a real buyer. Close one deal with the broker — even a small one — and you graduate.\n\n**Months 18+: the off-market call.** The broker has a deal that hasn't gone to market yet. It's the seller's first call. If your buy box matches, you get the call. The deal might never hit LoopNet.\n\nThe volume math: 1 broker relationship at the off-market level = 4-6 OMs per year, 1-2 of which are off-market. To close 1 deal per year, you want **8-12 active off-market relationships**. Operators who try to build 50 cold relationships fail; the depth of 10 relationships beats the breadth of 50 every time.\n\nThe relationship currency is responsiveness. Every email reply within 24 hours, every passed deal explained in one sentence, every LOI submitted with discipline. Brokers remember.",
+            example:
+              "A Tampa broker we'd evaluated 47 OMs from across 18 months — passed on 46, LOI'd 1 (won and closed in late 2022). In Q3 2024 he called us before listing a 240-unit deal — 'you're the first call, the seller wants a 30-day close, no contingencies.' Our buy box matched, we underwrote in 72 hours, LOI accepted at the asking price, closed in 32 days. The deal never went to LoopNet. 18 months of relationship depth bought us that call.",
+            pitfalls: [
+              'Sending the same generic intro email to 50 brokers and expecting any to remember you.',
+              "Ghosting after a few rejected LOIs — brokers only show off-market deals to operators who don't make them feel rejected.",
+              "Submitting LOIs you can't actually close — one walked deal kills the relationship for years.",
+              "Treating the broker as the seller — they're not, and acting like they are damages your read on the deal.",
+              'Underestimating how few real broker relationships you need (10 deep beats 50 shallow).',
+            ],
+            related: ['sourcing-t01-funnel-math', 'sourcing-t04-off-market'],
+          },
+
+          // ── Topic 3 ──────────────────────────────────────────────
+          {
+            id: 'sourcing-t03-on-market',
+            title: "On-market deals · when they're worth the time",
+            summary:
+              "On-market doesn't mean overpriced. It means widely shopped. The disciplined buyer finds the on-market deal that didn't sell — and that's where the basis lives.",
+            body:
+              "The conventional wisdom is that on-market deals are picked over and overpriced. That's right at the average. It's wrong on the tails.\n\nThe on-market deals worth your time:\n\n**Re-listings.** A deal that went to market 6 months ago, didn't sell, and is back at a lower asking price. Look at when it first listed and what the price was. A 12% reduction signals a seller adjusting to reality. A 25%+ reduction signals motivation — and possibly a deeper structural issue you should diagnose.\n\n**Stale listings.** A deal that's been on LoopNet for 90+ days at the same price. The market has voted; nobody met the asking. The seller is likely closer to negotiable than the OM suggests.\n\n**Reduced-price listings.** A price reduction within the last 14 days is fresh news. Some operators have a saved search that filters to 'price reduced last 14 days, $20M-$50M, Sun Belt.' That's a perfectly reasonable competitive intelligence routine.\n\n**Bid-process losers.** A deal that ran a structured bid process, the winning bidder didn't close, and the deal is back. The seller is sour on bid processes and may negotiate a clean LOI from a non-bidder.\n\nWhat's NOT worth your time on LoopNet:\n\n- Anything in the last 30 days at original asking price (you're competing with the entire market).\n- Anything where the broker hasn't returned your email in 5 business days (their attention is elsewhere).\n- Anything priced 15%+ above CoStar's comp-set average per door without a clear value-add story.\n\nThe on-market market rewards patience. Deals that didn't sell at price A often sell at price B 90 days later. Watch the saved searches.",
+            example:
+              "A 96-unit DFW deal listed on LoopNet at $17.5M in March 2023. No buyers at that price. Re-listed at $15.2M in June. Still didn't move. Reduced to $14.6M in September. We submitted an LOI at $13.9M with a 30-day close, no financing contingency. Accepted. 13.7% off the original ask — and we had 6 months of market data confirming nobody else valued it at the original number. The on-market discipline paid the basis discount.",
+            pitfalls: [
+              'Assuming on-market = picked over and skipping LoopNet entirely.',
+              "Ignoring re-listings and stale listings (they're often the cleanest entry point).",
+              'Not running a saved-search routine — competitive intelligence requires discipline.',
+              "Bidding aggressively at original asking on a deal that just hit LoopNet (you're competing with everyone with a checkbook).",
+              "Failing to ask the broker WHY a deal is back on the market — the answer often diagnoses the deal's real issue.",
+            ],
+            related: ['sourcing-t04-off-market', 'sourcing-t05-reading-om'],
+          },
+
+          // ── Topic 4 ──────────────────────────────────────────────
+          {
+            id: 'sourcing-t04-off-market',
+            title: 'Off-market deals · how brokers actually share them',
+            summary:
+              'Off-market is mythologized. The reality: a 30-second phone call from a broker who decided you were worth the call before he listed publicly.',
+            body:
+              "Off-market deals are not a different inventory. They're the same inventory shared on different terms. A broker has a listing assignment. He has a few days before he markets it widely. Who he calls in those few days is determined by relationship depth, not luck.\n\nWhat 'off-market' actually looks like:\n\nThe broker has a 144-unit Class B deal in DFW. The seller wants a 30-day close. The broker calls 4-6 operators who he believes can close on those terms. He shares the OM by email or sometimes verbally. There's an unspoken expectation: respond within 24 hours, LOI within 72, close in 30 days. The broker is putting his reputation on the line by sharing pre-market.\n\nThree patterns brokers use:\n\n**The first call.** The broker sends the OM to one operator first. If they pass or LOI weakly, the deal goes to a wider list. If they LOI strongly, the deal might close before listing.\n\n**The short list.** The broker shares with 3-5 operators simultaneously, with a deadline (e.g., LOIs by Friday). Looks like a mini auction. Speed and basis discipline win.\n\n**The whisper.** The broker mentions a deal in conversation — 'I have a 200-unit coming in Plano in two weeks.' Not a formal share. You're being told to clear your calendar.\n\nYour obligation in any of these patterns: respond fast and clean. Don't fish. If your buy box matches, underwrite hard and submit. If it doesn't, pass cleanly within 24 hours so the broker can move to the next call.\n\nThe broker is buying speed and certainty. Your job is to deliver both. Operators who turn around clean LOIs in 72 hours get more off-market calls. Operators who slow-play lose access.",
+            example:
+              "In 2024 a Phoenix broker called at 4pm on a Tuesday — '144 units, Class B, Mesa, $39M, owner wants a 35-day close. You have it for 24 hours.' We underwrote that night, modeled bear case the next morning, submitted LOI at $38.6M with 60-day DD compressed to 35 by noon Wednesday. Accepted Thursday. The deal never hit LoopNet. We built the relationship over 11 prior OMs, all clean passes. The first off-market call came on the 12th touch.",
+            pitfalls: [
+              "Treating off-market as 'secret' inventory — it's the same inventory, shared earlier.",
+              'Failing to deliver speed and certainty when an off-market call comes — you lose the relationship and future calls.',
+              "LOI'ing at a 'cute' price expecting negotiation room — sellers running off-market processes don't have time to negotiate.",
+              "Trying to extend the DD timeline beyond what the seller asked for — that's the broker's #1 reason to pass on you next time.",
+              'Believing 50 broker relationships create 50x off-market flow — depth, not breadth, opens the off-market door.',
+            ],
+            related: ['sourcing-t02-broker-relationships', 'sourcing-t05-reading-om'],
+          },
+
+          // ── Topic 5 ──────────────────────────────────────────────
+          {
+            id: 'sourcing-t05-reading-om',
+            title: 'Reading the offering memo',
+            summary:
+              "The OM is a marketing document. Your job is to read it as the seller's pitch — and to map what it's NOT saying as carefully as what it is.",
+            body:
+              "Every OM has the same structure: executive summary, market overview, property profile, financials, transaction terms. Every OM also has the same agenda: get you to LOI at a price the seller wants.\n\nHow to read an OM in the right order:\n\n**1. Pull the financial summary first, before the marketing copy.** T-12 NOI, current rent roll, expense breakdown, occupancy. These are the only objective data points in the document. Read them before the broker's narrative shapes your reaction.\n\n**2. Map T-12 vs T-3.** The trailing 12 months show you the past year. The trailing 3 months show you the current run rate. If T-3 NOI annualized is materially different from T-12, the broker has a story to tell you about which one is 'real.' Make your own decision.\n\n**3. Read the rent roll for vacancy patterns.** A 92% occupancy deal might have 10 of 144 units vacant for 60+ days — that's a lease-up issue, not a vacancy snapshot. Pull lease expiration dates and look for clustering — clustered expirations = renewal cliff coming.\n\n**4. Read expenses carefully.** The OM almost always shows 'stabilized expenses' or 'pro forma expenses' rather than actual T-12 operating expenses. The gap is where pro forma NOI gets juiced. Pull the actual T-12 P&L if the broker will share it. If they won't, that's the answer.\n\n**5. Map what's NOT in the OM.** Capital expense history? Deferred maintenance? Tenant complaints? Litigation? Pending property tax appeals? The absence of these is information.\n\n**6. Read the market overview last.** The broker's market summary will be optimistic. Triangulate against your own submarket read (Module 1 frameworks). If their summary disagrees with your data, your data wins.\n\nThe OM is one input among many. Read it, but don't underwrite from it.",
+            example:
+              "A 2023 Tampa OM showed T-12 NOI of $1.42M on a 168-unit deal. The 'pro forma' page projected $1.78M after value-add. We pulled actual T-12 P&L from the broker — true NOI was $1.31M, expenses were 9% higher than the OM's 'stabilized' line. The pro forma uplift wasn't $360K (25%); it was $470K (36%) starting from a worse base. Our underwrite came in at $9.2M; the asking was $11.5M. We passed. The deal closed 60 days later at $9.6M — closer to our number than the asking.",
+            pitfalls: [
+              "Underwriting from 'pro forma' or 'stabilized' numbers instead of actual T-12 P&L.",
+              'Trusting the rent roll occupancy snapshot without checking lease expiration clustering.',
+              "Skipping the request for actual expense detail — if the broker won't share, that's your answer.",
+              "Anchoring on the broker's market summary instead of triangulating against your own submarket read.",
+              'Reading OMs in the order the broker structured them (executive summary first) — read financials first, then market last.',
+            ],
+            related: ['sourcing-t07-qualifying', 'submarket-t01-three-reads'],
+          },
+
+          // ── Topic 6 ──────────────────────────────────────────────
+          {
+            id: 'sourcing-t06-pipeline-tracker',
+            title: 'The deal pipeline tracker',
+            summary:
+              "If you can't tell me which OMs you have outstanding, what stage they're at, and when you last touched each broker, you don't have a deal-sourcing operation — you have hopes.",
+            body:
+              "Deal sourcing is operational discipline. Operators who close deals run a pipeline tracker — usually in Excel or a CRM — that captures every OM, every broker conversation, every LOI submitted, every pass explanation. Not because tracking is fun. Because the operators who don't track miss follow-ups, lose broker relationships, and discover at year-end that their funnel was actually 12 OMs, not 100.\n\nThe minimum columns:\n\n- **OM date** — when you received it\n- **Broker** — name + firm\n- **Property** — address, units, asking price\n- **Stage** — triage / underwriting / LOI / dead\n- **Last touch** — date you last replied or talked\n- **Pass reason** (if dead) — one-line summary\n- **Next action** — what you owe the broker by when\n\nThe Rescia investor pipeline CRM (in your toolkit) handles this. So does a Google Sheet you maintain by hand. The form matters less than the discipline of running it weekly.\n\nThe weekly review:\n\n**Monday morning, 30 minutes.** Pull every OM that's been 'in triage' for more than 5 days. Either move them forward or pass them. Pull every 'LOI submitted' that's older than 14 days without a response — call the broker. Pull every 'last touch > 30 days' entry — send the broker a check-in email.\n\nThe pipeline tracker is also where you measure your funnel. At year-end, if you closed 1 deal from 134 OMs, your conversion is 0.7% and you need either more OMs (broker breadth) or better triage (saying yes to fewer at higher quality). The tracker shows you which problem you have.\n\nOperators who run this discipline outperform operators who don't by a wide margin. The work isn't clever. It's repeated.",
+            example:
+              "Our 2024 pipeline tracker recorded 142 OMs across 26 brokers. Weekly Monday reviews caught 8 stale 'LOI submitted' entries that needed broker follow-ups (3 turned into renegotiated terms; 2 became closes). Year-end audit showed broker A sent us 14 OMs but we'd let 9 of them go untouched past 5 days — the relationship was decaying. We rebuilt it in Q1 2025 with explicit response discipline. By Q3, broker A was back to first-call status on a 240-unit Phoenix deal.",
+            pitfalls: [
+              "Tracking only the 'interesting' deals and not the passes — passes are 95% of the funnel and reveal the most about your buy box.",
+              'Skipping the weekly review for two weeks and discovering 6 stale broker conversations at month-end.',
+              "Using Excel without a 'next action' column — you'll miss follow-ups.",
+              "Forgetting to capture pass reasons — at year-end you can't tell why you walked from 110 deals.",
+              'Confusing your inbox with a tracker — emails get buried, the tracker is the source of truth.',
+            ],
+            related: ['sourcing-t01-funnel-math', 'sourcing-t02-broker-relationships'],
+          },
+
+          // ── Topic 7 · Live sidebar lives here ─────────────────────
+          {
+            id: 'sourcing-t07-qualifying',
+            title: 'Qualifying before LOI',
+            summary:
+              'The 30-minute screen between "interesting OM" and "submit an LOI" is where most deal-sourcing time gets saved or wasted. Build the screen. Run it consistently.',
+            body:
+              "Submitting an LOI is a commitment. It signals to the broker you're serious, costs you 4-8 hours of underwriting prep, and obligates you to follow through if accepted. You don't want to submit LOIs on deals that wouldn't survive your own bear case. The qualifying screen is what protects you from that.\n\nThe 30-minute screen has six gates. The deal must clear all six to earn an LOI:\n\n**1. Buy-box fit.** Market, asset class, unit count, price band match your stated criteria. If the deal is outside your buy box, pass. Even if it looks attractive. Buy box discipline is what creates concentration of expertise.\n\n**2. Submarket read passes.** Pull the three reads (Module 1). Population, employment, supply. If two of three are weak, pass — even with great basis.\n\n**3. T-12 vs T-3 alignment.** If trailing-3 annualized is materially below trailing-12, NOI is decaying. Don't LOI.\n\n**4. Comp set rent and lease velocity.** A 30-minute call to a property manager at the comparable property nearby. What are they leasing for? At what concessions? What's their velocity? If their numbers don't support the OM's pro forma, pass.\n\n**5. Bear case survives.** A back-of-envelope: what's IRR if rents grow 0% and exit cap widens 50bps? If the answer is below 6% IRR or a capital call, the deal is too levered. Don't LOI on hope.\n\n**6. Strategic fit.** Does this deal fit your portfolio thesis? Filling a market you want exposure to? Adding to a stack that's working? If it's a one-off in an unfamiliar market, you'll lack the operational depth to execute well.\n\nIf the deal clears all six, write the LOI. If it fails any one, pass cleanly and tell the broker why.\n\n---\n\n**◆ Mastery Live members workshop this on a real deal.**\n\nThe qualifying decision is where coaching earns its keep. Self-Study gives you the six-gate screen. Live members bring their actual OMs to a monthly call and Diva and Lou run the screen with them — pressure-testing the read, surfacing what they missed, and deciding LOI / pass on a real timeline. The framework is the same. The difference is having a seasoned operator across the table when you're trying to decide whether to commit $50K of earnest money.",
+            example:
+              "In Q1 2024 we ran 27 OMs through the 6-gate screen. 8 cleared all six gates and earned LOIs. 19 failed at least one gate and got clean passes. Of the 8 LOIs, 4 made it to PSA and 1 closed. Of the 19 passes, 0 turned out to be deals we'd later regret missing — every one we tracked subsequently confirmed our pass reasoning when their next-buyer outcomes published. The screen worked. The discipline saved us from at least three deals we'd have struggled with.",
+            pitfalls: [
+              "Skipping the screen on 'obviously good' deals — those are the ones that surprise you most.",
+              "LOI'ing without making the comp-set property manager call — you're trusting CoStar over a phone conversation that takes 10 minutes.",
+              'Letting strategic fit be a tiebreaker instead of a gate — operators who buy outside their thesis under-execute.',
+              "Treating the screen as bureaucracy instead of protection — it saves you from the LOIs you'd later regret.",
+              'Passing without explaining why — even on screened-out deals, telling the broker your reasoning maintains the relationship.',
+            ],
+            related: ['sourcing-t05-reading-om', 'submarket-t08-walk-away'],
+          },
+        ],
         deepDive: [
           'The broker-relationship arc — from first email to the third call where they show you something off-market.',
           'On-market vs off-market: when each is worth the time.',
           'How to read a broker offering memo and know what it is not telling you.',
         ],
-        quiz: [],
-        mistakes: [],
+        quiz: [
+          {
+            q: 'You evaluated 50 OMs in the trailing 12 months and closed 1 deal. What is the most likely diagnosis?',
+            a: 'Insufficient OM volume — to close 1 deal reliably you need ~100 OMs/year.',
+            why: "The disciplined funnel runs roughly 100 → 20 → 5 → 1. Closing 1 deal from 50 OMs is technically possible but it's near the ragged edge of statistical luck. To close reliably year over year, you need ~100 OMs evaluated — roughly 2 per week.",
+            trap: 'New operators read 50 OMs as "a lot of work" and assume their 1 close from that volume means they are doing it right. The math says they are 50% under-supplied at the top of funnel. The fix is more broker relationships, not better triage.',
+            topicId: 'sourcing-t01-funnel-math',
+            difficulty: 'application',
+            choices: [
+              "Strong execution — you're at industry-average close rates",
+              'Insufficient OM volume — to close 1 deal reliably you need ~100 OMs/year',
+              "Low-quality broker relationships — the OMs you saw weren't worth pursuing",
+              'Aggressive triage — you screened too hard at the top of funnel',
+            ],
+            correctIndex: 1,
+          },
+          {
+            q: "You've been corresponding with a broker for 14 months. You've evaluated 12 of their OMs, passed on all 12 with clear reasoning, and now they've sent a 13th. What should you do?",
+            a: 'Reply within 24 hours regardless of decision; take whatever time you need to evaluate.',
+            why: "Broker relationships are scored on responsiveness, not on close rate. You're 14 months in — you're 4-7 months from earning the off-market call. Twelve clean passes (with reasoning) build credibility, not damage it. Reply within 24 hours and evaluate honestly. The 13th OM might still be a pass, but the discipline keeps you on the short list.",
+            trap: "New operators read '12 passes in a row' as relationship failure and stop replying. Brokers value clean, fast passes more than they value forced LOIs. The off-market call comes after 18-24 months of disciplined evaluation — not 18-24 months of trying to please.",
+            topicId: 'sourcing-t02-broker-relationships',
+            difficulty: 'operator',
+            choices: [
+              "Pass quickly — your buy box hasn't matched in 12 prior deals",
+              'Underwrite this one harder than usual to demonstrate engagement',
+              'Reply within 24 hours regardless of decision; take whatever time you need to evaluate',
+              "Stop corresponding — the relationship isn't generating deals",
+            ],
+            correctIndex: 2,
+          },
+          {
+            q: "A 142-unit deal listed on LoopNet at $26M in February. By July it's still on the market at $24.4M (6.2% reduction). What is the right read?",
+            a: 'Engage — 5 months of market data confirms nobody met the original ask; structured LOI may work.',
+            why: 'A deal that sat 5 months at original asking and then reduced 6.2% is the seller adjusting to market reality. Five months of data says nobody met the original number. The remaining buyers either passed entirely or are waiting for further reductions. A structured LOI at the right price (often 8-12% below current asking) with a clean close has materially higher acceptance probability than at month 1.',
+            trap: '"5 months on LoopNet means it\'s broken." Sometimes yes. Often it just means the seller anchored too high. The diagnostic is what is wrong with the deal — if the answer is "the market voted, the seller is now adjusting," you have a buying opportunity, not a damaged asset.',
+            topicId: 'sourcing-t03-on-market',
+            difficulty: 'application',
+            choices: [
+              'Wait — further reductions likely if it sat through 5 months',
+              'Pass — anything sitting on LoopNet for 5 months has structural issues',
+              'Engage — 5 months of market data confirms nobody met the original ask; structured LOI may work',
+              'Engage only if employment growth in submarket is above 2.5%',
+            ],
+            correctIndex: 2,
+          },
+          {
+            q: 'An OM shows T-12 NOI of $1.4M and "stabilized pro forma" NOI of $1.8M after a 24-month value-add. The broker will not share actual T-12 P&L detail when asked. What is the right read?',
+            a: 'Walk away — broker reluctance to share is a signal.',
+            why: "The pro forma is the seller's pitch. The actual T-12 P&L is the underwrite. A broker who won't share P&L detail at the OM stage is signaling that the actuals are worse than the OM suggests — usually expenses run higher than the 'stabilized' line. The pattern: actual T-12 NOI is often 5-10% below the OM's headline figure once you pull the real P&L. Walking away preserves the discipline; the next deal will share its P&L.",
+            trap: "Operators rationalize this as 'they will share at PSA stage' or 'I can underwrite conservatively.' Both are partially true. But the broader signal is that this seller is not running a clean process. Reset and find a broker who is.",
+            topicId: 'sourcing-t05-reading-om',
+            difficulty: 'operator',
+            choices: [
+              'Acceptable — pro forma uplift is reasonable for value-add',
+              'Walk away — broker reluctance to share is a signal',
+              'Underwrite from the $1.4M figure conservatively',
+              'Request P&L through your attorney for diligence',
+            ],
+            correctIndex: 1,
+          },
+          {
+            q: 'A deal clears five of the six qualifying gates but fails the "bear case survives" gate (negative IRR if rents grow 0% and exit cap widens 50bps). What is the right action?',
+            a: "Pass — leveraged returns that need rent growth aren't returns, they're hopes.",
+            why: "The bear case gate is non-negotiable. If your IRR turns negative when rents stay flat and cap rates widen 50bps, you're not buying the asset — you're betting on the macro. A real estate investment that requires rent growth to deliver positive returns is structurally too levered. Lowering price might make the bear case acceptable, but at that point the seller probably won't accept your LOI and you'll have spent 4-8 hours preparing a no-go.",
+            trap: '"I will just submit at a price the bear case survives." Sometimes that works. More often the seller passes, you lose 8 hours of underwriting time, and the broker remembers you submitted at 18% below ask. The cleaner move: pass, tell the broker the bear case does not survive, ask them what other deals would.',
+            topicId: 'sourcing-t07-qualifying',
+            difficulty: 'operator',
+            choices: [
+              'Submit LOI — five of six gates pass',
+              'Submit LOI at a lower price to fix the bear case',
+              "Pass — leveraged returns that need rent growth aren't returns, they're hopes",
+              'Submit LOI but with a longer hold to let rents catch up',
+            ],
+            correctIndex: 2,
+          },
+        ],
+        mistakes: [
+          {
+            trap: 'Treating off-market as secret inventory.',
+            why: 'Off-market is the same inventory shared earlier. The broker has a listing assignment. He shares with 4-6 operators before going public. Whether you get the call depends on relationship depth, not luck or special access. Operators who chase the "secret deal" myth waste energy on relationships with brokers they do not actually have, instead of building 8-12 deep relationships that generate real off-market flow.',
+            fix: 'Build 8-12 real broker relationships through 18+ months of disciplined evaluation. Off-market deals come from depth, not breadth. Stop trying to find "secret" listings. Focus on responsiveness — replying to OMs within 24 hours, passing cleanly with reasoning, submitting clean LOIs when the deal warrants it.',
+            topicId: 'sourcing-t04-off-market',
+          },
+          {
+            trap: 'Skipping the qualifying screen on "obviously good" deals.',
+            why: 'The qualifying screen is what saves you from spending 8 hours on a deal that fails one of the six gates anyway. Skipping it means you do the math twice — once to underwrite, then again at LOI to discover you cannot actually accept your own model. The 30 minutes of screen time saves 4-8 hours of full underwrite time on deals that should have died at gate 1.',
+            fix: 'Run all 6 gates on every deal that gets past triage. If the deal clears 6 of 6, underwrite. If it fails any one, pass cleanly and tell the broker the reason. The discipline is not paranoia — it is how you keep your underwriting time focused on the deals that deserve it.',
+            topicId: 'sourcing-t07-qualifying',
+          },
+          {
+            trap: 'Underwriting from pro forma instead of actual T-12 P&L.',
+            why: "Pro forma NOI is the seller's pitch — it includes assumed rent increases, assumed expense efficiencies, and assumed value-add execution that has not happened yet. Underwriting from pro forma means you are pricing the deal at the optimistic case, leaving no margin for execution risk. The same OM almost always shows actual T-12 NOI 5-15% below the pro forma. Underwrite from actual T-12; let pro forma upside be the bonus, not the base.",
+            fix: 'Always pull actual T-12 P&L before underwriting. Build your model from actual numbers. Run a "pro forma case" as an upside scenario, but make your IRR threshold based on the actual case. If the broker will not share P&L at the OM stage, that is a signal to walk before underwriting.',
+            topicId: 'sourcing-t05-reading-om',
+          },
+          {
+            trap: 'Letting your pipeline tracker decay.',
+            why: 'Broker relationships decay invisibly. A 30-day silence after they sent you an OM reads to them as disinterest. They stop calling. By the time you notice the relationship has gone cold, you have lost 3-6 OM cycles and possibly the off-market call you were 14 months toward earning. The pipeline tracker is the operational tool that prevents this — but only if you actually run the weekly review.',
+            fix: 'Block 30 minutes every Monday morning for the pipeline review. Touch every OM in triage older than 5 days. Touch every LOI without response older than 14 days. Send a check-in email to every broker with last-touch over 30 days. The discipline is not optional — it is the difference between operators who get off-market calls and operators who do not.',
+            topicId: 'sourcing-t06-pipeline-tracker',
+          },
+        ],
       },
       {
         id: 'underwriting',
