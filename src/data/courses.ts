@@ -1709,20 +1709,269 @@ export const COURSES: Course[] = [
           },
         ],
       },
+      // ═══════════════════════════════════════════════════════════════════
+      // MODULE 7 · PSA & DD — full content (Wave SS-2.10)
+      // ═══════════════════════════════════════════════════════════════════
       {
         id: 'psa',
         title: 'Module 7 · PSA & DD',
         duration: '2.5 hrs',
         description:
-          'Negotiate the PSA. Run a DD that surfaces the surprises before close. Inspections, leases, financials, environmental, title — what to look for and what to do when something is off.',
-        topics: [],
+          'Negotiate the PSA. Run a DD that surfaces the surprises before close. Inspections, leases, financials, environmental, title — what to look for and what to do when something is off. The retrade strategy that earns cost recovery without killing the deal.',
+        topics: [
+          {
+            id: 'psa-t01-loi-to-psa',
+            title: 'From LOI to PSA · the transition',
+            summary:
+              'The LOI is non-binding. The PSA is the contract. Understanding what changes — and what stays the same — determines whether your deal closes on the terms you negotiated.',
+            body:
+              "The PSA (Purchase and Sale Agreement) is the legally binding contract that supersedes the LOI. It captures every term in detail, with all the 'it depends' language replaced by specific obligations.\n\nWhat carries forward from LOI:\n\n- Price (almost always)\n- Earnest money structure (with timing and escrow holder specified)\n- DD period length (sometimes adjusted, usually preserved)\n- Close date (sometimes adjusted, usually preserved)\n\nWhat gets newly negotiated in PSA:\n\n- **Reps and warranties** — what the seller represents about the property (rent roll accuracy, no undisclosed liens, no pending litigation, etc.). Each rep is a potential indemnity claim if it turns out wrong.\n- **Indemnity scope and caps** — if the seller's reps prove false, what's the buyer's recovery? Negotiate cap (often 1-3% of price), basket (minimum claim threshold), and survival period (how long after close you can claim).\n- **Default remedies** — if buyer defaults, seller keeps deposit (usually). If seller defaults, buyer's options range from specific performance to liquidated damages. Push for specific performance.\n- **Closing conditions** — beyond DD, what other conditions must be met? Estoppels from major tenants, third-party consents, payoff of existing debt.\n- **Operations during DD-to-close period** — restrictions on seller (can't sign new long-term leases without buyer consent, can't make material capex changes, can't modify service contracts).\n- **Closing date mechanics** — wire instructions, document delivery, prorations, post-close adjustments.\n\nThe PSA is typically 30-60 pages and takes 1-2 weeks of attorney negotiation. Budget legal fees: $15-40K for buyer's counsel on a typical deal. Seller's counsel runs similar.\n\nThe discipline: don't sign the PSA without your attorney walking you through every clause. Operators who skim the PSA discover at variance that a clause they didn't push on is now an obligation they can't escape.",
+            example:
+              "Mesa 144-unit 2024. LOI signed at $33.4M with 45-day DD. PSA negotiation took 11 days, two attorney rounds. Material changes from LOI: rep cap negotiated from 5% to 2% of price ($668K), survival period from 18 to 12 months, specific performance remedy added for seller default, operations restrictions strengthened (no new leases over 13 months without buyer consent). Legal fees $24K. PSA signed day 17 of DD. Closed day 72.",
+            pitfalls: [
+              "Treating PSA as a formality after LOI — the LOI's terms can be eroded if you're not paying attention.",
+              "Skipping attorney review on 'standard' clauses — there's no such thing as standard.",
+              'Negotiating only price terms — reps, indemnity, and remedies matter as much.',
+              'Rushing PSA in compressed DD — leaves no time for proper negotiation.',
+              'Not budgeting legal fees — surprise $25K bill stings worse mid-deal.',
+            ],
+            related: ['psa-t02-clauses', 'loi-t04-due-diligence'],
+          },
+          {
+            id: 'psa-t02-clauses',
+            title: 'PSA clauses to read carefully',
+            summary:
+              'Every PSA has a few clauses that drive 90% of post-close risk. Reps, indemnity, default remedies, survival. Read these carefully or pay later.',
+            body:
+              "Most PSA pages are mechanical. A few clauses matter disproportionately. These are the ones to read line by line:\n\n**Representations and Warranties (Reps).** The seller represents specific things about the property. Common reps:\n\n- Rent roll accuracy (current rents, lease terms, security deposits)\n- Service contracts (complete list, no undisclosed obligations)\n- Litigation (no pending or threatened)\n- Compliance (no unresolved code violations)\n- Environmental (no known issues beyond disclosed reports)\n- Liens (clean title beyond disclosed mortgages)\n\nEach rep that's false is a potential indemnity claim. The seller will try to qualify reps with 'to seller's knowledge' — meaning they only represent what they actually know. Push back where the seller should have known (rent roll, litigation).\n\n**Indemnity Cap, Basket, and Survival.**\n\n- **Cap.** Maximum the buyer can claim. Standard 1-3% of price; push for 5% on transitional deals.\n- **Basket.** Minimum claim threshold ('buyer can't claim less than $50K'). Standard $25-100K; push for lower on smaller deals.\n- **Survival.** How long after close can buyer claim? Standard 12-18 months; push for 24 on environmental and tax reps.\n\n**Default Remedies.** If seller defaults at close:\n\n- **Specific performance** — court forces seller to close at agreed price. Best buyer remedy.\n- **Liquidated damages** — buyer keeps deposit + cap on damages. Seller's preferred.\n- **Walk away** — deposit returns, no other remedy. Weakest buyer position.\n\nIf buyer defaults at close: seller keeps deposit (almost always). Sometimes seller has additional remedies; push to limit to deposit forfeiture only.\n\n**Operations Pendant Sale.** Restrictions on what seller can do between PSA signing and close:\n\n- No new long-term leases (over 12-13 months) without buyer consent\n- No material capex without buyer consent\n- No new service contracts beyond renewal of existing\n- No tenant terminations or evictions outside ordinary course\n\nThese prevent the seller from making decisions that bind you post-close.",
+            example:
+              "Phoenix 220-unit 2024 PSA. Seller's first draft: 1.5% cap, 18-month survival, liquidated damages capped at deposit + $250K seller default. We pushed: 3% cap, 12-month survival on most reps but 24 months on environmental and tax, specific performance on seller default. Final: 2.5% cap, 15-month survival, specific performance + actual damages on seller default. Negotiation took 6 days across 4 attorney exchanges. The cap difference alone was $300K of additional protection.",
+            pitfalls: [
+              "Accepting 'to seller's knowledge' qualifiers on reps the seller should know (rent roll, litigation).",
+              'Skipping the survival period negotiation — 12 vs 18 months is real time.',
+              "Walking away on default without specific performance — buyers have leverage they don't use.",
+              'Forgetting operations covenants — the seller can damage your deal between PSA and close.',
+              'Not understanding that indemnity cap limits your post-close recourse.',
+            ],
+            related: ['psa-t01-loi-to-psa'],
+          },
+          {
+            id: 'psa-t03-dd-checklist',
+            title: 'The DD checklist · what to inspect',
+            summary:
+              'DD is investigation. Run the checklist disciplined and you find the surprises before close. Skip line items and you find them at variance review instead.',
+            body:
+              "Multifamily DD covers four categories: physical, financial, legal/regulatory, market. Each has a checklist.\n\n**Physical DD:**\n\n- Property condition report (PCR) — third-party inspection of major systems\n- Roof and HVAC inspection — age, condition, remaining useful life\n- Plumbing and electrical assessment\n- Parking lot and exterior survey\n- Unit walks (sample of 10-25% of units, including all unit types)\n- Common area and amenity inspection\n- Pool and hot tub inspection (if applicable)\n- Fire and life safety systems\n\n**Financial DD:**\n\n- T-12 P&L verified against bank statements\n- T-3 monthly run rate analysis\n- Rent roll verified against actual lease documents\n- Security deposit verification\n- Utility expense audit\n- Property tax history and pending appeals\n- Insurance loss runs\n- Service contracts (HVAC, landscaping, pest, security, etc.)\n- Tenant ledgers for delinquency patterns\n- Last 3 years' tax returns for the property\n\n**Legal / Regulatory DD:**\n\n- Title commitment\n- Survey (boundary, easements, encroachments)\n- Zoning verification\n- Code compliance (current violations, recent inspection results)\n- Environmental Phase I (Phase II if triggered)\n- ADA compliance\n- Litigation history (last 3-5 years)\n- Code enforcement and HOA records\n- Building permits and occupancy certificates\n\n**Market / Operational DD:**\n\n- Comp set update (current rents, concessions, occupancy)\n- Submarket trends (Module 1 analysis refreshed)\n- Pending supply (permits filed, deliveries scheduled)\n- Tenant interviews (sample of 5-10 residents)\n- Property management evaluation\n- Insurance quotes (your policy, not seller's)\n\n**The discipline:** assign each line item to a specific person on your DD team with a specific deadline. Document findings. Build a DD report that captures what was inspected, what was found, and what the implications are. The DD report becomes your closing decision basis.",
+            example:
+              "DFW 192-unit 2023 DD. Team of 4: PM (physical), CPA (financial), attorney (legal), us (market). 67 line items across the checklist. 53 cleared without issue. 14 surfaced issues — 9 minor (resolved during DD), 3 material (retraded $185K), 2 dealbreakers (deal terminated). The disciplined checklist caught all 14. Operators who skip checklist items typically find 8-12 of these post-close, at full cost rather than retrade-discounted cost.",
+            pitfalls: [
+              'Running DD without a checklist — line items get missed.',
+              "Skipping tenant interviews — they reveal management issues that don't show on paper.",
+              'Not pulling actual leases against rent roll — rent roll is often inaccurate.',
+              "Forgetting current insurance quotes — your year-1 insurance is materially different from the seller's T-12 line.",
+              "Treating DD as paperwork — it's investigation; pay attention.",
+            ],
+            related: ['psa-t04-property-inspection', 'psa-t05-financial-dd'],
+          },
+          {
+            id: 'psa-t04-property-inspection',
+            title: 'Property inspection · what to look for',
+            summary:
+              'The PCR is a starting point. Your own walk-through, with experienced eyes, catches things the inspector misses. Plan the inspection like you are buying a problem to solve.',
+            body:
+              "The PCR is the third-party report. Your own physical inspection is what tells you whether the deal works operationally.\n\n**The walk-through team:**\n\n- You (or your principal) — operational decision-making\n- Your PM (or prospective PM) — operational realism\n- A construction or capex consultant — cost estimating\n- Your maintenance lead (if you have one)\n\nTime on property: 2-4 days minimum on a 100+ unit deal. Half-day visits don't catch enough.\n\n**What to inspect physically:**\n\n**Roofs.** Walk every building. Count patched repairs. Note ponding water, granule loss on asphalt shingles, membrane separation on flat roofs. The PCR's '5 years remaining useful life' is an estimate; your eyes on the roof tell you if it's optimistic.\n\n**HVAC.** Look at compressor age tags. Sample test units across all buildings. The PCR's percentage estimate (e.g., '30% near end of useful life') is from random sampling. Your sample reveals whether the population is actually distributed that way or concentrated in one building.\n\n**Parking.** Walk every lot. Note cracking patterns, drainage issues, line painting quality. Asphalt failures are visible — and expensive.\n\n**Plumbing.** If polybutylene or galvanized supply lines are flagged in PCR, assume repipe. Cost is $2-4K per unit. Don't underwrite optimistic alternatives.\n\n**Common areas.** Pool, fitness, leasing office, mailboxes. Tenants notice these first when leasing — they're the marketing surface.\n\n**Unit interiors.** Sample 10-25% of units across all unit types and buildings. Look for: kitchen condition, bathroom condition, flooring, paint, appliance age, HVAC unit condition (the per-unit PTAC or split system), cabinet integrity, countertop wear.\n\n**Documentation.** Photograph everything. Take notes on every unit visited. Build a unit-by-unit inspection log. Findings inform both your renovation budget and your retrade conversations.\n\n**The post-walk discussion:**\n\nEnd each day with a team debrief. What did we see? What's surprising? What's the cost implication? The pattern that emerges across 2-4 days is the property's actual condition.",
+            example:
+              "Mesa 144-unit 2024 inspection. 3-day site visit. PCR estimated 30% of HVAC near end of life. Our walk found 47% of HVAC compressors over 12 years old with visible corrosion, 18% needing immediate replacement. Adjusted capex up $185K from PCR estimate. Negotiated retrade. Seller agreed to $150K credit. The 3-day walk paid for itself 50x over. Operators who skip on-site inspection trust the PCR — and pay for the gap at variance review.",
+            pitfalls: [
+              "Treating the PCR as final — it's a starting point, not the answer.",
+              'Half-day inspections — not enough time to see the population.',
+              'Not bringing operational team — your PM sees things consultants miss.',
+              'Skipping unit interior walks — the renovation budget hinges on this.',
+              'Not photographing everything — your retrade conversation needs evidence.',
+            ],
+            related: ['psa-t08-retrade', 'stress-t05-deferred-maintenance'],
+          },
+          {
+            id: 'psa-t05-financial-dd',
+            title: 'Financial DD · validating T-12',
+            summary:
+              "The T-12 P&L the seller showed you in the OM may not match reality. Pull bank statements and tax returns. Validate every meaningful line item. Sellers don't always lie — but they sometimes shape the picture.",
+            body:
+              "Financial DD is matching the seller's representation against actual records. Three primary documents:\n\n**Bank statements.** 24 months of operating account statements. Match deposits to rent collected; match outflows to expense categories. Discrepancies reveal whether the T-12 P&L is accurate.\n\n**Tax returns.** 2-3 years of property-level returns (Schedule E for individuals, partnership returns for LLCs). The taxable income on these returns is often lower than the OM's NOI — sellers expense aggressively for tax purposes. Reconcile the difference.\n\n**Lease audit.** Pull every lease and verify rent roll accuracy. Common discrepancies:\n\n- Rent roll shows $1,250; lease says $1,180 (60-day promo not yet expired)\n- Rent roll shows lease end Aug 2025; lease was extended through Dec 2026 (rent roll not updated)\n- Rent roll shows 30 units; physical count shows 28 + 2 vacant model units misrepresented as occupied\n\n**The verification process:**\n\nFor T-12 P&L:\n\n- Pull operating account bank statements\n- Match revenue to deposits (rent collections, ancillary income)\n- Match expenses to checks/wires (vendors, utilities, taxes, insurance)\n- Identify any major one-time items (insurance refunds, tax settlements, lawsuit proceeds) and back them out\n- Recalculate T-12 NOI from the bottom up\n\nFor rent roll:\n\n- Random-sample 25% of leases\n- Verify in-place rent, lease end date, security deposit, concessions\n- Check tenant ledgers for delinquency patterns\n- Confirm physical occupancy via unit walks\n\nFor taxes:\n\n- Pull last 3 years' assessment notices\n- Check pending appeals\n- Calculate expected reassessment to your purchase price\n- Model your year-1 tax line based on reassessment, not seller's T-12\n\n**What the verification reveals:**\n\nTrue NOI typically lands 3-8% below OM-stated NOI on B/C class deals. Operators who skip financial DD discover this gap at variance review. Operators who run financial DD properly retrade or pass.",
+            example:
+              "Plano 192-unit 2024 financial DD. OM showed T-12 NOI $1.92M. Bank statement reconciliation: actual deposits ran $80K below stated revenue (sellers had double-counted some Q4 collections). Lease audit: 19 of 192 leases had concessions baked in not reflected in rent roll. Recalculated T-12 NOI: $1.83M — 4.7% below OM. We retraded $625K based on cap-rate math. Seller agreed to $400K. The financial DD work paid back 50x.",
+            pitfalls: [
+              'Trusting the T-12 from the OM — verify against bank statements.',
+              'Skipping the lease audit — rent roll inaccuracies are common.',
+              "Not pulling tax returns — they reveal the seller's actual cash flow.",
+              'Forgetting to back out one-time items in T-12 NOI.',
+              'Treating financial DD as accounting rather than fact-checking.',
+            ],
+            related: ['psa-t08-retrade', 'uw-t02-as-is-noi'],
+          },
+          {
+            id: 'psa-t06-environmental',
+            title: 'Environmental DD · Phase I and Phase II',
+            summary:
+              'Environmental issues can kill deals or cost millions. Phase I is mandatory, Phase II is sometimes triggered, remediation can range from $50K to $5M+. Know what triggers what.',
+            body:
+              "Environmental DD on multifamily typically follows a standard sequence:\n\n**Phase I Environmental Site Assessment (ESA).** Mandatory on virtually every commercial real estate transaction with debt. Cost: $2-5K. Timeline: 2-4 weeks. Inspects:\n\n- Site history (prior uses, neighboring uses)\n- Visual property inspection\n- Database review (EPA, state environmental records)\n- Government records (UST registrations, spill reports, regulatory actions)\n- Interviews with current property managers/owners\n\nThe Phase I produces three possible outcomes:\n\n1. **Clean.** No recognized environmental conditions (RECs). Proceed.\n2. **Phase II recommended.** RECs identified — soil and groundwater testing required to determine extent.\n3. **Material concerns identified.** Significant historical contamination, ongoing regulatory action — usually deal-killers.\n\n**Phase II ESA.** Triggered when Phase I finds RECs. Cost: $15-50K depending on scope. Timeline: 4-8 weeks. Includes:\n\n- Soil borings (typically 6-15 locations on a multifamily site)\n- Groundwater monitoring wells (if depth-to-water shallow)\n- Vapor intrusion testing (if VOCs in soil/groundwater)\n- Lab analysis (EPA priority pollutants, hydrocarbons, solvents)\n\n**Common Phase II triggers in multifamily:**\n\n- Former dry cleaner on-site or adjacent\n- Former gas station or auto repair within 1/4 mile\n- Manufacturing or industrial historical use\n- USTs (underground storage tanks) recorded or discovered\n- Adjacent agricultural or industrial use with potential migration\n\n**If contamination is found:**\n\n- **Minor (below state action levels).** No remediation required. Document for record. Proceed.\n- **Moderate (above action levels but localized).** Excavation and disposal of impacted soil; sometimes vapor barrier installation. Cost: $50-300K typical.\n- **Major (groundwater contamination, vapor migration, regulatory action required).** Extended remediation, monitoring, regulatory oversight. Cost: $300K-$5M+. Often triggers walk.\n\n**The retrade question:**\n\nIf Phase II finds remediation costs, retrade the deal price by remediation cost plus 25% contingency. Sellers often agree because the alternative is environmental disclosure to next buyer (always required in most states). Most sellers prefer a $200K price reduction to disclosing a $200K problem to the market.",
+            example:
+              "Mesa 144-unit 2024. Phase I flagged former dry cleaner adjacent (1980s-1995 operations). Phase II conducted: soil borings at perimeter and beneath buildings, groundwater monitoring wells. Results: PERC and TCE detected in soil at one perimeter location, below state action levels at the property. No groundwater impact at our site. Total Phase II cost $32K. Remediation not required. We did retrade $35K to fund a vapor barrier on the building closest to the contamination — pure precaution. Closed.",
+            pitfalls: [
+              "Skipping Phase I to save $3K — every lender requires it; you'll need it anyway.",
+              'Trusting an old Phase I (more than 6 months) — re-Phase if older.',
+              'Letting the seller commission Phase II — get your own consultant.',
+              'Underestimating Phase II timeline — 4-8 weeks plus lab turn.',
+              'Not retrading on findings — even minor remediation deserves cost recovery from seller.',
+            ],
+            related: ['psa-t08-retrade'],
+          },
+          {
+            id: 'psa-t07-title-survey',
+            title: 'Title and survey',
+            summary:
+              'Title and survey reveal what is actually on the property and who has rights to it. Easements, encroachments, restrictions can affect operations and value. Read carefully.',
+            body:
+              "Title commitment shows the chain of ownership and any encumbrances on the property. Survey shows the physical boundaries and any structures crossing them.\n\n**Title commitment review:**\n\nThe title company issues a commitment showing:\n\n- **Schedule A.** Current owner, legal description, exceptions\n- **Schedule B Section I.** Items the buyer must clear before close (existing mortgages payoff, judgments)\n- **Schedule B Section II.** Permitted exceptions that survive — easements, restrictions, etc.\n\n**Common Schedule B items:**\n\n- **Utility easements.** Right of utility companies to access utility lines. Almost always present, rarely material.\n- **Access easements.** Right of adjacent property owners to cross. Material if it affects parking or operations.\n- **Mineral rights reservations.** Subsurface rights held by third parties. Concerning in oil/gas regions; typically not material in others.\n- **Deed restrictions.** Use limitations recorded in chain of title. Verify multifamily use is permitted.\n- **HOA or master association obligations.** Annual fees, restrictions, voting rights. Material — read the documents.\n- **Liens and judgments.** Must be paid off at close.\n\n**The survey:**\n\nThe ALTA/NSPS survey shows physical boundaries, building footprints, parking areas, easements as plotted. Look for:\n\n- **Encroachments.** Building or structure crossing property line. Common: HVAC pads, sheds, fences. Material when they cross from neighbor onto your property — affects future sale.\n- **Easement conflicts.** Easement runs through area you intended to use (e.g., utility easement under expanded parking lot).\n- **Setback violations.** Building too close to property line for current zoning.\n- **Right-of-way issues.** Public access through portions of the property.\n\n**The fix process:**\n\nMost issues are resolvable:\n\n- Liens and judgments — pay off at close\n- Setback variances — usually grandfathered if pre-existing\n- Easements — accept or negotiate amendment with easement holder\n- Encroachments — cure with neighbor agreement or accept\n\n**The deal-killer issues:**\n\n- Title cannot be insured at standard rates — material defect\n- Material easement that prevents intended use (e.g., access easement through proposed pool location)\n- Chain of title irregularities suggesting ownership dispute\n\n**Title insurance:**\n\nAlways purchase. Premium $0.50-1.00 per $1,000 of insured amount. On a $30M deal, premium is $15-30K. Required by all institutional lenders. Owner's policy protects you against title defects post-close.",
+            example:
+              "DFW 192-unit 2023. Title commitment showed three easements (two utility, one access for adjacent retail center). Survey confirmed all three were minor — the access easement crossed a corner of the parking lot, no operational impact. One issue surfaced: an encroachment by neighbor's HVAC pad onto the property by 2 feet. Resolved with neighbor agreement (relocate within 12 months at neighbor's expense) recorded against title. Total title premium $24K. Closed cleanly.",
+            pitfalls: [
+              'Skipping title commitment review — easements can affect operations.',
+              "Not requesting an ALTA survey — it's the only way to verify physical boundaries.",
+              'Treating Schedule B items as boilerplate — read each one.',
+              "Skipping owner's title insurance to save $15-25K — costly mistake if title defect emerges.",
+              "Trusting the seller's old survey — get fresh ALTA.",
+            ],
+            related: ['psa-t03-dd-checklist'],
+          },
+          {
+            id: 'psa-t08-retrade',
+            title: 'Retrade strategy · using DD findings',
+            summary:
+              'DD findings that warrant price adjustment require negotiation. Frame the retrade carefully. Push too hard and the seller walks. Push too little and you eat the cost.',
+            body:
+              "Retrade is the renegotiation of price during DD based on findings. Done right, it captures cost recovery for issues you discovered. Done poorly, it kills the deal.\n\n**When to retrade:**\n\n- DD reveals material issues not disclosed in OM (significant deferred maintenance, environmental, title)\n- T-12 P&L doesn't match bank statements (revenue or expense surprises)\n- Inspection finds capex needs above PCR estimate\n- Code violations, zoning issues, regulatory issues\n- Tenant lease audit reveals concession structure not reflected in OM rent roll\n\n**When NOT to retrade:**\n\n- Issues you should have caught at OM stage (basic submarket reads, headline numbers)\n- Findings within reasonable tolerance of expectations (5-10% capex variance is normal)\n- Issues the seller already disclosed and you accepted at LOI\n\n**The retrade conversation:**\n\n1. **Document the finding.** Specific dollar amount tied to specific issue. Photos, reports, citations.\n2. **Calculate the cost.** What's the actual cost to remediate or absorb? Add 20% contingency.\n3. **Translate to price impact.** At your underwriting cap rate, what does the cost mean for value? A $200K capex hit at a 5.5% cap = $200K reduction in price (cap rate doesn't apply to one-time capex; it's dollar-for-dollar).\n4. **Propose the retrade.** 'DD findings include $X in unexpected costs. We propose price adjustment of $Y. If preferred, we can split — $Y/2 from price reduction, $Y/2 from seller-paid escrow funded for the issue.'\n5. **Negotiate.** Sellers rarely accept full retrade. Common outcomes: 50-75% of buyer's ask.\n\n**Framing matters:**\n\n- Don't frame as 'we want a discount.' Frame as 'DD revealed costs neither party expected.'\n- Bring documentation. Specific findings beat general complaints.\n- Offer alternatives. Price reduction OR seller credit OR escrow funded by seller. Sellers often prefer non-price solutions for tax reasons.\n- Maintain relationship tone. The broker remembers who renegotiated reasonably and who renegotiated abusively.\n\n**The walk-away threshold:**\n\nIf the seller refuses retrade and the issue is material, walk. Don't proceed with known costs you can't recover. The discipline: document the walk-away reason; the broker may bring you better deals later because you walked rather than absorbing the issue.\n\n---\n\n**◆ Mastery Live members workshop this on a real deal.**\n\nRetrade decisions are where coaching saves the most money. Self-Study gives you the framework. Live members bring their DD findings and proposed retrades to the monthly call and Diva and Lou pressure-test the approach with them — flagging when the retrade ask is too large (deal-killer), when it's too small (eating cost), when the framing will damage the relationship, and when walking is the right call. The framework is the same. The difference is having a seasoned operator across the table when DD just surfaced $400K in unexpected capex and you're trying to decide between retrading, walking, or eating it.",
+            example:
+              "Mesa 144-unit 2024. DD findings: HVAC needed $185K above PCR (visible aging on walk), former dry cleaner triggered $32K Phase II + $35K vapor barrier, lease audit found $40K of bake-in concessions. Total findings: $292K. We documented each, framed retrade at $250K (15% discount on findings), offered alternatives (price OR escrow). Seller accepted $200K price reduction (closing at $33.2M vs $33.4M LOI). Negotiation took 5 days, 3 attorney exchanges. The disciplined framing earned 80% of cost recovery without damaging the relationship.",
+            pitfalls: [
+              'Retrading on issues you should have caught at OM stage.',
+              'Demanding 100% cost recovery — sellers rarely agree.',
+              'Framing as "we want a discount" instead of "DD revealed unexpected costs."',
+              "Skipping documentation — vague claims don't move sellers.",
+              'Walking from retrade negotiations too quickly — most sellers will give 50-75% of ask.',
+            ],
+            related: ['psa-t04-property-inspection', 'psa-t05-financial-dd', 'psa-t06-environmental'],
+          },
+        ],
         deepDive: [
           'PSA red flags — the clauses that need amendment or removal.',
           'Due diligence checklist: inspections, leases, T-12, environmental, title.',
           'Retrade strategy: when DD findings justify a price reduction and how to ask for it.',
         ],
-        quiz: [],
-        mistakes: [],
+        quiz: [
+          {
+            q: 'The seller\'s first PSA draft includes the rep "to seller\'s actual knowledge, the rent roll is accurate." What is the right response?',
+            a: 'Push to remove the "actual knowledge" qualifier on rent roll — seller should know.',
+            why: '"To seller\'s actual knowledge" qualifiers limit the seller to representing only what they actually knew. On items the seller should have known — rent roll accuracy, current litigation, code violations — push to remove the qualifier. The seller has access to all this information; the qualifier is a way to dodge accountability. On items genuinely outside the seller\'s knowledge (environmental conditions decades old), the qualifier is reasonable.',
+            trap: 'Operators sometimes accept all "to seller\'s knowledge" qualifiers as boilerplate. Then a rent roll inaccuracy surfaces post-close, the seller says "we did not actually know," and the indemnity claim fails. Push back on knowledge qualifiers for items the seller controls.',
+            topicId: 'psa-t02-clauses',
+            difficulty: 'operator',
+            choices: [
+              'Accept — "actual knowledge" is standard',
+              'Push to remove the "actual knowledge" qualifier on rent roll — seller should know',
+              'Push to extend the survival period',
+              'Skip the rep entirely',
+            ],
+            correctIndex: 1,
+          },
+          {
+            q: 'Your DD team includes you, an attorney, and a CPA. The seller\'s 220-unit OM showed 92% occupancy with limited concessions. What category of DD are you most likely to underrun?',
+            a: 'Physical and operational — covered by you.',
+            why: 'Three-person teams without an experienced PM or operations consultant typically underrun the physical and operational DD. The attorney handles legal. The CPA handles financial. You handle decision-making. Nobody does the on-site walks, the unit interior inspections, the operational realism check. PCR consultants do partial work but they do not have operational eyes.',
+            trap: 'Operators stretch their three-person teams across all four DD categories and discover post-close that physical/operational issues were missed. Add a PM or maintenance consultant to your DD team — even on a deal you will self-manage. The fee is small relative to what they catch.',
+            topicId: 'psa-t03-dd-checklist',
+            difficulty: 'operator',
+            choices: [
+              'Title and legal — covered by attorney',
+              'Financial — covered by CPA',
+              'Physical and operational — covered by you',
+              'Environmental — handled by Phase I consultant',
+            ],
+            correctIndex: 2,
+          },
+          {
+            q: "Phase I report flags a former dry cleaner adjacent to your property (1990-2008 operations). What is the right next step?",
+            a: 'Phase II — adjacent dry cleaners trigger investigation due to vapor migration risk.',
+            why: 'Adjacent dry cleaner is a recognized environmental condition (REC) trigger because PERC and TCE solvents used in dry cleaning migrate through soil and groundwater. Phase II investigates extent at your property. The investigation might find no migration (cleared), localized impact (minor remediation), or material contamination (deal-killer). You do not know without testing.',
+            trap: 'Operators sometimes skip Phase II to save $30K and weeks. Then close, and discover at variance review that vapor intrusion is occurring and remediation is required. The Phase II discovery would have either cleared the deal or surfaced the cost in time to retrade. Skipping is the most expensive shortcut.',
+            topicId: 'psa-t06-environmental',
+            difficulty: 'application',
+            choices: [
+              "Skip Phase II — adjacent isn't on-site",
+              'Phase II — adjacent dry cleaners trigger investigation due to vapor migration risk',
+              'Walk — environmental issues kill deals',
+              'Buy environmental insurance instead of Phase II',
+            ],
+            correctIndex: 1,
+          },
+          {
+            q: "Your CPA reconciled the seller's T-12 P&L against bank statements. Total revenue ran $78K below T-12 stated revenue across 12 months. What is the diagnosis?",
+            a: 'Possible double-counting of receivables, or T-12 included accrual-basis revenue not yet collected.',
+            why: '$78K variance on a 12-month period (roughly 3-5% of typical revenue on this scale) is meaningful but not dispositive. Common explanations: T-12 included accrual revenue (rent billed, not yet collected), one-time receivables booked once and double-counted, reconciliation timing differences. Investigate before assuming malice. Often resolved through clarifying entries with the seller\'s accountant.',
+            trap: "Either extreme reaction is wrong. Walking on a $78K variance without investigating wastes a deal that's likely fine after explanation. Accepting the seller's T-12 without investigating leaves you with a bad foundation for your underwrite. The discipline: investigate, document the explanation, adjust your model from the reconciled number.",
+            topicId: 'psa-t05-financial-dd',
+            difficulty: 'application',
+            choices: [
+              'Bank statement error — banks misreport',
+              'Seller misrepresented T-12 — inflated revenue intentionally',
+              'Possible double-counting of receivables, or T-12 included accrual-basis revenue not yet collected',
+              'Negligible variance — proceed',
+            ],
+            correctIndex: 2,
+          },
+          {
+            q: "DD reveals $292K in unexpected costs (HVAC $185K above PCR, environmental Phase II + remediation $67K, concession bake-ins $40K). Your LOI price was $33.4M. What is the right retrade ask?",
+            a: '$250K — 85% of cost recovery, leaving negotiation room.',
+            why: 'Retrading at 85% of documented cost recovery is the disciplined ask. Full cost recovery is rarely accepted; you give up something in exchange for the deal proceeding. The 15% you do not ask for becomes your contribution to keeping the deal alive. Sellers typically accept 50-75% of retrade asks; if you ask for 100%, expect 50%. If you ask for 85%, expect 65-70%.',
+            trap: 'Asking for 100% and getting nothing because the seller walks. Or asking for 50% reflexively, leaving real money on the table. The discipline: ask for 80-90% with documentation, expect 60-75% acceptance, walk if rejected at material findings.',
+            topicId: 'psa-t08-retrade',
+            difficulty: 'operator',
+            choices: [
+              '$292K — full cost recovery',
+              '$250K — 85% of cost recovery, leaving negotiation room',
+              '$146K — 50% of cost recovery, splitting with seller',
+              'Walk — issues are material',
+            ],
+            correctIndex: 1,
+          },
+        ],
+        mistakes: [
+          {
+            trap: 'Skipping attorney review on "standard" PSA clauses.',
+            why: 'Every PSA has 5-10 clauses that significantly affect post-close risk. Reps and warranties, indemnity caps, default remedies, survival periods — these vary materially across deals. The seller\'s attorney drafts the PSA in seller\'s favor. The buyer\'s attorney reads carefully and pushes back. Operators who skim PSAs to save time discover that a clause they did not push on is now an obligation that costs them.',
+            fix: 'Engage your attorney during DD, not at PSA signing. Walk through every clause. Spend 4-8 hours on PSA review with attorney before signing. Budget $15-40K of legal fees for buyer\'s counsel on a typical $30M deal — and don\'t try to save by skipping review.',
+            topicId: 'psa-t02-clauses',
+          },
+          {
+            trap: 'Underestimating physical inspection time.',
+            why: "On a 144-unit property with multiple buildings, a half-day visit catches surface-level issues only. The pattern across 30+ unit walks, 20+ HVAC inspections, 10+ roof spot-checks doesn't emerge until day 2-3. Operators who skim physical inspection miss 30-50% of the deferred maintenance the property carries.",
+            fix: 'Plan 2-4 days minimum on properties of 100+ units. Bring a multi-person team. Walk every building, sample 10-25% of units, photograph everything. Build a unit-by-unit inspection log. The time pays back 50x at retrade.',
+            topicId: 'psa-t04-property-inspection',
+          },
+          {
+            trap: 'Accepting "to seller\'s knowledge" qualifiers reflexively.',
+            why: 'Knowledge qualifiers shift risk to the buyer for items the seller should have known. Rent roll accuracy, current litigation, code violations, environmental conditions known to the seller — these are items the seller controls. Allowing knowledge qualifiers on these items means a post-close indemnity claim fails because the seller "did not actually know."',
+            fix: 'Push to remove knowledge qualifiers on reps where the seller should have known. Keep them on reps where the seller genuinely could not know (decades-old environmental, undisclosed third-party claims). The line between "should know" and "could not know" is negotiable; push on the should-know side.',
+            topicId: 'psa-t02-clauses',
+          },
+          {
+            trap: 'Retrading too aggressively or not at all.',
+            why: 'Both extremes are wrong. 100% cost recovery rarely succeeds; sellers walk. No retrade leaves real money on the table — the issues you discovered are real costs that someone has to pay, and that someone should not be you alone. The right number is 60-80% of documented cost recovery.',
+            fix: 'Document findings in dollar amounts. Calculate documented cost. Frame retrade as 80-90% of cost (leaving negotiation room). Expect to land at 60-75% acceptance. Walk if material findings are rejected entirely. The discipline of partial cost recovery on every meaningful DD finding compounds across a portfolio of deals.',
+            topicId: 'psa-t08-retrade',
+          },
+        ],
       },
       {
         id: 'pm',
