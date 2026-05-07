@@ -1217,20 +1217,269 @@ export const COURSES: Course[] = [
           },
         ],
       },
+      // ═══════════════════════════════════════════════════════════════════
+      // MODULE 5 · Debt Sourcing — full content (Wave SS-2.8)
+      // ═══════════════════════════════════════════════════════════════════
       {
         id: 'debt',
         title: 'Module 5 · Debt Sourcing',
         duration: '3 hrs',
         description:
-          'Agency, bank, bridge — match the debt structure to the deal. Term sheet review, DSCR + LTV math, refinance optionality, and the conversation with a lender that actually moves the deal forward.',
-        topics: [],
+          'Agency, bank, bridge — match the debt structure to the deal. Term sheet review, DSCR + LTV math, refinance optionality, and the lender conversation that actually moves the deal forward.',
+        topics: [
+          {
+            id: 'debt-t01-landscape',
+            title: 'The debt landscape · agency, bank, bridge',
+            summary:
+              "Three debt sources dominate multifamily — agency, bank, bridge. Each has a sweet spot. The wrong choice traps you for 5+ years. The right choice carries you through cycles.",
+            body:
+              "Multifamily debt is not commoditized. Three lenders compete, each optimized for different deals.\n\n**Agency debt** — Fannie Mae, Freddie Mac, HUD. Long-term (7-10 year terms typical), low rates (50-100bps below bank), non-recourse, and the cleanest exit. Available on stabilized, cash-flowing properties with strong sponsorship. The standard for held assets.\n\n**Bank debt** — local and regional banks, sometimes life insurance companies. Shorter terms (3-5 year), higher rates (50-100bps above agency), often recourse, more flexible covenants. Available when agency won't underwrite (lease-up, recent rehab, smaller deals, less seasoning). The relationship lender for operators with bank ties.\n\n**Bridge debt** — debt funds, private lenders, mortgage REITs. Short-term (12-36 months), highest rates (150-300bps above bank), interest-only, fast close. Available for value-add execution where you need flexibility before agency takeout. The high-octane option.\n\nThe matching question is: what's your business plan? A stabilized hold is agency. A 12-month value-add followed by stabilized hold is bridge then agency. A 24-month deep value-add with rate uncertainty is bank with extension options.\n\n**The trap operators fall into:** mismatching debt to plan. Stabilized debt on a value-add forces sale at execution year — exit timing isn't yours. Bridge on a stabilized hold burns 200bps of unnecessary rate. Bank with prepay penalties on a deal you'll refinance in year 3 — penalty kills the savings.\n\nThe discipline: pick debt that matches your hold thesis. If you don't know your hold, you're not ready for debt. If you know your hold, the debt choice often picks itself.\n\nThe Rescia debt model (in your toolkit) sets up the comparison — same deal underwritten with three debt structures, IRRs side by side. Run it on every deal.",
+            example:
+              "Mesa 144-unit value-add 2024: 18-month renovation, then stabilized hold. Bridge for $26M at 7.4% IO for 24 months, then refi to agency at $32M at 5.95% for 7-year term. Modeled both legs separately. Year-1-2 IRR was 4% (carry costs). Year-3+ IRR jumped to 18%. Total 5-year IRR 14.8%. Same deal modeled with all-agency at close: lender wouldn't underwrite the renovation downtime risk; deal couldn't close.",
+            pitfalls: [
+              "Picking debt before defining your hold thesis — they're inseparable.",
+              '"Lowest rate" as the optimization target — exit flexibility often beats rate.',
+              'Forgetting that bridge-to-agency is two loans (origination fees twice, two close events).',
+              'Not modeling all three debt structures on every deal — operators skip this and pick agency by default.',
+              'Treating recourse as a binary "ok / not ok" — recourse is negotiable on terms.',
+            ],
+            related: ['debt-t04-bridge', 'debt-t07-refinance'],
+          },
+          {
+            id: 'debt-t02-agency',
+            title: 'Agency debt · Fannie / Freddie / HUD',
+            summary:
+              'Agency is the gold standard for stabilized multifamily — long-term, low-rate, non-recourse, and cleanly exit-flexible. Most operators buy with agency-takeout in mind.',
+            body:
+              "Three agencies dominate multifamily long-term debt:\n\n**Fannie Mae DUS** — the Delegated Underwriting Servicer program. 7-15 year terms standard (10 most common), fixed or floating rate, 65-80% LTV typical, 1.20-1.25 minimum DSCR. Available on stabilized properties with at least 3 months of operating history. Non-recourse with bad-boy carveouts (fraud, environmental).\n\n**Freddie Mac Optigo** — competing program. Similar terms to Fannie. Slightly different underwriting criteria. The two compete on rate; you should always shop both.\n\n**HUD 223(f)** — government-backed, longest term (35-year fully amortizing), lowest rate (often 50-150bps below Fannie/Freddie). Slow to close (8-12 months), rigorous DD, sponsor restrictions. Available for affordable and workforce housing primarily. Worth the time if your hold is 10+ years.\n\n**Why agency wins for stabilized hold:**\n\n- Non-recourse — your other assets aren't at risk\n- Long term — no refinance risk in years 3-5\n- Low rate — 50-100bps below bank, 200-300bps below bridge\n- Predictable amortization — you can model debt service through the full hold\n- Liquid market — easy to sell loan or property with assumption potential\n\n**Why agency loses on value-add:**\n\nAgency requires stabilization. A property at 80% occupancy with rents 30% below market won't qualify for agency at full LTV. Operators try to underwrite 'trail-12 stabilized NOI' which agency doesn't accept — they look at actuals plus a small forward credit. Result: agency loan size on a value-add is often 60-65% LTV, not the 75% you'd want.\n\n**The exit consideration:**\n\nAgency loans typically have prepayment lockout (often 12-24 months) and yield maintenance (10+ years). If you sell or refinance early, the prepay penalty can be 8-15% of loan balance. Plan your hold to minimize this — or factor the prepay into your underwrite explicitly.",
+            example:
+              "DFW 192-unit stabilized hold acquisition 2023. Fannie Mae DUS 10-year fixed at 5.45%, 75% LTV ($28.5M loan on $38M deal), 1.30 DSCR. Non-recourse. Agency takeout strategy from prior operator's bridge debt. We compared Freddie Optigo (5.51% at same terms). Picked Fannie. Locked in Q3 2023; rate would have been 75bps higher 12 months earlier. The agency execution was clean. The 10-year term also means we don't have refi risk through 2033.",
+            pitfalls: [
+              'Defaulting to Fannie without shopping Freddie — sometimes Freddie is 25-50bps better.',
+              "Assuming agency will fund a value-add at full proceeds — they won't until the property stabilizes.",
+              'Forgetting prepayment penalties — yield maintenance can be 10-15% of balance on early exits.',
+              'Not negotiating terms — interest rate is rate, but origination fees, escrow requirements, replacement reserves are negotiable.',
+              "Treating HUD as 'too slow to bother' — for hold periods of 10+ years, HUD's rate advantage is meaningful.",
+            ],
+            related: ['debt-t01-landscape', 'debt-t07-refinance'],
+          },
+          {
+            id: 'debt-t03-bank',
+            title: 'Bank debt · the relationship lender',
+            summary:
+              "Bank debt fills the gap when agency won't underwrite. Shorter, more flexible, often recourse, and built on relationship. The right tool for transitional deals.",
+            body:
+              "Banks lend on multifamily where agency can't or won't. The trade-off: shorter terms, often recourse, sometimes higher rates — in exchange for flexibility, faster execution, and willingness to underwrite transitional cash flow.\n\n**When banks make sense:**\n\n- Property is recently rehabbed but not yet at agency-qualifying NOI\n- Deal size is below agency minimums ($5M for some agency programs)\n- Sponsor lacks agency-approved status (newer operator, single-asset entity)\n- Quick close needed — banks can close in 30-45 days vs agency's 60-90\n- Specific business plan unsuitable for agency (heavy renovation, lease-up, partial vacancy)\n\n**Standard bank terms:**\n\n- 3-5 year term, sometimes with extension options to 7\n- Floating rate priced over SOFR (S+250-350bps typical for B-class)\n- Fixed-rate options available on longer terms\n- 65-75% LTV\n- 1.20-1.25 DSCR\n- Often 25-30 year amortization (so balloon payment at maturity)\n- Recourse common on smaller deals; non-recourse negotiable on stronger sponsors\n\n**The recourse question:**\n\nBank loans frequently come with recourse — meaning if the deal fails, the lender can pursue your other assets and personal guarantees. This is structurally different from agency non-recourse. New operators sometimes don't realize they're personally guaranteeing the debt.\n\nNegotiate. Strong sponsors with relationship history can often get to 25-50% recourse, or carve-out only structures (recourse only on bad-boy events). The default term sheet won't show this — you have to ask.\n\n**The relationship dimension:**\n\nBank lenders work on relationships. A regional bank that knows you and your deals will give you better terms, faster execution, more flexible covenants than a money-center bank evaluating you cold. Building 1-2 banking relationships before you need them is operational discipline. Operators who try to find debt during DD discover that their first deal is also their first lender introduction — that's a tough position.",
+            example:
+              "Phoenix 220-unit value-add 2024. We needed a 36-month bridge facility with extension to 60 months. Bank A (regional, 5-year relationship): SOFR + 285, 75% LTV, 25% recourse, 30-year am. Bank B (money-center, no relationship): SOFR + 320, 65% LTV, 100% recourse, 25-year am. The relationship was worth ~50bps of rate, 10% more leverage, 75% less recourse. We closed with Bank A in 38 days.",
+            pitfalls: [
+              'Not understanding recourse before signing — your house is collateral on a recourse loan.',
+              'Treating banks as commodities — relationship matters more than 10bps of rate.',
+              'Forgetting balloon payment risk — 5-year bank loan with 30-year am leaves ~85% of principal at maturity.',
+              'Skipping floor rate negotiation on floating debt — floating without floor in a low-rate environment is fine, with one in a high-rate environment is expensive.',
+              'Building relationship only when you need debt — first introduction during DD is too late.',
+            ],
+            related: ['debt-t08-lender-conversation'],
+          },
+          {
+            id: 'debt-t04-bridge',
+            title: 'Bridge debt · short-term, higher-rate, value-add',
+            summary:
+              "Bridge debt is the high-octane option for value-add execution. Short, expensive, flexible. Used right, it carries you through renovation. Used wrong, it traps you when rates move against you.",
+            body:
+              "Bridge debt funds the gap between acquisition and stabilization. The lender accepts execution risk in exchange for higher rates and shorter terms. Used appropriately, it's the right tool for value-add. Used inappropriately, it's the trap that wiped out hundreds of operators in 2022-2023.\n\n**Standard bridge terms:**\n\n- 12-36 month term, often with 1-2 extension options at lender's discretion\n- Interest-only (no amortization during the loan)\n- Floating rate priced at SOFR + 350-500bps for value-add (vs +250-350 for bank)\n- 70-85% LTV including renovation budget (loans against the as-completed value)\n- Future funding facility for the renovation capex\n- Origination fees 1-2% of loan amount, plus exit fees on some structures\n\n**The bridge-to-agency play:**\n\nStandard execution: take bridge to acquire and renovate (24 months). Stabilize. Refinance to agency for the long-term hold. Bridge does the heavy lifting; agency does the long-term carry.\n\n**The bridge trap:**\n\nBridge loans mature. When they mature, you have three options: refinance to agency (best case), extend the bridge (often expensive, lender's option), or sell. If the market has moved against you — rates higher, NOI weaker, cap rates wider — none of those options work. You can't qualify for agency at the size you need. The bridge lender wants to be paid out. You have a forced sale at a bad price.\n\nThis is what happened to thousands of Sun Belt operators in 2022-2023. They borrowed bridge in 2021 at SOFR + 300 (5-6% all-in). When the bridge matured in 2023, agency rates were 6.5%+, NOI had flattened, cap rates had widened. Refinance gap was $5-15M per deal. Operators called capital, sold at distress, or surrendered to lenders.\n\n**The discipline:**\n\nMatch bridge tenor to your business plan. If you need 36 months to renovate, take 36-month bridge with extension to 60. Don't take 24-month bridge for a 36-month plan. Build refinance flexibility into the structure: prepay rights at month 12, extension options at lender's standard terms (not punitive ones), and an interest rate cap if floating.\n\nMost importantly: don't take bridge unless you'd be comfortable holding the asset for 24-36 more months if refinance fails. Bridge is a tool, not an exit strategy.\n\n---\n\n**◆ Mastery Live members workshop this on a real deal.**\n\nBridge debt decisions are where coaching saves the most money. Self-Study gives you the framework. Live members bring their bridge term sheets to a monthly call and Diva and Lou pressure-test the structure with them — flagging the extension terms that look fine but aren't, the rate cap costs that operators forget to negotiate, the prepay structures that lock you in if rates drop. Operators who took bridge in 2021 without coaching are now in workout. Operators who took bridge with coaching adjusted the structure and survived.",
+            example:
+              "Phoenix 220-unit 2024 acquisition. Bridge term sheet from Lender A: 24-month term, no extension, SOFR + 425, no rate cap, 1.5% exit fee, prepay penalty if paid off before month 18. We pushed back. Final structure: 30-month term + 12-month extension at SOFR + 425 (renewing pricing), rate cap purchased at 6.50%, 0.75% exit fee, prepay rights after month 12 with no penalty. The negotiation cost us $40K (rate cap purchase) but bought 18 more months of flexibility. Worth it.",
+            pitfalls: [
+              'Taking 24-month bridge for a 36-month renovation plan.',
+              "Skipping the rate cap in a rising-rate environment to save $40-60K — the worst $40K you'll ever save.",
+              "Not negotiating extension options — the term sheet's 'extension at lender discretion' can be punitive.",
+              "Forgetting exit fees — they're on top of prepay penalties.",
+              "Treating bridge as the path forward — it's a 24-month loan, not a 5-year strategy.",
+            ],
+            related: ['debt-t01-landscape', 'debt-t07-refinance', 'stress-t07-capital-call'],
+          },
+          {
+            id: 'debt-t05-term-sheet',
+            title: 'Reading a term sheet',
+            summary:
+              "The term sheet is the blueprint of your loan. Read every line, push on what matters, and never sign until you've negotiated.",
+            body:
+              "Term sheets look formal but they're negotiating documents. Lenders write them favoring themselves. Your job is to understand which terms are stuck (regulatory, lender policy) and which are leverage (rate, fees, covenants). Then push on the leverage.\n\n**Stuck terms:**\n\n- Regulatory caps (LTV, DSCR minimums for agency)\n- Underwriting standards (lender's loan committee requires specific docs)\n- Specific deal structures (e.g., agency requires non-recourse)\n\n**Negotiable terms:**\n\n- **Interest rate.** Always negotiate. Agency rates have spread bands; banks always have floor rates and ceilings. 25-50bps is common negotiation range.\n- **Origination fees.** Often quoted at 1.0% but negotiate to 0.50-0.75% on competitive loans.\n- **Prepay penalties.** Yield maintenance terms are sometimes negotiable. Step-down structures (5%, 4%, 3%, 2%, 1%) are softer than yield maintenance.\n- **Recourse.** Always push to non-recourse. If can't get full non-recourse, push for limited recourse with carve-outs.\n- **Reserve requirements.** Cap-ex reserves, tax escrow, insurance escrow — all have standard rates that are negotiable on stronger sponsors.\n- **Covenants.** DSCR test frequency (annual vs quarterly), occupancy minimums, financial reporting requirements.\n- **Future funding.** On bridge or value-add, push for future funding for the full capex budget at the same rate.\n\n**The sequence:**\n\n1. Receive draft term sheet\n2. Compare against 2 competing lenders' term sheets\n3. Push on the 3-5 terms most material to your business plan\n4. Lender counter-proposes\n5. Final term sheet — sign and proceed to loan documents\n\nIf the lender won't negotiate at all, walk. There are other lenders. The willingness to negotiate is itself a quality signal — relationship lenders negotiate; commodity lenders don't.",
+            example:
+              "Plano 192-unit 2024. First term sheet from Lender A: 5.65% rate, 1.0% origination, 30-year am, 1.25 DSCR. We negotiated against Lender B's term sheet (5.45%, 0.65% orig). Final from Lender A: 5.50%, 0.65% orig, 30-year am. Saved 15bps rate ($85K over 5 years) and $60K in origination. Total negotiation: 4 emails over 7 days.",
+            pitfalls: [
+              'Signing the first term sheet without comparison.',
+              'Negotiating only on rate — fees, reserves, covenants compound.',
+              'Skipping recourse negotiation — biggest single negotiable term on bank deals.',
+              "Treating 'we can't change that' as truthful without testing.",
+              "Not bringing competitive term sheets — you can't negotiate against air.",
+            ],
+            related: ['debt-t03-bank', 'debt-t08-lender-conversation'],
+          },
+          {
+            id: 'debt-t06-dscr-ltv',
+            title: 'DSCR and LTV math',
+            summary:
+              'Two ratios determine your loan size: Debt Service Coverage Ratio (NOI / debt service) and Loan-to-Value (loan / appraised value). The lender uses both. The smaller of the two is your max loan.',
+            body:
+              "DSCR and LTV are the two constraints every loan navigates.\n\n**DSCR (Debt Service Coverage Ratio).** NOI divided by annual debt service. Lender minimums: 1.20-1.25 for stabilized agency, 1.20 for bank, 1.15 for some bridge structures. The lender wants buffer above debt service so a bad year doesn't trigger default.\n\nDSCR formula: NOI / (P + I) where P+I = annual principal and interest.\n\nIf your stabilized NOI is $1.85M and the lender requires 1.25 DSCR, max debt service is $1.85M / 1.25 = $1.48M. At 5.50% rate / 30-year am, that supports a loan of approximately $26.0M.\n\n**LTV (Loan-to-Value).** Loan amount divided by appraised value. Lender maximums: 75-80% for agency, 65-75% for bank, 70-85% for bridge against as-completed value. The lender wants equity skin in the game.\n\nIf your appraised value is $35M and the lender allows 75% LTV, max loan is $26.25M.\n\n**The binding constraint.**\n\nThe lender lends the smaller of DSCR-supported amount and LTV-supported amount. In the example: $26.0M (DSCR) vs $26.25M (LTV). DSCR binds at $26.0M.\n\nWhen does each constraint typically bind?\n\n- DSCR binds on lower-rent, lower-NOI deals (Class C, transitional, lease-up)\n- LTV binds on higher-rent, higher-NOI deals (stabilized A and B class)\n- DSCR binds harder when rates rise (debt service increases, NOI doesn't)\n- LTV binds harder when cap rates compress (asset values rise faster than NOI)\n\n**Sensitivity to rate.**\n\nEvery 25bps of rate change moves the DSCR-supported loan amount by roughly 3%. If rates climb from 5.50% to 6.25% during your DD, your max loan size drops by about 9%. If you're using max leverage, this can be a $2-3M equity gap that wasn't there at LOI.\n\n**The discipline:** model both ratios at the lender's actual minimums, not at your aspirational numbers. If DSCR forces you to a lower loan size than LTV would allow, you have less leverage than you assumed. Adjust the equity check accordingly.",
+            example:
+              "Mesa 144-unit 2024. Stabilized year-1 NOI $1.74M. Appraised $33M. Agency lender requires 1.25 DSCR / 75% LTV at 5.95% rate. DSCR-supported: $1.74M / 1.25 = $1.39M debt service / 5.95% = approximately $24.4M loan. LTV-supported: $33M × 75% = $24.75M loan. DSCR binds. Max loan $24.4M. We sized the equity check at $9.6M instead of the $9.25M I'd assumed at LOI.",
+            pitfalls: [
+              'Using your aspirational DSCR instead of lender minimum.',
+              "Forgetting that DSCR uses underwriter NOI (their adjusted number) not your model NOI.",
+              'Treating LTV from the OM\'s "asking price" instead of appraised value.',
+              'Not modeling sensitivity to rate — 25bps is real money.',
+              "Assuming LTV is the binding constraint when it's usually DSCR for value-add.",
+            ],
+            related: ['debt-t02-agency', 'uw-t01-model-architecture'],
+          },
+          {
+            id: 'debt-t07-refinance',
+            title: 'Refinance optionality',
+            summary:
+              'Your loan structure determines whether you have flexibility through your hold. Yield maintenance, defeasance, prepayment penalties — they look like fine print, but they are the difference between exit on your terms and exit on the lender\'s terms.',
+            body:
+              "Multifamily loans often have prepayment penalties that can be 8-15% of loan balance. This isn't fine print — it's the constraint that determines when and how you can exit.\n\n**Yield maintenance.** The most punitive structure. If you prepay, you owe the lender the present value of all interest payments they would have earned through maturity. On a 10-year fixed-rate loan in year 3, yield maintenance can be 12-18% of loan balance.\n\n**Defeasance.** A common alternative on agency loans. You buy a portfolio of Treasuries that exactly match the lender's future payments. The lender holds the Treasuries and you're released from the loan. Cost is roughly equivalent to yield maintenance, but the structure is different.\n\n**Step-down prepayment.** Bank-style. Penalty starts at 5% in year 1, drops to 4% in year 2, then 3-2-1, then $0 after year 5. Much softer than yield maintenance.\n\n**Open prepayment.** No penalty. Available on shorter-term loans and some bridge facilities.\n\n**Why it matters:**\n\nIf you want flexibility to refinance into lower rates, sell, or restructure, prepay penalties cost you. A 10% yield maintenance penalty on a $25M loan is $2.5M — that's most of your equity returns to date.\n\n**The hold period match:**\n\nIf you're confident in a 7-year hold, agency 10-year fixed with yield maintenance is fine — you'll be at year 7-8 when penalty steps down meaningfully. If you're considering exit at year 3-5, agency 10-year is the wrong loan. Either take agency 7-year (matures cleanly) or consider bank with step-down penalty.\n\n**The cycle interaction:**\n\nIn a falling-rate environment (rates dropping from 6.5% to 5.0%), prepay penalties protect lenders from refinance pressure. In a rising-rate environment, prepay penalties don't bite — you wouldn't want to refinance into a higher rate anyway.\n\n**The trap:**\n\nOperators take 10-year agency at low rates because the rate is attractive. Three years in, they want to sell or restructure. Yield maintenance kills the math. They're stuck holding through year 7+ regardless of strategy.\n\nDon't take debt with structural penalties that don't match your hold thesis. Match the loan tenor and prepay structure to your actual exit plan.",
+            example:
+              "DFW 192-unit 2023. We modeled three loan structures: Fannie 10-year fixed at 5.45% with yield maintenance, Fannie 7-year fixed at 5.55% with yield maintenance, bank 5-year at 5.95% with step-down. Our hold thesis was 5-7 years. The 10-year was the lowest rate but stuck us through year 9. The 7-year had matched maturity. The bank had 3-year step-down. We picked Fannie 7-year. Maturity aligned with our exit. If we had to extend, agency assumption was available.",
+            pitfalls: [
+              'Picking lowest rate without checking prepay structure.',
+              "Not modeling yield maintenance cost at year 3 vs year 7 — they're radically different.",
+              "Forgetting that refinance flexibility has option value, even if you don't exercise.",
+              'Treating agency 10-year as default — sometimes 7-year is the right tenor.',
+              'Skipping defeasance modeling — sometimes cheaper than yield maintenance, sometimes not.',
+            ],
+            related: ['debt-t02-agency', 'debt-t04-bridge'],
+          },
+          {
+            id: 'debt-t08-lender-conversation',
+            title: 'The lender conversation',
+            summary:
+              "Lenders want to lend. Your job is making it easy for them to say yes. The conversation that earns you the loan you want isn't transactional — it's a relationship that compounds across deals.",
+            body:
+              "The lender's loan officer is your channel into the institution. Underwriters write the loan based on what the LO presents. Build the LO relationship and the loan terms get better.\n\n**What loan officers need from you:**\n\n- A clear deal narrative — why this property, this submarket, this business plan\n- Real numbers, not pro forma fiction — actuals, T-12 P&L, rent roll, comp analysis\n- Operator track record — what you've closed, how it performed, references\n- Sponsor strength — net worth, liquidity, experience, references\n- Use of proceeds — exactly what the loan funds, what's at-close vs future-funded\n\nThe LO uses your package to advocate to the loan committee. The better your package, the easier their advocacy.\n\n**What loan officers want to avoid:**\n\n- Surprises during DD — material issues that surface after term sheet\n- Late documents — every delayed doc tightens their timeline\n- Pro forma overreach — assumptions that won't survive their underwriter's review\n- Sponsors who renegotiate every line — if you push on every term, they'll move slower next deal\n\n**Building the relationship:**\n\nMultifamily debt is relationship-driven. The 3rd loan with a lender goes faster than the 1st. The 5th deal gets favorable rate treatment that wasn't available on the 1st. Build the relationship with one deal that closes cleanly, then compound it.\n\nThe introduction call before you have a specific deal to discuss is high-leverage. 'Here's what we typically buy. Here's our track record. We're 6 months out from our next acquisition. Can I keep you posted?' Most LOs say yes. Most operators don't make this call.\n\n**The post-close discipline:**\n\nAfter the deal closes, send the LO quarterly performance updates. Share variance reports. When NOI exceeds pro forma, tell them. When it underperforms, tell them why and what you're doing. Operators who treat the lender as an after-close afterthought lose the relationship. Operators who treat them as a partner build leverage for the next deal.\n\n**The ask:**\n\nWhen you're ready to close on the next deal, the LO knows your name, your numbers, and your pattern. The term sheet starts at better rate than a cold deal. The execution is faster. The next deal compounds the value of this one.",
+            example:
+              "Our Phoenix 220-unit deal in 2024 was our 4th loan with the same regional bank. First three were standard term sheet (SOFR + 320, 75% LTV, 25% recourse). Fourth deal: same LO walked the term sheet through committee in 9 days (vs 21 on first deal), priced at SOFR + 285 (35bps better), 80% LTV (more leverage), 15% recourse (less personal exposure). Same lender, same operator, much better terms. The relationship was the leverage.",
+            pitfalls: [
+              'Treating LOs as transactional rather than relational.',
+              'Skipping the introduction call before you need debt.',
+              'Not sending post-close updates — quarterly reports cost 30 minutes and compound across deals.',
+              'Renegotiating every single line — push on the 3-5 things that matter, accept the rest.',
+              'Burning a relationship by walking late in DD — even if your reasons are right, the LO remembers.',
+            ],
+            related: ['debt-t03-bank', 'debt-t05-term-sheet'],
+          },
+        ],
         deepDive: [
           'Agency vs bank vs bridge — the right debt for the right business plan.',
           'Reading a term sheet: which terms are non-negotiable vs which are leverage.',
           'Refinance optionality and why short-term debt traps operators in bad cycles.',
         ],
-        quiz: [],
-        mistakes: [],
+        quiz: [
+          {
+            q: 'A value-add deal needs 24 months of renovation, then a 4-year stabilized hold. Which debt structure best matches?',
+            a: 'Bridge debt for 30 months, then refinance to agency.',
+            why: "Bridge accommodates renovation downtime that agency won't underwrite. Once stabilized, refi to agency for the long-term hold. Two-loan structure matches the two-phase business plan.",
+            trap: "New operators sometimes pick agency at close to 'lock in low rates' — but agency won't fund the renovation, and the loan amount drops by 10-15% because the property doesn't qualify at full LTV. Better leverage AND better fit on bridge-to-agency.",
+            topicId: 'debt-t01-landscape',
+            difficulty: 'application',
+            choices: [
+              '10-year agency at close',
+              'Bridge debt for 30 months, then refinance to agency',
+              '5-year bank with extension options',
+              '7-year agency with deferred funding for renovation',
+            ],
+            correctIndex: 1,
+          },
+          {
+            q: "Bank A's term sheet shows 100% recourse on a $25M loan to a single-asset LLC sponsor. The lender says \"100% is standard for first deals.\" What's the right read?",
+            a: 'Push back — recourse is negotiable, target 25-50% with carve-outs.',
+            why: "Recourse is negotiable. A strong sponsor with track record and liquidity can typically get to 25-50% recourse, or carve-out structures (recourse only on bad-boy events like fraud or environmental). The lender's 'standard' is their starting position, not regulation. Push.",
+            trap: 'Operators sometimes assume the term sheet language is final. Bank loan officers expect to negotiate. The willingness to push back signals you understand the terms — which itself improves the relationship.',
+            topicId: 'debt-t03-bank',
+            difficulty: 'operator',
+            choices: [
+              'Accept — first deals are always full recourse',
+              'Push back — recourse is negotiable, target 25-50% with carve-outs',
+              'Walk to a different lender',
+              'Increase down payment to lower LTV',
+            ],
+            correctIndex: 1,
+          },
+          {
+            q: "A 24-month bridge loan on a 36-month renovation business plan, no rate cap, no extension option, in a rising-rate environment. What's the most likely outcome at month 24?",
+            a: 'Capital call risk — bridge mature before stabilization, no extension, refinance gap likely.',
+            why: "Bridge mature at month 24, but renovation is at month 24 of a 36-month plan — property isn't stabilized. Agency won't fund a non-stabilized property at full LTV. With no extension option, lender controls the timeline. Rising rates mean refinance gap widens. Capital call or distressed sale follows. This is what happened to thousands of Sun Belt operators in 2022-2023.",
+            trap: 'Operators take 24-month bridge for 36-month plans because the rate is 25-50bps cheaper than 30-month bridge. The savings vanish the moment the bridge matures into the wrong rate environment.',
+            topicId: 'debt-t04-bridge',
+            difficulty: 'operator',
+            choices: [
+              "Renew bridge at lender's option, terms TBD",
+              'Refinance to agency on schedule',
+              'Capital call risk — bridge mature before stabilization, no extension, refinance gap likely',
+              'Sell at full proceeds',
+            ],
+            correctIndex: 2,
+          },
+          {
+            q: "Stabilized year-1 NOI $1.85M. Appraised value $35M. Agency at 5.95%, 30-year am, requires 1.25 DSCR / 75% LTV. What's your max loan?",
+            a: 'Approximately $25.8M — DSCR is the binding constraint.',
+            why: 'DSCR binds. NOI $1.85M / 1.25 DSCR = $1.48M max debt service. At 5.95% / 30-year am, debt service of $1.48M supports a loan of approximately $25.8M. LTV would allow $26.25M, but DSCR limits to $25.8M. Lender lends the smaller of the two. The actual binding constraint matters — your equity check is sized off this number.',
+            trap: 'Operators model LTV-supported loan as the assumption ($26.25M), then discover at term sheet that DSCR limits to less. The $450K gap becomes equity at close.',
+            topicId: 'debt-t06-dscr-ltv',
+            difficulty: 'application',
+            choices: [
+              '$26.25M (75% LTV)',
+              'Approximately $25.8M — DSCR is the binding constraint',
+              '$26.0M',
+              '$24.0M',
+            ],
+            correctIndex: 1,
+          },
+          {
+            q: "You're targeting a 5-year hold. Lender offers 10-year agency at 5.45% (yield maintenance) vs 7-year agency at 5.55% (yield maintenance). 10bps cheaper on 10-year. What's the right choice?",
+            a: '7-year — matches your hold; yield maintenance at year 5 of 7 is meaningfully cheaper than year 5 of 10.',
+            why: 'Yield maintenance penalty drops as the loan ages. At year 5 of a 10-year loan, you have 5 years remaining — yield maintenance is roughly 8-12% of balance. At year 5 of a 7-year loan, you have 2 years remaining — yield maintenance is roughly 2-4%. The 10bps rate savings ($25K/year on $25M loan = $125K over 5 years) is dwarfed by the $1-2M+ yield maintenance gap.',
+            trap: 'Operators chase the lower rate without checking how the prepay penalty interacts with their hold. The 10bps savings becomes a multi-million-dollar exit cost.',
+            topicId: 'debt-t07-refinance',
+            difficulty: 'operator',
+            choices: [
+              '10-year — lower rate',
+              '7-year — matches your hold; yield maintenance at year 5 of 7 is meaningfully cheaper than year 5 of 10',
+              'Whichever gives more leverage',
+              'Bridge instead',
+            ],
+            correctIndex: 1,
+          },
+        ],
+        mistakes: [
+          {
+            trap: 'Picking debt before defining hold thesis.',
+            why: "Debt and hold are inseparable. A 10-year agency loan is wrong for a 3-year exit. A 24-month bridge is wrong for a 36-month plan. Agency won't fund a value-add. Bank has balloon risk if your plan extends. Each structure has a hold-period sweet spot. Picking debt before defining hold means you'll mismatch.",
+            fix: 'Define your hold thesis first. Then pick debt to match. If bridge-to-agency fits, model both legs. If single-loan agency fits, pick the right tenor. The discipline: write your hold thesis on the first page of your underwrite. Every subsequent decision references it.',
+            topicId: 'debt-t01-landscape',
+          },
+          {
+            trap: 'Skipping bridge rate caps in rising-rate environments.',
+            why: 'A rate cap costs $30-80K depending on tenor and strike. Without it, your floating-rate bridge can climb 200-300bps if rates move against you, costing $500K-$1M+ in extra interest over the loan term. The rate cap is structurally cheap insurance for a high-stakes risk.',
+            fix: 'Always purchase rate cap on floating bridge debt in any rate environment. Strike at 100-150bps above current SOFR. The premium is small relative to the protection. Operators who skipped rate caps in 2021-2022 paid for it through 2023-2024.',
+            topicId: 'debt-t04-bridge',
+          },
+          {
+            trap: 'Anchoring on rate, ignoring fees and covenants.',
+            why: 'Rate is one of many cost drivers. Origination fees compound at close (1% on $25M = $250K up front). Prepay penalties cost at exit. Reserve requirements drain cash flow. Covenant tests can default you on technicalities. Operators who optimize for rate alone overpay on the total cost of debt.',
+            fix: 'Negotiate the term sheet line by line. Push on rate, origination, prepay structure, recourse, reserves, covenants. Use competing term sheets to triangulate market. The 4-email negotiation that saves 15bps + 35bps origination + softer prepay structure can total $500K+ savings over the loan life.',
+            topicId: 'debt-t05-term-sheet',
+          },
+          {
+            trap: 'Not building lender relationships before you need debt.',
+            why: 'Cold relationships start at standard term sheet. Relationship lenders start at preferential terms. The 3rd deal with the same lender closes 50bps better than the 1st cold deal. Operators who try to source debt mid-DD discover that relationship has been compounding for everyone else — and they\'re starting from zero.',
+            fix: 'Make introduction calls before you need debt. "Here\'s our pattern. Here\'s our track record. We\'re 6 months out from our next acquisition." Build 2-3 banking relationships and 2-3 agency relationships proactively. Send post-close updates quarterly. The relationship compounds.',
+            topicId: 'debt-t08-lender-conversation',
+          },
+        ],
       },
       {
         id: 'loi',
