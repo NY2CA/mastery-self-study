@@ -1973,20 +1973,234 @@ export const COURSES: Course[] = [
           },
         ],
       },
+      // ═══════════════════════════════════════════════════════════════════
+      // MODULE 8 · Property Management — full content (Wave SS-2.11)
+      // FINAL MODULE · closes out the operator's execution toolkit
+      // ═══════════════════════════════════════════════════════════════════
       {
         id: 'pm',
         title: 'Module 8 · Property Management',
         duration: '2 hrs',
         description:
-          'Hire it, fire it, hold it accountable. The PM RFP, the monthly variance review, and the operating rhythm that keeps a deal performing.',
-        topics: [],
+          'Hire it, fire it, hold it accountable. The PM RFP, the contract structure, the monthly variance review, the operating cadence — and the transition discipline when a PM has to go. The post-close craft that determines whether your underwrite holds.',
+        topics: [
+          {
+            id: 'pm-t01-operational-partner',
+            title: 'PM as the operational partner',
+            summary:
+              "The property manager isn't a vendor. They're the operating partner who runs the asset day-to-day. Pick the right one and the deal performs. Pick the wrong one and your variance reports tell you within 6 months.",
+            body:
+              "Property management is the operational layer between your underwrite and the tenant experience. Most operators underestimate this layer until they're 12-18 months into a deal and the PM has missed lease-up targets, run expenses 8% over budget, and let occupancy slip from 95% to 87%.\n\n**What a PM does:**\n\n- **Leasing.** Marketing, showings, applications, screening, lease execution, renewals\n- **Operations.** Rent collection, delinquency management, evictions, vendor coordination\n- **Maintenance.** Work orders, vendor management, capex execution\n- **Reporting.** Monthly financials, variance analysis, operational KPIs\n- **Compliance.** Fair housing, ADA, state/local landlord-tenant law\n- **Tenant relations.** Complaints, disputes, retention conversations\n\n**What a PM doesn't do (or shouldn't):**\n\n- Strategic decisions about renovation, refinance, exit\n- Capital allocation decisions (CapEx prioritization beyond budget)\n- Investor reporting (that's you)\n- Acquisition due diligence on related properties\n\n**Two PM models:**\n\n**Third-party PM.** You hire a professional PM company. They manage 5,000-50,000 units across multiple owners. They have systems, scale, training. Fees: 3-4% of EGI plus reimbursable expenses. The right answer for most operators on most deals.\n\n**Self-management.** You build an internal PM team. Higher control, lower fees (in absolute dollars), but adds operational complexity and capital requirements (back-office staff, software, compliance burden). Worth it at portfolio scale (typically 1,500+ units across multiple deals); not worth it on first 1-3 deals.\n\n**The make-or-break read:**\n\nIndustry data: properties with strong PMs hit pro forma NOI within 3-5%. Properties with weak PMs miss pro forma by 8-15%. On a 144-unit deal, the gap between strong and weak PM is roughly $200-400K of annual NOI — directly translating to $3-7M of value at exit. The PM choice is one of the highest-leverage operational decisions you make.",
+            example:
+              "DFW 192-unit 2023. We hired a regional PM (15,000 units across DFW). Year-1 actual NOI ran 1.8% above pro forma. Same year, an operator we know hired a smaller PM (3,000 units) on a comparable Phoenix deal — actual NOI ran 11% below pro forma due to lease-up delays and concession overruns. Both deals had similar underwriting. Same 12-month timeframe. The PM difference was $310K of NOI gap on a 144-unit comparable.",
+            pitfalls: [
+              "Treating PM as commodity vendor — they're operational partners.",
+              'Hiring based on lowest fee — saving 0.5% of EGI ($10K/year) often costs $200K+ in NOI variance.',
+              'Not evaluating PM track record at deals similar to yours.',
+              "Self-managing first 1-3 deals 'to save fees' — adds operational complexity you can't afford.",
+              'Skipping reference calls with current PM clients — the single most diagnostic step.',
+            ],
+            related: ['pm-t02-rfp', 'pm-t04-variance-review'],
+          },
+          {
+            id: 'pm-t02-rfp',
+            title: 'Hiring a PM · the RFP and selection process',
+            summary:
+              'The PM RFP is your screen. Build it, send to 4-6 PMs, evaluate honestly. The 30 hours spent here saves 300 hours over the hold.',
+            body:
+              "The RFP (Request for Proposal) is the structured document you send to prospective PMs. It captures the deal specifics and asks for their proposed approach.\n\n**What the RFP includes:**\n\n- Property profile (units, asset class, location, current condition)\n- Business plan (stabilization vs value-add, renovation scope)\n- Operational requirements (reporting cadence, software, staffing)\n- Performance expectations (occupancy targets, NOI targets, lease velocity)\n- Financial structure expected (base fee, performance fee structure)\n- Reference requirements (3 similar deals managed, references available)\n\nThe Rescia PM RFP template is in your toolkit. Use it. It captures these elements in a 4-page document.\n\n**Distribution:**\n\nSend to 4-6 PMs. Mix:\n\n- 2-3 regional/local PMs with submarket expertise\n- 1-2 national PMs (Greystar, RPM Living, etc.) for benchmarking\n- 1 boutique/specialized PM if your asset has specific positioning\n\n**Response evaluation:**\n\nEach response gives you data on:\n\n- **Fit.** Do they manage similar assets? Same submarket? Same business plan?\n- **Scale.** Right size for your portfolio (not too small, not too large)\n- **Approach.** How do they think about lease-up, renovation, expense control?\n- **References.** Can you talk to 2-3 current owners about performance?\n- **Pricing.** Base fee + performance structure + reimbursable expenses\n\n**The reference call discipline:**\n\nReference calls are the most diagnostic step. Ask:\n\n- 'How long have you worked with them?'\n- 'Did they hit your year-1 pro forma?'\n- 'Where did they exceed expectations? Where did they fall short?'\n- 'If you could do it over, would you hire them again?'\n- 'Anything you'd warn the next operator about?'\n\nThe referenced clients answer honestly because the PM put them on the list — they expect the call. If a reference is hesitant, that's the answer.\n\n**The selection:**\n\nPick the PM whose approach matches your business plan, whose scale fits your deal, whose references hold up, and whose pricing is reasonable (not lowest). The 0.25-0.5% of EGI difference between best and lowest-priced is meaningless versus the operational gap between best and adequate.",
+            example:
+              "Mesa 144-unit 2024. Sent RFP to 5 PMs: 2 Phoenix regional, 2 national, 1 specialized in value-add. Got 4 responses (1 declined). Evaluated approach, references, pricing, fit. Top two: Regional A (4% base, strong references on value-add execution) and National B (3.5% base, broad scale, weaker submarket specificity). We chose Regional A. Year-1 actual NOI ran 4.2% above pro forma. The 50bps fee premium ($9K/year) earned about $80K of upside vs pro forma. Worth it.",
+            pitfalls: [
+              "Skipping the RFP — verbal/email pitches don't compare cleanly.",
+              'Sending to only 2-3 PMs — too narrow a comparison.',
+              'Not making reference calls — the single most diagnostic step.',
+              'Selecting on lowest price — operational quality matters more.',
+              'Treating national PMs as superior to regional — submarket expertise often beats scale.',
+            ],
+            related: ['pm-t03-contract'],
+          },
+          {
+            id: 'pm-t03-contract',
+            title: 'The PM contract · structure and incentives',
+            summary:
+              "The PM contract aligns or misaligns incentives for the next 5+ years. Get the structure right and the PM works for your interests. Get it wrong and you'll wonder why the variance reports look the way they do.",
+            body:
+              "PM contracts are negotiated. The standard template the PM offers is their starting position, not the only option.\n\n**Base fee.** Industry standard: 3-4% of effective gross income (EGI). Some PMs quote on collected revenue (which subtracts vacancy/bad debt) or scheduled revenue (which doesn't). EGI is the right metric — aligns the PM's fee with operational performance.\n\n**Performance fee (if applicable).** Some contracts include performance bonuses tied to NOI, occupancy, or revenue targets. These are negotiable. A PM who pushes back on performance fees might be telling you they're not confident in their execution.\n\n**Lease-up fees.** Per-unit lease-up fees ($300-1,000 per new lease) on value-add deals. Aligns PM with rent push and lease velocity. Standard, but cap the total exposure.\n\n**Reimbursable expenses.** Travel, training, software, marketing — what's reimbursable, what's included? Read carefully. Common surprise: PM travel to property is reimbursable, can run $5-10K/year on properties they don't visit often.\n\n**Term and termination.**\n\n- **Initial term.** 1-2 years standard.\n- **Renewal.** Auto-renew unless either party gives 60-90 days notice.\n- **Termination for cause.** Standard — material breach, fraud, regulatory violation.\n- **Termination for convenience.** This is the key clause. Can you fire the PM with 60-90 days notice without cause? Push for yes. Without it, you're locked in if performance is mediocre.\n\n**Reporting requirements.** Monthly financials by [date], variance analysis, KPI dashboard, quarterly review meetings. Spell these out — vague language means you'll fight for what you should automatically receive.\n\n**Insurance and liability.** PM carries E&O insurance ($1M+). Indemnifies you for their negligence. Standard.\n\n**The discipline:**\n\nNegotiate the contract before signing. Push on termination for convenience, on the fee structure (base vs performance split), on reporting obligations, on reimbursable scope. The PM's response tells you whether they expect to perform or expect to coast.",
+            example:
+              "Plano 192-unit 2024. PM contract first draft: 4% base, no performance fee, $750/lease-up, 90-day for-cause termination only. We negotiated: 3.75% base + 5% bonus on NOI exceeding pro forma by 2%+, $500/lease-up, 60-day for-convenience termination. PM accepted. Year-1 NOI ran 3.1% above pro forma — they earned the bonus ($9K), well-aligned with our outcome. The for-convenience clause stayed in the drawer; we never needed it. But it changed the dynamic the entire engagement.",
+            pitfalls: [
+              "Accepting the PM's standard contract without negotiating.",
+              'Not having for-convenience termination — locks you in for full term.',
+              "Skipping performance fee structure — pure base-fee PMs aren't motivated to outperform.",
+              'Ignoring reimbursable expense scope — these add up across the year.',
+              'Not requiring detailed monthly reporting in writing — verbal commitments fade.',
+            ],
+            related: ['pm-t06-firing'],
+          },
+          {
+            id: 'pm-t04-variance-review',
+            title: 'The monthly variance review',
+            summary:
+              'The monthly variance review is your operational signal. Four numbers tell you whether the PM is doing their job. Watch them every month.',
+            body:
+              "The monthly variance report compares actual operating results against pro forma (or budget) by line item. Four numbers tell the story:\n\n**1. Occupancy variance.** Actual physical occupancy vs pro forma. On a stabilized property, target is within 1-2% of pro forma. On lease-up, target is 95% of pro forma trajectory. Persistent shortfalls mean lease-up is slow, marketing is weak, or the comp set has shifted.\n\n**2. Concession variance.** Actual concessions paid vs pro forma. Compare both in dollars and as percent of GPR. If concessions are tracking 50%+ above pro forma, the PM is buying lease-up with discounts — short-term occupancy at the cost of long-term economics.\n\n**3. NOI variance.** Actual NOI vs pro forma, monthly and YTD. The headline number. Within 5% is good. 5-10% off is concerning. 10%+ off needs urgent diagnosis.\n\n**4. Bad debt and delinquency variance.** Actual bad debt vs pro forma assumption (typically 1-3% of GPR). Rising bad debt signals tenant quality issues, eviction backlog, or lax collection processes.\n\n**The drill-down:**\n\nWhen a variance shows, drill down:\n\n- NOI low? Decompose: revenue, expenses, or both?\n- Revenue low? Vacancy, concessions, or other income?\n- Expenses high? Which line items? One-time or trend?\n- Trend or anomaly? One bad month or three consecutive?\n\n**The PM conversation:**\n\nEach month, schedule a 30-minute variance call with the PM. Walk through the four numbers. Ask diagnostic questions. Document the explanations. If the PM struggles to explain variance, that itself is a signal.\n\n**The 90-day rule:**\n\nThree consecutive months of NOI variance below pro forma by more than 5% is a yellow flag. Three consecutive months below by 10% is red. By month 6 of consistent underperformance, you're in PM transition territory.\n\n**The discipline:**\n\nThis is your job. Not the PM's. The variance review is how you stay an active operator. Operators who skip the monthly review discover at year-end that their year-1 IRR is meaningfully below pro forma.",
+            example:
+              "Phoenix 220-unit 2024. Months 1-6 NOI variance: -1.2%, -2.1%, -0.8%, +0.6%, +1.4%, +2.2%. The improving trend was the signal. Concessions ran 35% above pro forma in month 1, normalized by month 4. Bad debt held at 2.1%. Occupancy ramped per pro forma. By month 6 we knew the PM was executing. Compare to a deal where months 1-6 ran -3.1%, -4.2%, -5.8%, -7.1%, -6.4%, -8.2% — that PM didn't survive month 9.",
+            pitfalls: [
+              'Skipping monthly variance review — you lose 6 months of signal.',
+              'Looking at NOI alone — decompose to revenue, expenses, line items.',
+              'Not drilling on persistent variance — one month is noise, three is pattern.',
+              'Forgetting concession variance — masks occupancy issues.',
+              'Treating PM explanations as final — verify against operational reality.',
+            ],
+            related: ['pm-t05-cadence', 'pm-t06-firing'],
+          },
+          {
+            id: 'pm-t05-cadence',
+            title: 'Operating cadence · the ongoing PM relationship',
+            summary:
+              "The PM relationship has a rhythm. Daily monitoring, weekly checks, monthly reviews, quarterly strategic. Get the cadence right and operations run themselves. Skip it and you're surprised.",
+            body:
+              "Active operators run a layered cadence with their PMs. Each layer captures different signal:\n\n**Daily (automated):**\n\n- Online dashboard with occupancy, leasing pipeline, work orders, delinquency\n- Most modern PM software (Yardi, RealPage, AppFolio, Buildium) provides this\n- You check 2-3 minutes per day, not 30\n\n**Weekly (15 minutes, async):**\n\n- PM emails Friday update: occupancy delta, leasing pipeline, completed work orders, any incidents (eviction filings, tenant disputes, vendor issues)\n- You read, ask questions if needed, otherwise file\n\n**Monthly (60-90 minutes, scheduled):**\n\n- Monthly financial package received by [day 10] of following month\n- Variance review call scheduled for [day 12-15]\n- 30-minute review of four key numbers (Topic 4)\n- 30-minute walk through any operational issues\n- Next month's plan briefly discussed\n\n**Quarterly (3-4 hours, in-person if possible):**\n\n- Site visit to property (you walk it; they show you)\n- Strategic review: is the business plan on track? Adjustments needed?\n- Capex update: planned vs actual, upcoming work\n- Personnel update: any leasing/maintenance turnover at the property?\n- Renewal-cycle planning: who's expiring next quarter, what's the rent push strategy?\n\n**Annual (full day):**\n\n- Property tour with PM principal (not just the property manager)\n- Full year retrospective: NOI, occupancy, concessions, capex\n- Forward-year budget approval\n- Renovation/value-add planning if applicable\n- Portfolio review (if you have multiple properties with same PM)\n\n**The discipline:**\n\nThis cadence is non-negotiable. Operators who substitute 'I'll catch up when I have time' for the structured cadence end up surprised by issues that should have been caught early. The 60-90 minutes per month + quarterly site visit + annual review is the minimum viable operator cadence.\n\n**The asynchronous layer:**\n\nBetween scheduled touches, communication happens via email or Slack. PM messages major issues immediately (eviction filing, vendor failure, regulatory notice). You respond same-day. This responsiveness is itself part of the relationship.",
+            example:
+              "Across 3 properties in 2024 we ran the full cadence: 25 monthly variance reviews (skipped a few during travel), 11 quarterly site visits, 3 annual reviews. Total operator time per property: ~10-12 hours/month including reading reports. Operators who run lighter cadence (no quarterly visits, ad-hoc monthly reviews) typically discover problems 2-3 months later than those who run full cadence — and 2-3 months of NOI underperformance compounds into 4-6% IRR variance over a 5-year hold.",
+            pitfalls: [
+              'Skipping monthly variance reviews when "things are going well."',
+              'Not visiting properties quarterly — you miss what does not show on paper.',
+              'Treating annual review as paperwork rather than strategic.',
+              'Ad-hoc communication instead of structured cadence.',
+              'Trusting daily dashboard without weekly summary — you see numbers, not narrative.',
+            ],
+            related: ['pm-t04-variance-review'],
+          },
+          {
+            id: 'pm-t06-firing',
+            title: 'Firing the PM · transition without disruption',
+            summary:
+              "PMs underperform. Sometimes they need to be replaced. The transition is operationally risky — get it wrong and you damage 6+ months of operations. Plan it, execute it cleanly.",
+            body:
+              "PM termination happens in 15-25% of multifamily holds. It's not a failure — it's an operational decision. The question is whether you execute the transition well.\n\n**When to fire:**\n\n- 6+ months of NOI variance below pro forma by 8%+ without credible explanation\n- Repeated reporting failures (late, incomplete, inaccurate)\n- Operational incidents (regulatory violations, fair housing issues, material vendor failures)\n- Communication breakdowns (PM unavailable, defensive about variance, blames external factors)\n- Loss of confidence in the PM's competence or alignment\n\n**When NOT to fire:**\n\n- One bad month or quarter — single data points are noise\n- Variance during expected disruption (renovation, lease-up, market correction)\n- Personality conflicts that don't affect operations\n- Frustration with reporting style when results are good\n\n**The transition timeline (60-90 days):**\n\n**Days 1-15: Decision and preparation.**\n- Document the underperformance with specific data\n- Begin RFP process for replacement PM (Topic 2)\n- Review PM contract for termination requirements\n- Don't tell current PM yet\n\n**Days 15-30: Selection and notification.**\n- Select replacement PM\n- Sign new PM contract\n- Provide written termination notice to current PM (typically 60-90 days per contract)\n- Establish transition cooperation requirements in termination notice\n\n**Days 30-75: Active transition.**\n- Replacement PM begins shadow operations (ideally) — observes, attends meetings, prepares\n- Current PM continues primary operations\n- Document transfer: leases, vendor contracts, tenant ledgers, software access, bank accounts\n- Personnel transition: on-site staff often stay (they work for the property, not the PM)\n\n**Days 75-90: Handover.**\n- New PM takes operational control\n- Previous PM provides 30-day post-handover support\n- Final reconciliation of fees, accruals, prorations\n\n**The risks:**\n\n- **Lease-up disruption.** If you fire during active lease-up, the transition adds 30-60 days of slowed leasing\n- **Tenant confusion.** Communications need to handle the 'your management changed' notice carefully\n- **Vendor re-coordination.** New PM needs to onboard all existing vendors; some renegotiations are typical\n- **Staff turnover.** On-site staff sometimes leave with the previous PM; plan for replacement\n- **Data loss.** Soft data (tenant histories, vendor preferences, neighborhood relationships) is hard to fully transfer\n\n**The post-transition discipline:**\n\nAfter transition, run heightened cadence with new PM for first 90 days. Weekly check-ins instead of monthly. Daily dashboard review. The first 90 days set the relationship pattern.\n\n---\n\n**◆ Mastery Live members workshop this on a real deal.**\n\nPM termination decisions are where coaching saves the most operational risk. Self-Study gives you the framework. Live members bring their underperforming PM situations to the monthly call and Diva and Lou pressure-test the diagnosis with them — flagging when the PM is recoverable versus structurally wrong, when the timing of transition matters, and when 'fire and replace' is actually the wrong call. The framework is the same. The difference is having a seasoned operator across the table when you're staring at a $200K NOI variance and trying to decide whether to give the PM another quarter or pull the trigger now.",
+            example:
+              "Phoenix 220-unit 2024 inherited an underperforming PM from prior owner. Months 1-3 post-close NOI variance: -8.4%, -11.2%, -14.1%. PM explanations were inadequate. We initiated transition at month 4. New PM selected by month 5, transition complete by month 7. Months 8-12 NOI variance: -4.1%, -1.3%, +0.8%, +1.2%, +1.9%. The transition cost ~2.5 months of operational drag but pulled the deal back to pro forma trajectory by month 9. Without transition, year-1 IRR would have run 6-8% below pro forma.",
+            pitfalls: [
+              'Firing on one bad quarter — patterns matter, not single data points.',
+              'Skipping the cooperation requirements in termination notice — bad transitions follow.',
+              'Not running shadow operations during transition — replacement PM hits the ground cold.',
+              "Forgetting on-site staff retention — they're the operational continuity.",
+              "Treating PM termination as failure rather than operational decision — it's part of running an active portfolio.",
+            ],
+            related: ['pm-t02-rfp', 'pm-t03-contract', 'pm-t04-variance-review'],
+          },
+        ],
         deepDive: [
           'The PM RFP template — what to ask for and how to evaluate responses.',
           'Monthly variance review: the four numbers that tell you if the PM is doing their job.',
           'When to fire a PM and how to transition without disrupting operations.',
         ],
-        quiz: [],
-        mistakes: [],
+        quiz: [
+          {
+            q: 'A first-time syndicator with one 144-unit Phoenix deal is considering self-managing to save fees. The deal has a 24-month value-add business plan. What is the right call?',
+            a: 'Hire third-party PM with submarket experience — operational complexity is too high for first deal.',
+            why: "First-time syndicators on first deals don't have the back-office infrastructure (compliance staff, software licenses, accounting team) to self-manage at institutional quality. The 3-4% PM fee saved by self-managing is dwarfed by the operational risk of running on-site operations without prior systems experience. Hire a third-party PM with strong submarket experience for the first 1-3 deals, then evaluate self-management at portfolio scale.",
+            trap: 'Operators see PM fees and assume they\'re "saving" by self-managing. The fees are the cost of expertise. Saving 4% of $2M EGI = $80K/year. The operational risk of inexperienced self-management is typically 4-8% of NOI variance = $80-160K per year. Self-managing first deals usually loses money.',
+            topicId: 'pm-t01-operational-partner',
+            difficulty: 'operator',
+            choices: [
+              'Self-manage — fees compound across 5 years',
+              'Hire third-party PM with submarket experience — operational complexity is too high for first deal',
+              'Self-manage with one part-time bookkeeper for support',
+              'Hire national PM regardless of submarket experience',
+            ],
+            correctIndex: 1,
+          },
+          {
+            q: 'You sent the PM RFP to 5 PMs and received 4 responses. PM A quotes 3% base fee with 3 references on stabilized properties only. PM D quotes 4% base + lease-up bonus with 8 references on similar Sun Belt value-adds. What is the right read?',
+            a: 'PM D — submarket and business plan match matters more than fee.',
+            why: "Submarket and business plan fit drives operational quality. PM D's 8 references on Sun Belt value-adds means they've executed your exact business plan multiple times. PM A's 3 references on stabilized properties means they don't have value-add experience. The 1% fee gap ($20K/year) is dwarfed by the operational performance gap (2-5% NOI variance = $40-100K/year). PM D is the right call even at the higher fee.",
+            trap: 'Operators sometimes optimize for fee on PM selection because fees are the visible number. The operational quality difference is the invisible number that matters more. Always pay for fit and experience.',
+            topicId: 'pm-t02-rfp',
+            difficulty: 'operator',
+            choices: [
+              'PM A — saves $20K/year on a $2M EGI deal',
+              'PM D — submarket and business plan match matters more than fee',
+              'Negotiate PM D down to 3.5% with same scope',
+              'Reissue RFP with stricter criteria',
+            ],
+            correctIndex: 1,
+          },
+          {
+            q: 'Your PM contract has 90-day for-cause termination only (no for-convenience clause). At month 8 of the hold, NOI variance is -7% YTD. PM explanations are weak. What is your situation?',
+            a: "You're effectively locked in until contract renewal — 7% variance isn't typically 'cause.'",
+            why: '"For-cause" termination requires material breach (fraud, regulatory violation, gross negligence). Underperformance — even significant underperformance — typically doesn\'t qualify. Without a for-convenience clause, you\'re effectively locked in until contract renewal date or until performance is so bad it crosses into negligence. This is why for-convenience clauses matter at contract negotiation time.',
+            trap: "Operators sometimes accept the PM's standard contract because it's 'standard.' The standard PM contract favors the PM. Negotiate for-convenience termination at signing — even if you never use it, it changes the dynamic of the engagement.",
+            topicId: 'pm-t03-contract',
+            difficulty: 'operator',
+            choices: [
+              'You can fire immediately — variance is enough cause',
+              "You're effectively locked in until contract renewal — 7% variance isn't typically 'cause'",
+              'Provide 30-day notice and walk away',
+              'Negotiate fee reduction in lieu of termination',
+            ],
+            correctIndex: 1,
+          },
+          {
+            q: 'Months 1-3 of a stabilized 144-unit acquisition: NOI variance -1.2%, -2.8%, -4.4%. Concessions running 45% above pro forma. Occupancy holding at pro forma. What is the diagnosis?',
+            a: 'Warning sign — concessions are masking soft demand; occupancy will follow.',
+            why: 'Holding occupancy with elevated concessions is a buying-occupancy-with-discounts pattern. The PM is hitting occupancy targets but at cost. By month 4-6, two things typically happen: either concessions normalize (if market firms) or occupancy starts to slip (if market is genuinely soft). The trajectory is concerning. Three months of widening NOI variance with concession-supported occupancy is the early signal.',
+            trap: 'Operators sometimes look at occupancy alone and conclude the PM is performing. The four-number framework — NOI, occupancy, concessions, bad debt — exists because each number alone misleads. The combination tells the truth.',
+            topicId: 'pm-t04-variance-review',
+            difficulty: 'application',
+            choices: [
+              'Acceptable — within normal noise',
+              'Warning sign — concessions are masking soft demand; occupancy will follow',
+              'PM is performing well — occupancy is on target',
+              'Wait for month 6 to evaluate',
+            ],
+            correctIndex: 1,
+          },
+          {
+            q: 'At month 4 of a hold, NOI variance is -9% YTD. You decide to terminate the current PM. The property is in active lease-up (60% occupied, target 95%). What is the right transition timing?',
+            a: 'Begin transition planning now, complete by month 7-8 with shadow operations.',
+            why: 'Transition during active lease-up is risky but not prohibitive. The right approach: (a) begin selection of replacement PM immediately, (b) provide termination notice with 60-day timeline, (c) require shadow operations from new PM during the last 30-45 days, (d) execute handover when shadow has captured operational continuity. This adds 1-2 months of mild disruption but avoids 4-6 more months of underperformance under a failing PM.',
+            trap: '"Operators sometimes wait for stable timing that never comes." The cost of leaving a failing PM in place during lease-up usually exceeds the cost of carefully managed transition during lease-up. The discipline: plan transition at month 4, execute by month 7, accept the 1-2 month disruption.',
+            topicId: 'pm-t06-firing',
+            difficulty: 'operator',
+            choices: [
+              'Immediate — every month of underperformance compounds',
+              'Wait until lease-up completes (likely month 8-9), then transition',
+              'Begin transition planning now, complete by month 7-8 with shadow operations',
+              "Don't transition during lease-up — risk too high",
+            ],
+            correctIndex: 2,
+          },
+        ],
+        mistakes: [
+          {
+            trap: 'Selecting PM on lowest fee.',
+            why: 'PM fees on a typical deal: $80-120K/year. NOI variance from poor PM operations: $200-500K/year. The operational gap dwarfs the fee gap. Operators who select on lowest fee discover at variance review that they bought a 4% fee PM with 11% NOI variance — 7% of which they could have avoided with a 5% fee PM.',
+            fix: 'Evaluate PM responses on submarket fit, business plan experience, references, and approach — in that order. Fee is the last filter, not the first. The right PM at 4% base saves $200K of NOI variance versus a wrong PM at 3% base.',
+            topicId: 'pm-t02-rfp',
+          },
+          {
+            trap: 'Skipping for-convenience termination clause.',
+            why: 'Without for-convenience termination, you\'re locked into the PM until contract renewal regardless of performance. "For cause" is a high bar — gross negligence, fraud, regulatory violation. Mediocre performance doesn\'t qualify. Operators discover at month 9-12 that they\'re stuck with an underperforming PM until month 18-24.',
+            fix: "Always negotiate for-convenience termination at contract signing. Standard 60-90 day notice. The PM's pushback (if any) tells you whether they expect to perform. Strong PMs accept for-convenience because they're confident in their execution; weak PMs resist because they want lock-in.",
+            topicId: 'pm-t03-contract',
+          },
+          {
+            trap: 'Skipping monthly variance reviews when "things are going well."',
+            why: "Operators who skip monthly review when things are going well lose the early signal when things start going badly. By the time variance is obvious enough to notice without structured review, it's already 3-4 months behind. The 60-90 minutes per month of monthly review is the cost of staying an active operator.",
+            fix: 'Monthly variance review is non-negotiable. Schedule it on day 12-15 of each month for the prior month. Review the four numbers. Drill on any variance over 3%. Document. Operators who maintain this cadence catch problems 2-3 months earlier than those who don\'t — and 2-3 months of compounding NOI variance is the difference between hitting and missing pro forma.',
+            topicId: 'pm-t04-variance-review',
+          },
+          {
+            trap: 'Treating PM termination as failure.',
+            why: 'PM termination is an operational decision, not a personal failure. PMs underperform for many reasons — wrong fit, staff turnover, economic shifts. Continuing with an underperforming PM is the actual failure. Operators who avoid termination on emotional grounds typically lose 4-8% of NOI to PM underperformance over the hold — a much larger cost than the awkwardness of a transition.',
+            fix: 'When variance review consistently shows underperformance over 6+ months without credible explanation, initiate transition. Document the data. Run the RFP process. Execute clean handover. The transition is operational discipline, not interpersonal conflict. Most PMs respect operators who hold them accountable, even when accountability means termination.',
+            topicId: 'pm-t06-firing',
+          },
+        ],
       },
     ],
   },
