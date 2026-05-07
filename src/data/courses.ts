@@ -1481,20 +1481,233 @@ export const COURSES: Course[] = [
           },
         ],
       },
+      // ═══════════════════════════════════════════════════════════════════
+      // MODULE 6 · LOI — full content (Wave SS-2.9)
+      // ═══════════════════════════════════════════════════════════════════
       {
         id: 'loi',
         title: 'Module 6 · LOI',
         duration: '2 hrs',
         description:
-          'Write the LOI that gets accepted and protects your downside. Clause-by-clause through the Rescia LOI template, with the negotiation moves that matter.',
-        topics: [],
+          'Write the LOI that gets accepted and protects your downside. The price line, the deposit ladder, the DD period, the counter-offer math — every clause that determines whether the deal closes on your terms or theirs.',
+        topics: [
+          {
+            id: 'loi-t01-negotiation-doc',
+            title: 'The LOI as a negotiation document',
+            summary:
+              "The Letter of Intent isn't a contract. It's a framework for negotiation. Read what it does and doesn't bind, write it deliberately, and the rest of the deal flows from it.",
+            body:
+              "The LOI is a 2-4 page document that captures the major business terms of a deal — price, deposit, due diligence period, close date, financing contingencies — before the parties commit to a binding purchase agreement. In most jurisdictions, the LOI itself is non-binding except for specific provisions explicitly stated as binding (typically: confidentiality, exclusivity, expense allocation).\n\nThe LOI does three things:\n\n**1. It sets the negotiation frame.** Once both parties agree to an LOI, subsequent negotiations of the binding PSA happen within the LOI's framework. The LOI's price is hard to renegotiate. Its DD period is the framework for compressing or extending. Its earnest money structure becomes the binding deposit schedule.\n\n**2. It lets the deal move from informal to formal.** The seller takes the property off-market (assuming exclusivity) once an LOI is signed. The buyer commits to good-faith negotiation toward PSA. The deal exits the broker's wider distribution and enters bilateral.\n\n**3. It surfaces deal-killer issues before legal fees stack up.** The LOI negotiation reveals whether buyer and seller can find common ground on price, terms, and timeline. If they can't agree at LOI, they won't agree at PSA — and the LOI conversation is much cheaper than the PSA conversation.\n\nWhat the LOI typically doesn't do:\n\n- It's not legally binding on price, deposit, or DD period (in most states — check yours)\n- It doesn't lock the seller into selling to you (exclusivity is optional and negotiable)\n- It doesn't force you to buy if DD reveals issues\n\nThe discipline: write the LOI as if it were binding. Treat every term as one you'd accept in a binding contract. Many sellers and brokers will take 'non-binding' LOI language as cover for revisiting any term — write the LOI to make that hard.",
+            example:
+              "Plano 192-unit 2024 LOI. Two pages. Captured price ($33M), earnest money structure ($150K initial / $400K go-hard at day 30), DD period (45 days), close date (75 days from LOI), financing contingency (lender approval through day 30 of DD). Plus exclusivity (45 days) and confidentiality (binding). Seller accepted within 4 hours. The LOI did its job — set the frame, took the deal off-market, moved us to PSA negotiation. Total LOI negotiation: 2 emails, 1 phone call.",
+            pitfalls: [
+              'Treating the LOI as legally insignificant — the negotiation frame it sets is real.',
+              'Writing it in 30 minutes without thinking through every term.',
+              'Not including exclusivity language — leaves the seller free to entertain other offers.',
+              "Including overly specific terms that you'll regret in PSA.",
+              'Treating "non-binding" as license for the seller to renegotiate every term later.',
+            ],
+            related: ['loi-t04-due-diligence', 'sourcing-t07-qualifying'],
+          },
+          {
+            id: 'loi-t02-price',
+            title: 'The price line · making the offer that gets accepted',
+            summary:
+              'The price line is the heart of the LOI. Get it right and the deal moves to PSA. Get it wrong and you waste 6 weeks. Pricing strategy is built on basis discipline, comp data, and the seller\'s psychology.',
+            body:
+              "Multifamily LOI pricing is a triangulation between three reads:\n\n**1. Your underwrite.** What price clears your IRR threshold under base case AND survives bear case stress test. This is your maximum.\n\n**2. The comp set.** What similar properties traded at recently in your submarket. Pull the trailing-12 transactions on CoStar or RCA. Adjust for cap rate spread, unit count, asset class, and basis below replacement.\n\n**3. The seller's basis and tax position.** What did the seller pay? When? What's their tax basis? A seller who bought at $20M / $140K per door in 2018 has an $11M+ gain at $30M today — they have more pricing flexibility than a seller who bought at $28M last year.\n\n**The strategy:**\n\nIf your max underwrite price equals or exceeds the asking price, submit close to ask. The seller is anchored on their number.\n\nIf your max is 5-10% below asking, that's the typical negotiation zone. Submit at 8-12% below asking with reasoning. The 4% cushion gives you negotiation room.\n\nIf your max is more than 15% below asking, two options: (a) submit at your max with explanation and walk if rejected, or (b) pass. Don't submit at 'creative' prices that test the seller's patience — you damage the broker relationship.\n\n**The reasoning matters.** A bare-number LOI gets rejected. An LOI that explains the basis ('our underwrite at this price clears 14% IRR with 50bps cap stress; at the asking price it drops to 9%') gives the seller something to negotiate against. Brokers respect operators who price with reasoning.\n\n**Asking-price LOIs are sometimes right.** When the deal is genuinely worth the asking, when basis is below replacement, when the comp set supports the price — don't try to negotiate just because operators are supposed to. Pay the right price, lock the deal, move forward.",
+            example:
+              "DFW 96-unit re-listing 2023. Original ask $17.5M (no buyers). Re-listed at $15.2M. Reduced to $14.6M after another 3 months. We submitted at $13.9M (4.8% below current ask) with reasoning: '5 prior months of market data confirmed the previous asking didn't clear; our underwrite at $13.9M produces 13.5% IRR base / 5.2% IRR bear case. We'll close in 30 days, no contingencies.' Seller accepted in 48 hours. The reasoning earned the discount.",
+            pitfalls: [
+              'Submitting bare-number LOIs without reasoning.',
+              'Anchoring on the asking price rather than your underwrite.',
+              'Submitting at your absolute max with no negotiation room.',
+              'Trying to "test" with creative low-ball offers — damages the broker relationship.',
+              "Missing the seller's tax basis read — sellers in significant gain positions price more flexibly.",
+            ],
+            related: ['loi-t06-counter-offer', 'sourcing-t03-on-market'],
+          },
+          {
+            id: 'loi-t03-earnest-money',
+            title: 'Earnest money and the deposit ladder',
+            summary:
+              'Earnest money signals seriousness. The structure of when it goes hard, how much, and under what conditions, is one of your strongest negotiation tools.',
+            body:
+              "Earnest money is the buyer's deposit, held in escrow, that signals commitment to the deal. Standard multifamily LOI structures use a deposit ladder:\n\n**Initial deposit at LOI signing.** Typically $50-150K. Refundable if the buyer terminates within DD period. Functions as good-faith collateral.\n\n**Go-hard deposit at end of DD period.** Typically $250K-$1M+ depending on deal size. Becomes non-refundable once DD ends. Signals the buyer is past discretionary termination and committed to close.\n\n**Final deposit at PSA signing or DD waiver.** Sometimes structured as additional deposit when major milestones hit (financing approved, environmental cleared).\n\n**Total deposit at risk.** Industry standard: 1-3% of purchase price. On a $30M deal, that's $300K-$900K of total deposit. The seller wants more (signals certainty); the buyer wants less (preserves walk-away optionality).\n\n**The negotiation:**\n\nThe seller's leverage: more deposit, sooner go-hard, less refundability. Their pitch: 'we've had buyers walk; we need real commitment.'\n\nYour leverage: lower deposit, later go-hard, more refundability conditions. Your pitch: 'we close all our LOIs; the deposit is ceremonial.'\n\nWhere to compromise:\n\n- Initial deposit at $100K is reasonable for $25-35M deals\n- Go-hard timing at end of DD is standard; pushing it to 'approval of financing' is buyer-favorable\n- Total at-risk deposit at 1-1.5% is buyer-favorable; 2-3% is seller-favorable\n\n**The structural moves:**\n\nIf you have strong buyer-credentials (track record, references), push for 'soft' deposit structure — small initial, late go-hard, broad refundability conditions. Sellers will give discount on terms because your closing certainty is high.\n\nIf you're a newer operator, expect 'hard' structure — larger initial, early go-hard, narrow refundability. You're paying with deposit risk for the trust you haven't yet earned.\n\n**The walk-away math.** If you put down $300K go-hard at day 30, then discover material DD issues at day 35, you've lost $300K. That's why DD timeline and go-hard timing matter — they're symmetric tools.",
+            example:
+              "Phoenix 220-unit 2024. LOI structure: $100K initial at signing, additional $250K at day 30 going hard, total $350K at risk at day 30. DD ran 45 days. We closed on day 72. The $350K stayed in escrow through closing, applied to purchase price at close. Standard structure — neither side gave more than they had to. Compare to a competing buyer who offered $500K initial / $1M total at risk. Different signal — they were paying with deposit for closing certainty.",
+            pitfalls: [
+              "Accepting the seller's 'standard' deposit structure without negotiating.",
+              'Going hard before DD ends — eliminates your discretionary walk-away.',
+              'Putting down $1M+ deposits without commensurate DD protection.',
+              "Forgetting that deposit applies to purchase price at close — it's not extra cost, it's just timing.",
+              'Mistaking deposit size for negotiating signal — sellers care about closing certainty, not deposit absolute size.',
+            ],
+            related: ['loi-t04-due-diligence'],
+          },
+          {
+            id: 'loi-t04-due-diligence',
+            title: 'Due diligence period · what to negotiate',
+            summary:
+              'The DD period is your protection. The clock starts when the LOI is signed. Negotiate the timeline, the access, the contingencies, and the deliverables — they all matter.',
+            body:
+              "Due diligence is the period after LOI signing during which you investigate the deal, raise concerns, negotiate the PSA, secure financing, and decide whether to close. Standard multifamily DD: 30-60 days, depending on deal complexity.\n\n**What to negotiate:**\n\n**Timeline.** Sellers want 21-30 days. Buyers want 45-60. The right answer depends on deal complexity. A clean stabilized property: 30-35 days. A value-add with environmental concerns and PSA negotiation: 50-60 days. Push for what you actually need; don't accept artificial compression.\n\n**Access.** Your DD team needs property access for inspections, tenant interviews, environmental review, and walk-throughs. Negotiate 'reasonable access during business hours with 24-hour notice' — broad enough to actually run DD, specific enough that the seller can't restrict you arbitrarily.\n\n**Document delivery deadlines.** When does the seller deliver T-12 P&L? Rent roll with concessions? Service contracts? Insurance loss runs? Property condition report? Insist on a delivery schedule — typically 5-10 business days from LOI signing. Without a schedule, sellers slow-walk documents and your DD clock is shorter than you think.\n\n**Contingencies.** What conditions allow you to terminate during DD?\n\n- Financing contingency (lender approval by specific date)\n- Insurance contingency (insurability at acceptable rates)\n- Environmental contingency (Phase I clears or Phase II is acceptable)\n- Inspection contingency (broad — 'results acceptable to buyer in buyer's sole discretion')\n- Title contingency (clean title or material exceptions resolvable)\n\n**The DD extension question.** Most LOIs allow buyer to extend DD by 10-15 days for specific reasons (financing delay, environmental Phase II discovery, title work). Negotiate extensions in advance — much harder to get extensions granted later when the seller wants to close.\n\n**The retrade option.** Negotiate the right to renegotiate price during DD if material issues surface. Standard language: 'buyer may propose price adjustment based on DD findings; seller may accept or terminate.' Without this, you're forced to walk if DD surfaces issues — a $250K capex surprise that you'd accept at -$200K price becomes a deal-killer instead.",
+            example:
+              "Mesa 144-unit 2024 LOI. DD structure: 45-day period, document delivery deadlines (T-12 P&L day 5, rent roll day 5, service contracts day 7, environmental Phase I day 14), broad access provisions, financing contingency at day 35, retrade right based on DD findings. The retrade right became material — environmental Phase I flagged a former dry cleaner adjacent (Phase II required). We retraded $150K based on Phase II remediation cost estimate. Without the retrade right, we'd have walked.",
+            pitfalls: [
+              "Accepting 30-day DD on a complex deal — too compressed, you'll miss things.",
+              'Not pushing for document delivery deadlines — sellers slow-walk and your effective DD shrinks.',
+              'Skipping the retrade right — leaves you with walk-or-eat-it on DD findings.',
+              'Forgetting to include extension provisions — getting extensions granted later is harder.',
+              'Treating DD as paperwork instead of investigation — DD is when you actually buy the deal.',
+            ],
+            related: ['loi-t01-negotiation-doc', 'loi-t05-closing-timeline'],
+          },
+          {
+            id: 'loi-t05-closing-timeline',
+            title: 'Closing terms and the timeline',
+            summary:
+              "The close date and financing contingencies determine whether the deal happens on your terms or the seller's. Negotiate the timeline that matches your debt + DD reality.",
+            body:
+              "The close date in the LOI sets the deal's end-state. It interacts with DD timeline, financing contingencies, and seller motivation.\n\n**Standard close timing:**\n\n- 60-90 days from LOI on a clean stabilized deal with agency financing\n- 75-105 days on a value-add with bridge financing\n- 30-45 days on an off-market deal where seller wants speed\n- 90-120+ days on HUD-financed deals (HUD is slow)\n\n**The close date drives:**\n\n- DD period length (you need DD complete before close)\n- Financing readiness (loan closing has to align with deal closing)\n- Seller's tax planning (year-end closes for tax reasons; specific dates for 1031 exchanges)\n- Insurance binder timing (must be in place at close)\n\n**Financing contingencies:**\n\nThe financing contingency protects you if your lender doesn't approve the loan on terms acceptable to you. Standard language: 'buyer's obligation to close is contingent upon receiving a loan commitment from a lender of buyer's choice on terms acceptable to buyer in buyer's sole discretion, by [date].'\n\nWhat to negotiate:\n\n- **Date.** Should be approximately 30-35 days into DD — gives you time to actually source debt and receive a commitment.\n- **Approval threshold.** 'Acceptable to buyer in buyer's sole discretion' is the strongest. 'Commercially reasonable' is weaker. Push for sole discretion.\n- **Failure consequences.** If financing falls through, deposit returns and deal terminates. Without this, you may forfeit deposit.\n\n**Hard money vs financed deals.** If you're closing in cash, no financing contingency — but you give up the protection. Sellers will give meaningful discount for cash close (typically 5-8% off otherwise-financed price) because closing certainty is high.\n\n**Seller's incentive on close timing:**\n\nSellers often have specific reasons they want a particular close date. Year-end for tax, specific quarter for fund reporting, after rent collections to maximize their last month NOI. Asking the broker about seller's timeline preference often reveals leverage you can use.",
+            example:
+              "DFW 192-unit 2023. Original LOI close: day 75. Seller wanted day 90 (their fund's quarter-end reporting). We agreed to extend in exchange for: (a) seller covering 50% of buyer's title insurance ($14K savings), and (b) buyer access during the 15-day extension to begin renovation planning with PM team. Both sides got what they wanted. The negotiation took 30 minutes. The willingness to flex on close date earned us $14K + 2 weeks of PM onboarding head start.",
+            pitfalls: [
+              'Setting close date too close to financing contingency date — no buffer for delays.',
+              "Skipping financing contingency on a financed deal to 'look stronger' — costly mistake if lender pulls.",
+              "Using 'commercially reasonable' instead of 'buyer's sole discretion' on financing — gives lender's lawyers an angle.",
+              "Not asking the seller about their preferred close timing — leverage you don't know about.",
+              "Treating close date as immutable — it's negotiable up to a point, especially for tax/quarter alignment.",
+            ],
+            related: ['loi-t04-due-diligence', 'debt-t08-lender-conversation'],
+          },
+          {
+            id: 'loi-t06-counter-offer',
+            title: 'Counter-offer mechanics',
+            summary:
+              'You submit. The seller counters. You decide: push, accept, or walk. The right call depends on basis, comp data, and your read of the seller\'s motivation. Get this wrong and you either overpay or lose deals you should have won.',
+            body:
+              "The counter-offer is where most negotiations are won or lost. Your initial LOI lands. The seller responds. You're now in a real-time decision: accept, counter back, or walk away.\n\n**The seller's counter typically does one of three things:**\n\n**1. Bumps your price 2-5% closer to ask.** Standard counter. Seller wants to negotiate; they're signaling room. You can counter back at 1-2% above your initial — meet in the middle.\n\n**2. Bumps to within 1% of ask.** Aggressive counter. Seller is signaling they don't want to negotiate much. You decide: accept or walk.\n\n**3. Comes back at ask.** 'We won't reduce.' Seller is testing whether you'll pay full price. You decide: pay it (if it's worth it) or walk.\n\n**Push, accept, or walk — the framework:**\n\n**Push** when: your underwrite supports a price meaningfully below the counter, the comp set agrees, and the seller has shown room (the counter is below ask). Counter back at 60-70% of the gap between your offer and theirs.\n\n**Accept** when: the counter is at or below your max underwrite, the deal cleared bear case stress test, and the seller is clearly anchored. Don't squeeze the last $50K out of a seller who's about to walk — you'll lose the deal.\n\n**Walk** when: the counter exceeds your max underwrite, OR the seller is at ask and your bear case doesn't work at that price, OR the counter signals the seller can't be brought down to a workable number.\n\n**The trap operators fall into:**\n\nSplitting the difference reflexively. A seller counters at $32M, you counter at $30M, 'let's split at $31M' — without checking whether $31M actually clears your underwrite. Splitting differences is convenient. It's not pricing discipline.\n\n**The discipline:**\n\nBefore submitting initial LOI, write down your max number. The number you'd accept if forced to choose accept-or-walk. When the counter comes in, compare it against your max. If the counter is below max → accept or push. If above max → walk.\n\nThe decision is binary at your max. Splitting differences below max is fine; splitting differences above max means you're letting negotiation pressure override pricing discipline.\n\n---\n\n**◆ Mastery Live members workshop this on a real deal.**\n\nCounter-offer decisions are where coaching saves the most money. Self-Study gives you the framework. Live members bring their counter-offers to the monthly call and Diva and Lou pressure-test the response with them — flagging the deals where the broker is pushing for a 'split the difference' that takes the buyer above their max, the deals where walking is the right call but emotional momentum says push, and the deals where the seller's counter signals they'll come down further if the buyer holds. The framework is the same. The difference is having a seasoned operator across the table when the broker is asking for a decision by Friday and you're trying to figure out if you should pay another $400K.",
+            example:
+              "Plano 192-unit 2024. Initial LOI $32.4M (asking $34M). Seller countered at $33.8M. Our max was $33M. Reading the counter: seller showed only $200K of room — aggressive. Our walk-away math: at $33.8M, base case IRR dropped to 11.8% (below our 12% threshold), bear case was 4.1% (just above threshold). We countered back at $32.9M with explanation. Seller accepted. We closed at $32.9M — $900K below their counter. The discipline of writing down our max before the counter saved $900K of potential overpay.",
+            pitfalls: [
+              'Negotiating without a pre-written max number — emotional pressure overrides discipline.',
+              'Reflexively splitting the difference instead of comparing to max.',
+              'Walking when the counter is below max because "we always negotiate harder."',
+              'Pushing past your max because broker says "they\'ll never go lower" — sometimes they will.',
+              'Treating walk-away as failure — walking from deals that exceed your max is exactly the right discipline.',
+            ],
+            related: ['loi-t02-price', 'submarket-t08-walk-away'],
+          },
+        ],
         deepDive: [
           'The Rescia LOI template — clause-by-clause walk-through.',
           'Earnest money, due diligence period, and the protections every LOI must have.',
           'Counter-offer mechanics: when to push, when to accept, when to walk.',
         ],
-        quiz: [],
-        mistakes: [],
+        quiz: [
+          {
+            q: "A seller signs your LOI on a $30M deal. Three weeks into DD, a higher offer emerges and the seller says \"the LOI was non-binding, we're going with the higher offer.\" What's your protection?",
+            a: 'The exclusivity clause — if your LOI included exclusivity, the seller is in breach.',
+            why: 'While most LOI provisions are non-binding, exclusivity (when included) is binding. A seller who entertains other offers during exclusivity is in breach and you can pursue specific performance or damages. This is why exclusivity language matters even on a "non-binding" LOI.',
+            trap: "Operators sometimes skip the exclusivity clause to keep the LOI 'simple.' That's exactly when the seller can pivot to the higher offer with no consequence. Always include exclusivity language for the DD period.",
+            topicId: 'loi-t01-negotiation-doc',
+            difficulty: 'operator',
+            choices: [
+              'None — non-binding LOIs allow either party to walk',
+              'The exclusivity clause — if your LOI included exclusivity, the seller is in breach',
+              'The earnest money — your deposit obligates seller performance',
+              "Wait for PSA negotiation — deal isn't real until PSA signing",
+            ],
+            correctIndex: 1,
+          },
+          {
+            q: "Your underwrite max for a deal is $33M. The asking price is $34M. The submarket comp set supports $32-33M. What's the right LOI initial offer?",
+            a: '$32-32.5M with explicit reasoning — comp-supported with negotiation cushion below your max.',
+            why: '$32-32.5M with reasoning gives you a 2-3% cushion below your max for negotiation, anchors below the ask but within the comp range, and signals you\'re a serious buyer with disciplined underwriting. The seller will likely counter at $33-33.5M. You meet at $32.8M — at or near your max.',
+            trap: "Operators sometimes submit at their absolute max ($33M here), leaving no room to negotiate up. The seller's counter then forces them above max — which they shouldn't accept. Submit below max with explanation; let the counter bring you toward max.",
+            topicId: 'loi-t02-price',
+            difficulty: 'application',
+            choices: [
+              '$34M — match the ask to win',
+              '$30M — open low, leave negotiation room',
+              '$32-32.5M with explicit reasoning — comp-supported with negotiation cushion below your max',
+              '$33M — your max, no room to negotiate',
+            ],
+            correctIndex: 2,
+          },
+          {
+            q: "A $25M deal. Seller demands $400K initial deposit at LOI signing, all going hard at day 21 (well before end of 45-day DD). What's your read?",
+            a: 'Counter with $200K initial / $400K go-hard at end of DD.',
+            why: '$400K initial is high but workable. Going hard at day 21 (mid-DD) is the structural problem — you\'ve forfeited deposit before completing investigation. Counter to standard structure: smaller initial, larger total at end of DD. Your downside protection lives in the timing of go-hard, not the absolute deposit size.',
+            trap: 'Operators sometimes accept aggressive deposit structures to "win" the deal vs competitors. The deal is not won until close — and an aggressive deposit at day 21 means $400K is at risk before you have even read the environmental report. Discipline preserves optionality.',
+            topicId: 'loi-t03-earnest-money',
+            difficulty: 'operator',
+            choices: [
+              'Accept — shows seriousness',
+              'Push back — go-hard before DD ends eliminates your protection',
+              'Walk — terms too aggressive',
+              'Counter with $200K initial / $400K go-hard at end of DD',
+            ],
+            correctIndex: 3,
+          },
+          {
+            q: "Seller offers 30-day DD on a value-add deal with environmental concerns and bridge financing. What's the right response?",
+            a: 'Counter to 45-day DD with extension provisions for environmental Phase II.',
+            why: '30 days is too compressed for a deal with environmental Phase II potential (which itself takes 30+ days). 45 days with extension provisions is the right structure — gives you real DD time, plus protection if environmental work surfaces issues. Sellers usually accept 45 days when reasoning is clear.',
+            trap: 'Accepting 30-day DD on complex deals to look responsive. Mid-DD environmental discovery then forces a no-extensions decision: walk and lose the deal, or proceed without proper investigation. Negotiate the timeline you actually need before signing.',
+            topicId: 'loi-t04-due-diligence',
+            difficulty: 'application',
+            choices: [
+              'Accept — 30 days is standard',
+              'Counter to 45-day DD with extension provisions for environmental Phase II',
+              'Skip DD contingency entirely to win the deal',
+              'Counter to 60-day DD as starting position',
+            ],
+            correctIndex: 1,
+          },
+          {
+            q: 'You submit LOI at $30M (max underwrite $32M). Seller counters at $33M (1% below $33.3M ask). Broker says "they will not go lower, this is final." What is the right move?',
+            a: 'Walk — counter exceeds your max.',
+            why: '$33M exceeds your max of $32M. The discipline of pre-writing your max means walking is the answer regardless of how close it feels to the ask. Pushing to $32M might work but leaves zero negotiation cushion. Splitting to $31.5M is below your max but the seller has signaled $33M is firm — they won\'t accept $31.5M. Walking is the clean call.',
+            trap: '"We are so close to a deal, let me push to $32.5M." Pushing $500K above max is exactly how operators end up overpaying. The discipline of the pre-written max is its enforceability. Walk from deals that exceed it.',
+            topicId: 'loi-t06-counter-offer',
+            difficulty: 'operator',
+            choices: [
+              'Accept at $33M — within $300K of ask',
+              'Counter at $31.5M — split the difference',
+              'Walk — counter exceeds your max',
+              'Counter at $32M — meet your max',
+            ],
+            correctIndex: 2,
+          },
+        ],
+        mistakes: [
+          {
+            trap: 'Skipping exclusivity on the LOI.',
+            why: 'Without exclusivity, the seller is free to entertain higher offers during your DD period. You spend 30-45 days investigating, paying for environmental and inspections, building your financing case — and the seller can pivot to a higher offer at day 40. Your DD costs become sunk costs with no deal at the end.',
+            fix: 'Always include exclusivity language for at least the DD period. Standard 30-45 days. The seller can always reject your LOI for not including it; that is a useful signal that they want optionality at your expense. Operators who consistently include exclusivity convert higher percentages of LOIs to PSAs.',
+            topicId: 'loi-t01-negotiation-doc',
+          },
+          {
+            trap: 'Pre-writing the max only after the counter arrives.',
+            why: 'Negotiation pressure overrides discipline. The broker calls saying "the seller will accept $32.8M today, before noon, this is your shot." Without a pre-written max, you make the decision under time pressure with emotional momentum. Operators reliably overpay 3-7% under this dynamic.',
+            fix: 'Before submitting any LOI, write down the maximum price you would accept. Put it on paper. Sign it like a contract with yourself. When the counter arrives, compare it against your max — that is the decision. No real-time math, no broker pressure, no "let me think about it" creeping above your max.',
+            topicId: 'loi-t06-counter-offer',
+          },
+          {
+            trap: 'Skipping retrade rights.',
+            why: 'DD almost always surfaces issues that warrant price adjustment. Property condition report shows $400K more capex than expected. Environmental requires $200K remediation. Title has a $150K cure cost. Without retrade rights, you face a binary: pay-it-and-eat-it or walk. Both are bad outcomes when the right answer is renegotiate price.',
+            fix: 'Include retrade language: "Buyer may propose price adjustment based on DD findings; Seller may accept or terminate." This gives you a third option — renegotiate. Most sellers prefer a $200K price reduction to losing the deal entirely. Without the language, you have no mechanism.',
+            topicId: 'loi-t04-due-diligence',
+          },
+          {
+            trap: 'Reflexive split-the-difference negotiation.',
+            why: "Splitting the difference is convenient. It's not pricing discipline. The midpoint between your offer and the seller's counter has no relationship to your underwrite — it's just an emotional resting point. Operators who reflexively split end up at prices that don't align with their underwriting threshold.",
+            fix: 'Compare the seller\'s counter to your pre-written max. If counter is below max → consider accepting (or push lower if seller has shown room). If counter is above max → walk. The midpoint is rarely the right answer; it is just the easy answer.',
+            topicId: 'loi-t06-counter-offer',
+          },
+        ],
       },
       {
         id: 'psa',
