@@ -437,7 +437,7 @@ export default function DashboardPage() {
               </h3>
               <p style={{ color: 'rgba(250, 247, 242, 0.78)', maxWidth: 600, margin: 0, fontSize: 14.5 }}>
                 Mastery Live extends the curriculum into four areas that need a coach alongside —
-                and adds 60+ hours of monthly coaching with Diva and Lou, an AI tutor, and deal
+                and adds ongoing monthly coaching with Diva and Lou, an AI tutor, and deal
                 memos from the Rescia desk.
               </p>
               <ul style={{ listStyle: 'none', padding: 0, margin: '4px 0 0' }}>

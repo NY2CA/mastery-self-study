@@ -6,7 +6,7 @@
  *   2. Page flow: value proposition first, three-rung ladder moved down,
  *      pricing removed from ladder cards (we show pricing elsewhere)
  *   3. "What Mastery Live adds" replaces the bland "What's NOT included" —
- *      emphasizes 60 hrs coaching, 126 real-world topics, etc.
+ *      emphasizes ongoing monthly coaching, 126 real-world topics, etc.
  *   4. Full Diva + Lou bios with Co-Founder · Managing Partner billing,
  *      lifted verbatim from the Mastery Live landing for brand consistency.
  *      Co-equal billing — Diva first, both treated as parallel principals.
@@ -58,7 +58,7 @@ const FAQ_ITEMS: { q: string; a: React.ReactNode }[] = [
     a: (
       <>
         Self-Study is the curriculum without the people. Mastery Live adds Diva and
-        Lou alongside, <strong>60 hours of monthly coaching</strong> across the engagement,
+        Lou alongside, <strong>ongoing monthly coaching</strong> with Diva and Lou,
         an AI tutor trained on the Mastery curriculum, deal memos from the Rescia desk,
         and four additional modules (Capital Raising, PPM &amp; Legal, Asset Management,
         Exit) that benefit from coaching judgment. <strong>126 real-world topics</strong> in
@@ -320,7 +320,7 @@ export default function SelfStudyLanding() {
 
             {/* Live's headline differentiators */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 24, marginBottom: 56 }}>
-              <LiveStat n="60+ hrs" l="Coaching with Diva and Lou across the 12-month engagement" />
+              <LiveStat n="Monthly" l="Ongoing coaching with Diva and Lou across the engagement" />
               <LiveStat n="126" l="Real-world topics across the full 12-module curriculum" />
               <LiveStat n="12" l="Modules · including Capital Raising, PPM, Asset Management, Exit" />
               <LiveStat n="AI tutor" l="Trained on the Mastery curriculum + Rescia&rsquo;s deal-by-deal commentary" />
@@ -330,7 +330,7 @@ export default function SelfStudyLanding() {
             <div style={{ background: 'var(--navy-soft)', border: '1px solid rgba(184, 148, 90, 0.25)', borderRadius: 4, padding: 36 }}>
               <div style={{ ...eyebrowStyle, color: 'var(--gold-bright)', marginBottom: 20 }}>Mastery Live exclusives</div>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16 }}>
-                <LiveExclusive title="Monthly coaching calls" body="60+ hours total · Diva and Lou pressure-test your assumptions on a real deal in real time." />
+                <LiveExclusive title="Monthly coaching calls" body="Ongoing · Diva and Lou pressure-test your assumptions on a real deal in real time." />
                 <LiveExclusive title="AI tutor in every module" body="Trained on the full Mastery curriculum and Rescia&rsquo;s deal-by-deal commentary. Ask anything from &lsquo;explain reversion cap rate&rsquo; to &lsquo;stress my exit at a 50bp cap expansion.&rsquo;" />
                 <LiveExclusive title="Deal memos from the Rescia desk" body="Why we passed, what we underwrote, what we&rsquo;re watching — every month, the live read on what Diva and Lou are working on." />
                 <LiveExclusive title="Your-deal workspace" body="A live tracker for your active acquisition. Coaching focuses where you focus. Diva and Lou see your numbers; the cohort sees your wins." />
@@ -466,7 +466,7 @@ export default function SelfStudyLanding() {
                 lede="Coaching, AI tutor, the full 12-module program."
                 bullets={[
                   '12 modules · 126 real-world topics',
-                  '60+ hours coaching with Diva and Lou',
+                  'Ongoing monthly coaching with Diva and Lou',
                   'AI tutor, deal memos, your-deal workspace',
                   'Physical artifacts · 12-month engagement',
                 ]}
