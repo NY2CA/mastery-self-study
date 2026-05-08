@@ -12,6 +12,16 @@ import { liveOnlyModules } from '@/data/courses';
 import { openCalendly } from '@/lib/calendly';
 
 /**
+ * Wave SS-3 · master flag for the "Weekly reads · curated Tuesdays" card.
+ * The card was rendering hard-coded CBRE/MFE/Bisnow placeholder URLs to
+ * every Self-Study member — same pattern Lou flagged on the Mastery
+ * dashboard in Wave 15.2 (mock content showing to all members confuses
+ * students about what's real). Hidden until the Tuesday-articles cron
+ * lands in a real CMS surface; flip to `true` to bring back instantly.
+ */
+const SHOW_MOCK_FEEDS = false;
+
+/**
  * Mastery Self-Study · member dashboard.
  *
  * Wave SS-2.4: visual treatment now matches Live's navy + gold + cream
@@ -375,7 +385,10 @@ export default function DashboardPage() {
           </section>
 
           {/* ─── WEEKLY READS · curated Tuesdays (access-only) ──── */}
-          {hasAccess && (
+          {/* Wave SS-3 · hidden until Tuesday-articles cron is wired into a
+              real CMS surface. Was rendering fake CBRE/MFE/Bisnow URLs to
+              every Self-Study member. Toggle SHOW_MOCK_FEEDS to bring back. */}
+          {hasAccess && SHOW_MOCK_FEEDS && (
             <Card
               variant="offer"
               style={{
@@ -419,103 +432,149 @@ export default function DashboardPage() {
             </Card>
           )}
 
-          {/* ─── AVAILABLE IN MASTERY LIVE · upsell preview ───── */}
-          <Card
-            variant="offer"
-            style={{
-              background: 'linear-gradient(135deg, var(--navy-soft) 0%, #1f315a 100%)',
-              border: '1px solid var(--gold)',
-              color: 'var(--cream)',
-            }}
-          >
-            <div className="flex flex-col gap-4">
-              <span className="eyebrow" style={{ color: 'var(--gold-bright)' }}>
-                Available in Mastery Live
-              </span>
-              <h3 className="font-display" style={{ fontSize: 22, color: 'var(--cream)', margin: 0, fontWeight: 500 }}>
-                Four more modules — and the people alongside.
-              </h3>
-              <p style={{ color: 'rgba(250, 247, 242, 0.78)', maxWidth: 600, margin: 0, fontSize: 14.5 }}>
-                Mastery Live extends the curriculum into four areas that need a coach alongside —
-                and adds ongoing monthly coaching with Diva and Lou, an AI tutor, and deal
-                memos from the Rescia desk.
-              </p>
-              <ul style={{ listStyle: 'none', padding: 0, margin: '4px 0 0' }}>
-                {liveOnlyModules.map((m, i) => (
-                  <li
-                    key={m.num}
-                    style={{
-                      padding: '12px 0',
-                      borderTop: i === 0 ? '1px solid rgba(184, 148, 90, 0.25)' : '1px solid rgba(250, 247, 242, 0.08)',
-                      display: 'flex',
-                      gap: 12,
-                      alignItems: 'baseline',
-                    }}
-                  >
-                    <span
-                      style={{
-                        width: 8,
-                        height: 8,
-                        borderRadius: '50%',
-                        background: 'var(--gold)',
-                        flexShrink: 0,
-                        marginTop: 6,
-                      }}
-                      aria-hidden
-                    />
-                    <div>
-                      <div style={{ fontFamily: 'var(--display)', fontSize: 16, color: 'var(--gold-bright)', fontWeight: 500 }}>
-                        Module {m.num} · {m.title}
-                      </div>
-                      <div style={{ fontSize: 13, color: 'rgba(250, 247, 242, 0.62)' }}>{m.reason}</div>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-              <div style={{ marginTop: 8 }}>
-                <Link
-                  href="/inquire-about-live"
-                  onClick={openCalendly}
-                  className="btn-primary"
-                  style={{ background: 'var(--gold)', borderColor: 'var(--gold)', color: 'var(--navy)' }}
-                >
-                  Inquire about Mastery Live →
-                </Link>
-              </div>
-            </div>
-          </Card>
-
-          {/* ─── ADMIN SHORTCUT ─────────────────────────────────── */}
-          {user.isAdmin && (
+          {/* ─── AVAILABLE IN MASTERY LIVE + ADMIN · 2-col uniformity (Wave SS-3.1) ── */}
+          {/* For admins, the Mastery Live upsell and Member management tile
+              sit side-by-side at matching density. For members, the upsell
+              renders alone full-width (no admin tile). Mirrors the Toolkit +
+              Admin pairing on the Mastery Live dashboard (Wave 15.3). The
+              Admin tile uses a vertical layout here so its content stacks
+              the same way the upsell card does — gives the eye a uniform
+              rhythm even though the upsell carries more body copy. */}
+          <div className={user.isAdmin ? 'grid grid-cols-1 md:grid-cols-2 gap-6' : ''}>
             <Card
               variant="offer"
               style={{
-                background: '#1f315a',
+                background: 'linear-gradient(135deg, var(--navy-soft) 0%, #1f315a 100%)',
                 border: '1px solid var(--gold)',
                 color: 'var(--cream)',
               }}
             >
-              <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                <div className="flex flex-col gap-2">
-                  <span className="eyebrow" style={{ color: 'var(--gold-bright)' }}>Admin tools</span>
-                  <h3 className="font-display" style={{ fontSize: 19, color: 'var(--cream)', margin: 0, fontWeight: 500 }}>
-                    Member management
-                  </h3>
-                  <p style={{ color: 'rgba(250, 247, 242, 0.62)', maxWidth: 520, margin: 0 }}>
-                    Grant or revoke Self-Study access for partners, vendors, and beta members
-                    — independent of Stripe billing.
-                  </p>
+              <div className="flex flex-col gap-4" style={{ height: '100%' }}>
+                <span className="eyebrow" style={{ color: 'var(--gold-bright)' }}>
+                  Available in Mastery Live
+                </span>
+                <h3 className="font-display" style={{ fontSize: 22, color: 'var(--cream)', margin: 0, fontWeight: 500 }}>
+                  Four more modules — and the people alongside.
+                </h3>
+                <p style={{ color: 'rgba(250, 247, 242, 0.78)', maxWidth: 600, margin: 0, fontSize: 14.5 }}>
+                  Mastery Live extends the curriculum into four areas that need a coach alongside —
+                  and adds ongoing monthly coaching with Diva and Lou, an AI tutor, and deal
+                  memos from the Rescia desk.
+                </p>
+                <ul style={{ listStyle: 'none', padding: 0, margin: '4px 0 0' }}>
+                  {liveOnlyModules.map((m, i) => (
+                    <li
+                      key={m.num}
+                      style={{
+                        padding: '12px 0',
+                        borderTop: i === 0 ? '1px solid rgba(184, 148, 90, 0.25)' : '1px solid rgba(250, 247, 242, 0.08)',
+                        display: 'flex',
+                        gap: 12,
+                        alignItems: 'baseline',
+                      }}
+                    >
+                      <span
+                        style={{
+                          width: 8,
+                          height: 8,
+                          borderRadius: '50%',
+                          background: 'var(--gold)',
+                          flexShrink: 0,
+                          marginTop: 6,
+                        }}
+                        aria-hidden
+                      />
+                      <div>
+                        <div style={{ fontFamily: 'var(--display)', fontSize: 16, color: 'var(--gold-bright)', fontWeight: 500 }}>
+                          Module {m.num} · {m.title}
+                        </div>
+                        <div style={{ fontSize: 13, color: 'rgba(250, 247, 242, 0.62)' }}>{m.reason}</div>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+                <div style={{ marginTop: 'auto', paddingTop: 8 }}>
+                  <Link
+                    href="/inquire-about-live"
+                    onClick={openCalendly}
+                    className="btn-primary"
+                    style={{ background: 'var(--gold)', borderColor: 'var(--gold)', color: 'var(--navy)' }}
+                  >
+                    Inquire about Mastery Live →
+                  </Link>
                 </div>
-                <Link
-                  href="/admin/members"
-                  className="btn-secondary"
-                  style={{ borderColor: 'var(--gold)', color: 'var(--gold-bright)' }}
-                >
-                  Open admin
-                </Link>
               </div>
             </Card>
-          )}
+
+            {user.isAdmin && (
+              <Card
+                variant="offer"
+                style={{
+                  background: '#1f315a',
+                  border: '1px solid var(--gold)',
+                  color: 'var(--cream)',
+                }}
+              >
+                <div className="flex flex-col gap-4" style={{ height: '100%' }}>
+                  <span className="eyebrow" style={{ color: 'var(--gold-bright)' }}>Admin tools</span>
+                  <h3 className="font-display" style={{ fontSize: 22, color: 'var(--cream)', margin: 0, fontWeight: 500 }}>
+                    Member management.
+                  </h3>
+                  <p style={{ color: 'rgba(250, 247, 242, 0.78)', maxWidth: 520, margin: 0, fontSize: 14.5 }}>
+                    Grant or revoke Self-Study access for partners, vendors, and beta members —
+                    independent of Stripe billing. Use this when comping a partner, onboarding
+                    a beta member, or clearing access for a churned subscriber.
+                  </p>
+                  <ul style={{ listStyle: 'none', padding: 0, margin: '4px 0 0' }}>
+                    {[
+                      ['Grant access', 'Comp a partner or vendor without going through Stripe.'],
+                      ['Revoke access', 'Clear access on demand. Stripe-managed access is untouched.'],
+                      ['Source labels', 'See whether each member is on Stripe, lifetime, or admin-granted.'],
+                      ['Filter & search', 'Find members by status, source, or email.'],
+                    ].map(([t, d], i) => (
+                      <li
+                        key={t}
+                        style={{
+                          padding: '12px 0',
+                          borderTop: i === 0 ? '1px solid rgba(184, 148, 90, 0.25)' : '1px solid rgba(250, 247, 242, 0.08)',
+                          display: 'flex',
+                          gap: 12,
+                          alignItems: 'baseline',
+                        }}
+                      >
+                        <span
+                          style={{
+                            width: 8,
+                            height: 8,
+                            borderRadius: '50%',
+                            background: 'var(--gold)',
+                            flexShrink: 0,
+                            marginTop: 6,
+                          }}
+                          aria-hidden
+                        />
+                        <div>
+                          <div style={{ fontFamily: 'var(--display)', fontSize: 16, color: 'var(--gold-bright)', fontWeight: 500 }}>
+                            {t}
+                          </div>
+                          <div style={{ fontSize: 13, color: 'rgba(250, 247, 242, 0.62)' }}>{d}</div>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                  <div style={{ marginTop: 'auto', paddingTop: 8 }}>
+                    <Link
+                      href="/admin/members"
+                      className="btn-primary"
+                      style={{ background: 'var(--gold)', borderColor: 'var(--gold)', color: 'var(--navy)' }}
+                    >
+                      Open member management →
+                    </Link>
+                  </div>
+                </div>
+              </Card>
+            )}
+          </div>
 
         </div>
       </main>

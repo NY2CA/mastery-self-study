@@ -27,9 +27,13 @@ declare global {
   }
 }
 
+// Wave SS-3 · default points at the verified Calendly slug for Mastery Live
+// strategy calls. Override via NEXT_PUBLIC_CALENDLY_URL on Netlify if you
+// ever add a separate Self-Study-specific booking page; otherwise the
+// hardcoded fallback is correct.
 export const CALENDLY_URL =
   process.env.NEXT_PUBLIC_CALENDLY_URL ||
-  'https://calendly.com/rescia-properties/strategy-call';
+  'https://calendly.com/mastery-live-strategy-call';
 
 /**
  * Opens the Calendly popup widget at the configured URL. Use as an onClick
