@@ -12,14 +12,41 @@ import { liveOnlyModules } from '@/data/courses';
 import { openCalendly } from '@/lib/calendly';
 
 /**
- * Wave SS-3 · master flag for the "Weekly reads · curated Tuesdays" card.
- * The card was rendering hard-coded CBRE/MFE/Bisnow placeholder URLs to
- * every Self-Study member — same pattern Lou flagged on the Mastery
- * dashboard in Wave 15.2 (mock content showing to all members confuses
- * students about what's real). Hidden until the Tuesday-articles cron
- * lands in a real CMS surface; flip to `true` to bring back instantly.
+ * Wave SS-3 · legacy flag — no longer gates Weekly reads after Wave 16.1.
+ * Weekly reads now fetches a real, admin-curated blob from Mastery's
+ * public endpoint (single source of truth across Mastery + Self-Study).
+ * Kept for any future mock-content surfaces.
  */
 const SHOW_MOCK_FEEDS = false;
+
+/**
+ * Wave 16.1 · Weekly reads article shape, mirrored from Mastery's
+ * netlify/functions/_lib/store.ts → WeeklyReadArticle. Self-Study
+ * fetches the same blob from Mastery's public /api/weekly-reads
+ * endpoint so editorial updates land on both dashboards at once.
+ */
+interface WeeklyReadArticle {
+  source: string;
+  dateLabel: string;
+  title: string;
+  why: string;
+  href: string;
+}
+
+interface WeeklyReadsBlob {
+  publishedAt: string;
+  publishedBy: string;
+  articles: WeeklyReadArticle[];
+}
+
+/**
+ * Wave 16.1 · Mastery's public weekly-reads API base URL. Defaults to
+ * the production resciapropertiesmentorship.com (Mastery's apex). Override
+ * via NEXT_PUBLIC_MASTERY_API_URL for staging or non-prod environments.
+ */
+const MASTERY_API_URL =
+  (typeof process !== 'undefined' && process.env.NEXT_PUBLIC_MASTERY_API_URL) ||
+  'https://resciapropertiesmentorship.com';
 
 /**
  * Mastery Self-Study · member dashboard.
@@ -50,10 +77,33 @@ export default function DashboardPage() {
   const { status: billing, openPortal, startCheckout } = useBilling({ enabled: Boolean(user) });
 
   const [upgradeDismissedUntil, setUpgradeDismissedUntil] = useState<number | null>(null);
+  const [weeklyReads, setWeeklyReads] = useState<WeeklyReadsBlob | null>(null);
 
   useEffect(() => {
     if (!loading && !user) router.replace('/login');
   }, [loading, user, router]);
+
+  // Wave 16.1 · cross-site fetch of Mastery's curated weekly reads. Public
+  // endpoint, CORS-open. Same blob renders on the Mastery dashboard so
+  // updates land on both surfaces at once. Silent fail if the request
+  // 404s or is blocked — card just doesn't render.
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch(`${MASTERY_API_URL}/api/weekly-reads`);
+        if (!res.ok) return;
+        const data = (await res.json()) as { blob: WeeklyReadsBlob | null };
+        if (!cancelled) setWeeklyReads(data.blob);
+      } catch {
+        // Silent fail · cross-site fetch hiccups happen, not worth surfacing
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   // Toggle the global white-nav class while on this dashboard so the
   // shared Navigation banner repaints to white against our navy page.
@@ -384,11 +434,13 @@ export default function DashboardPage() {
             </div>
           </section>
 
-          {/* ─── WEEKLY READS · curated Tuesdays (access-only) ──── */}
-          {/* Wave SS-3 · hidden until Tuesday-articles cron is wired into a
-              real CMS surface. Was rendering fake CBRE/MFE/Bisnow URLs to
-              every Self-Study member. Toggle SHOW_MOCK_FEEDS to bring back. */}
-          {hasAccess && SHOW_MOCK_FEEDS && (
+          {/* ─── WEEKLY READS · admin-curated, cross-site fetch (Wave 16.1) ── */}
+          {/* Sits underneath the curriculum modules per dashboard layout
+              spec. Fetches Mastery's public /api/weekly-reads (CORS-open)
+              on mount so Self-Study and Mastery share a single editorial
+              source. Diva and Lou publish the set via the Mastery
+              /admin/weekly-reads page every Tuesday. */}
+          {hasAccess && weeklyReads && weeklyReads.articles.length > 0 && (
             <Card
               variant="offer"
               style={{
@@ -405,28 +457,19 @@ export default function DashboardPage() {
                   What we&rsquo;re reading this week.
                 </h3>
                 <p style={{ color: 'rgba(250, 247, 242, 0.62)', fontSize: 13.5, margin: '4px 0 8px', maxWidth: 560 }}>
-                  Three to five multifamily articles every Tuesday — institutional research, debt
-                  market reads, and operator signal — curated for Self-Study members.
+                  Multifamily articles curated by Diva and Lou — institutional research,
+                  debt market reads, and operator signal. Published every Tuesday.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4" style={{ marginTop: 6 }}>
-                  <ReadCard
-                    src="CBRE · Apr 29"
-                    title="Multifamily Cap Rates Compress in Sun Belt Submarkets"
-                    why="A 10-min read before your next underwrite — the Sun Belt cap rate trajectory matters for exit pricing."
-                    url="https://www.cbre.com/insights"
-                  />
-                  <ReadCard
-                    src="Multifamily Executive · Apr 27"
-                    title="Bridge Lender Spreads Tighten 35bp Across Q1"
-                    why="If you're financing in the next 90 days, this changes your debt math."
-                    url="https://www.multifamilyexecutive.com/"
-                  />
-                  <ReadCard
-                    src="Bisnow Multifamily · Apr 26"
-                    title="Texas Property Tax Reform — What Operators Should Watch in 2026"
-                    why="Texas exposure means this is your tax line on every model."
-                    url="https://www.bisnow.com/multifamily"
-                  />
+                  {weeklyReads.articles.map((r, i) => (
+                    <ReadCard
+                      key={i}
+                      src={r.source + (r.dateLabel ? ` · ${r.dateLabel}` : '')}
+                      title={r.title}
+                      why={r.why}
+                      url={r.href}
+                    />
+                  ))}
                 </div>
               </div>
             </Card>
