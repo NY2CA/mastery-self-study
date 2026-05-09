@@ -57,7 +57,7 @@ const PLANS: PlanCard[] = [
     blurb:
       'For readers still deciding whether multifamily is the right vehicle. Six self-paced modules in Diva’s voice — terminology, market basics, and the math behind returns.',
     bullets: [
-      'Six modules · ~10 hours of focused content',
+      'Six modules · 28 topics · ~5 hours of focused content',
       'Self-paced · 1 year of access',
       'Glossary, returns calculator, deal anatomy',
       'Self-assessment + module one-pagers',
