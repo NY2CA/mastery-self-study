@@ -52,7 +52,7 @@ const PLANS: PlanCard[] = [
     id: 'foundations',
     eyebrow: 'Earlier on the path',
     label: 'Multifamily 101',
-    price: '$99',
+    price: '$297',
     cadence: 'one-time',
     blurb:
       'For readers still deciding whether multifamily is the right vehicle. Six self-paced modules in Diva’s voice — terminology, market basics, and the math behind returns.',
